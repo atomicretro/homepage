@@ -33,6 +33,6 @@
   animation-name: blink;
 }
 
-/*.app--pause-stars .star {
+.app--pause-stars .star {
   animation-name: none !important;
-}*/
+}

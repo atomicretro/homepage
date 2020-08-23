@@ -1,3 +1,7 @@
+main {
+  outline: 0;
+}
+
 a:link {
   font-size: 18px;
   text-decoration: none;
@@ -47,9 +51,33 @@ a:active {
   color: #1d50c2;
 }
 
-.button-fake-link:hover,
-.button-fake-link:focus {
+.button-fake-link:focus,
+.button-fake-link:hover {
   color: #fe7160;
+}
+
+@keyframes pauseToColor {
+  from { color: #ffffff; }
+  to { color: #1d50c2; }
+}
+
+.button-pause-stars {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 18px;
+  color: #ffffff;
+  z-index: 100;
+}
+
+.button-pause-stars:focus,
+.button-pause-stars:hover {
+  color: #fec060 !important;
+}
+
+.button-pause-stars--color {
+  color: #1d50c2;
+  animation: pauseToColor 2s;
 }
 
 /*$break-sm: 576px;

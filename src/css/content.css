@@ -16,6 +16,11 @@
   pointer-events: none;
 }
 
+.stuff--hidden .navbar a,
+.stuff--hidden .navbar button {
+  display: none;
+}
+
 /* Header */
 .header {
   height: 100px;
@@ -32,6 +37,7 @@
   font-size: 60px;
   color: #FFFFFF;
   line-height: 49px;
+  cursor: default;
 }
 
 /* Navbar */
@@ -44,6 +50,10 @@
   justify-content: space-around;
   background-color: #FFFFFF;
   z-index: 2;
+}
+
+.navbar:focus {
+  background-color: green;
 }
 
 .navbar a {
@@ -59,6 +69,11 @@
 
 .navbar button {
   font-size: 18px;
+}
+
+.button-stargaze:focus,
+.button-stargaze:hover {
+  color: #fec060 !important;
 }
 
 /* Display */
