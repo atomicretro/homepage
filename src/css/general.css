@@ -1,0 +1,54 @@
+a:link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #1d50c2;
+}
+a:visited {
+  font-size: 18px;
+  text-decoration: none;
+  color: #1d50c2;
+}
+a:hover {
+  color: #fe7160;
+}
+a:active {
+  color: #fe7160;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  font-family: 'Alata', sans-serif;
+}
+
+.button-no-style {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-rendering: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  text-indent: inherit;
+  text-shadow: inherit;
+  text-align: inherit;
+  align-items: inherit;
+}
+
+.button-fake-link {
+  color: #1d50c2;
+}
+
+.button-fake-link:hover,
+.button-fake-link:focus {
+  color: #fe7160;
+}
+
+/*$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;*/
