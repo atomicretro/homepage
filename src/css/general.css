@@ -11,6 +11,10 @@ a:visited {
 a:hover {
   color: #fe7160;
 }
+a:focus {
+  outline: 0;
+  color: #fe7160;
+}
 a:active {
   color: #fe7160;
 }
