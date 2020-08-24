@@ -5,7 +5,7 @@ import Header from './header';
 import Display from './display';
 import Navbar from './navbar';
 
-import '../../css/content.css';
+import '../../css/stuff.css';
 
 const Stuff = ({ isHidden, _setIsHidden }) => {
   const stuffClass = classNames('stuff', {

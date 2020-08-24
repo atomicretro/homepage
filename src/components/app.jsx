@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import NightSky from './night_sky';
 import Stuff from './stuff';
 
-import '../css/general.css';
+import '../css/app.css';
 
 const usePrevious = (value) => {
   const ref = useRef();
@@ -79,7 +79,7 @@ const App = () => {
         onClick={ (e) => { e.stopPropagation(); pauseStars(!isPaused); } }
         onKeyDown={ (e) => { e.stopPropagation(); } }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
-        { isPaused ? 'Restart Stars' : 'Pause stars' }
+        { isPaused ? 'Resume Stars' : 'Pause stars' }
       </button>
     </main>
   );

@@ -34,7 +34,7 @@
 }
 
 .app--pause-stars .star {
-  animation-name: none !important;
+  animation-play-state: paused;
 }
 
 .app--stars-white .star {

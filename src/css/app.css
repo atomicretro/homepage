@@ -3,12 +3,12 @@ main {
 }
 
 a:link {
-  font-size: 18px;
+  font-size: 15px;
   text-decoration: none;
   color: #1d50c2;
 }
 a:visited {
-  font-size: 18px;
+  font-size: 15px;
   text-decoration: none;
   color: #1d50c2;
 }
@@ -63,8 +63,8 @@ a:active {
 
 .button-star-settings {
   position: absolute;
-  bottom: 10px;
-  font-size: 18px;
+  bottom: 8px;
+  font-size: 16px;
   color: #ffffff;
   z-index: 100;
 }
@@ -80,10 +80,31 @@ a:active {
 }
 
 .button-star-settings--color {
-  left: 10px;
+  left: 8px;
 }
 .button-star-settings--pause {
-  right: 10px;
+  right: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  a:link {
+    font-size: 18px;
+  }
+  a:visited {
+    font-size: 18px;
+  }
+
+  .button-star-settings {
+    bottom: 10px;
+    font-size: 18px;
+  }
+
+  .button-star-settings--color {
+    left: 10px;
+  }
+  .button-star-settings--pause {
+    right: 10px;
+  }
 }
 
 /*$break-sm: 576px;
