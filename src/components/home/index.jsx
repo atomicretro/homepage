@@ -12,6 +12,4 @@ export default Home;
 // TO DO:
 //  - separate header and non-header background for performance?
 //  - mobile
-//  - keyboard press stargaze focus doesn't persist through animation (probs because display set to none)
-//  - keyboard press pause stars from full screen unhides stuff
-//  - make color change button? .night-sky--${color} .star { background: $color; }???
+//  - make that little popup box for accessibility appear when <main> gets tabbed onto

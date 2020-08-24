@@ -29,10 +29,20 @@
 
 .star {
   position: absolute;
-  background: white;
   animation-name: blink;
+  /*animation-timing-function: ease-out;*/
 }
 
 .app--pause-stars .star {
   animation-name: none !important;
+}
+
+.app--stars-white .star {
+  background: #ffffff;
+}
+.app--stars-orange .star {
+  background: #fec060;
+}
+.app--stars-red .star {
+  background: #fe7160;
 }

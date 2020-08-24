@@ -9,7 +9,6 @@ const Navbar = ({ isHidden, _setIsHidden }) => {
       <Link to='/' onMouseUp={ handleMouseUp }>Home</Link>
       <Link to='/projects' onMouseUp={ handleMouseUp }>Projects</Link>
       <Link to='/contact' onMouseUp={ handleMouseUp }>Contact</Link>
-      <a download='alec-cuccia-resume.pdf' href='/alec-cuccia-resume.pdf' onMouseUp={ handleMouseUp }>Resume</a>
       <button
         className='button-no-style button-fake-link button-stargaze'
         onClick={ (e) => { e.stopPropagation(); _setIsHidden(!isHidden); } }

@@ -56,28 +56,34 @@ a:active {
   color: #fe7160;
 }
 
-@keyframes pauseToColor {
+@keyframes starSettingsToContrast {
   from { color: #ffffff; }
   to { color: #1d50c2; }
 }
 
-.button-pause-stars {
+.button-star-settings {
   position: absolute;
-  right: 10px;
   bottom: 10px;
   font-size: 18px;
   color: #ffffff;
   z-index: 100;
 }
 
-.button-pause-stars:focus,
-.button-pause-stars:hover {
+.button-star-settings:focus,
+.button-star-settings:hover {
   color: #fec060 !important;
 }
 
-.button-pause-stars--color {
+.button-star-settings--contrast {
   color: #1d50c2;
-  animation: pauseToColor 2s;
+  animation: starSettingsToContrast 2s;
+}
+
+.button-star-settings--color {
+  left: 10px;
+}
+.button-star-settings--pause {
+  right: 10px;
 }
 
 /*$break-sm: 576px;
