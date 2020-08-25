@@ -2,10 +2,15 @@ const palettes = [
   'NIGHTSKY',
   'PASTEL',
   'GRANDMA',
+  'MARS',
   'PURPLY',
-  'DIRTSNOW',
+  'VIVID',
+  'FOREST',
   'RHENIUM',
   'SEWERS',
+  'NIKAIDO',
+  'SEPIA',
+  'WETLAND',
   'NOSTALGIA',
 ];
 

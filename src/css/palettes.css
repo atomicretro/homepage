@@ -20,6 +20,13 @@
   background: #669c4b;
 }
 
+.app--palette-MARS .night-sky {
+  background: #590d1e;
+}
+.app--palette-MARS .star {
+  background: #d9525b;
+}
+
 .app--palette-PURPLY .night-sky {
   background: #311b14;
 }
@@ -27,11 +34,18 @@
   background: #6cc4fa;
 }
 
-.app--palette-DIRTSNOW .night-sky {
-  background: #4b4b4b;
+.app--palette-VIVID .night-sky {
+  background: #0f3044;
 }
-.app--palette-DIRTSNOW .star {
-  background: #b64641;
+.app--palette-VIVID .star {
+  background: #bc2619;
+}
+
+.app--palette-FOREST .night-sky {
+  background: #000232;
+}
+.app--palette-FOREST .star {
+  background: #395c39;
 }
 
 .app--palette-RHENIUM .night-sky {
@@ -48,6 +62,27 @@
   background: #72f9ff;
 }
 
+.app--palette-NIKAIDO .night-sky {
+  background: #1a1a0d;
+}
+.app--palette-NIKAIDO .star {
+  background: #f19737;
+}
+
+.app--palette-SEPIA .night-sky {
+  background: #4f2108;
+}
+.app--palette-SEPIA .star {
+  background: #7ca597;
+}
+
+.app--palette-WETLAND .night-sky {
+  background: #265341;
+}
+.app--palette-WETLAND .star {
+  background: #a47e45;
+}
+
 .app--palette-NOSTALGIA .night-sky {
   background: #3c5a77;
 }
@@ -59,7 +94,6 @@
 /* LINKS */
 .app--palette-NIGHTSKY a:link,
 .app--palette-NIGHTSKY a:visited {
-  text-decoration: none;
   color: #1d50c2;
 }
 .app--palette-NIGHTSKY a:active,
@@ -70,7 +104,6 @@
 
 .app--palette-PASTEL a:link,
 .app--palette-PASTEL a:visited {
-  text-decoration: none;
   color: #1d50c2;
 }
 .app--palette-PASTEL a:active,
@@ -81,7 +114,6 @@
 
 .app--palette-GRANDMA a:link,
 .app--palette-GRANDMA a:visited {
-  text-decoration: none;
   color: #5b1734;
 }
 .app--palette-GRANDMA a:active,
@@ -90,9 +122,18 @@
   color: #669c4b;
 }
 
+.app--palette-MARS a:link,
+.app--palette-MARS a:visited {
+  color: #590d1e;
+}
+.app--palette-MARS a:active,
+.app--palette-MARS a:focus,
+.app--palette-MARS a:hover {
+  color: #d9525b;
+}
+
 .app--palette-PURPLY a:link,
 .app--palette-PURPLY a:visited {
-  text-decoration: none;
   color: #311b14;
 }
 .app--palette-PURPLY a:active,
@@ -101,20 +142,28 @@
   color: #6cc4fa;
 }
 
-.app--palette-DIRTSNOW a:link,
-.app--palette-DIRTSNOW a:visited {
-  text-decoration: none;
-  color: #4b4b4b;
+.app--palette-VIVID a:link,
+.app--palette-VIVID a:visited {
+  color: #0f3044;
 }
-.app--palette-DIRTSNOW a:active,
-.app--palette-DIRTSNOW a:focus,
-.app--palette-DIRTSNOW a:hover {
-  color: #b64641;
+.app--palette-VIVID a:active,
+.app--palette-VIVID a:focus,
+.app--palette-VIVID a:hover {
+  color: #bc2619;
+}
+
+.app--palette-FOREST a:link,
+.app--palette-FOREST a:visited {
+  color: #000232;
+}
+.app--palette-FOREST a:active,
+.app--palette-FOREST a:focus,
+.app--palette-FOREST a:hover {
+  color: #395c39;
 }
 
 .app--palette-RHENIUM a:link,
 .app--palette-RHENIUM a:visited {
-  text-decoration: none;
   color: #252c41;
 }
 .app--palette-RHENIUM a:active,
@@ -125,7 +174,6 @@
 
 .app--palette-SEWERS a:link,
 .app--palette-SEWERS a:visited {
-  text-decoration: none;
   color: #0a1e35;
 }
 .app--palette-SEWERS a:active,
@@ -134,9 +182,38 @@
   color: #babbbd;
 }
 
+.app--palette-NIKAIDO a:link,
+.app--palette-NIKAIDO a:visited {
+  color: #1a1a0d;
+}
+.app--palette-NIKAIDO a:active,
+.app--palette-NIKAIDO a:focus,
+.app--palette-NIKAIDO a:hover {
+  color: #f19737;
+}
+
+.app--palette-SEPIA a:link,
+.app--palette-SEPIA a:visited {
+  color: #4f2108;
+}
+.app--palette-SEPIA a:active,
+.app--palette-SEPIA a:focus,
+.app--palette-SEPIA a:hover {
+  color: #7ca597;
+}
+
+.app--palette-WETLAND a:link,
+.app--palette-WETLAND a:visited {
+  color: #265341;
+}
+.app--palette-WETLAND a:active,
+.app--palette-WETLAND a:focus,
+.app--palette-WETLAND a:hover {
+  color: #a47e45;
+}
+
 .app--palette-NOSTALGIA a:link,
 .app--palette-NOSTALGIA a:visited {
-  text-decoration: none;
   color: #3c5a77;
 }
 .app--palette-NOSTALGIA a:active,
@@ -177,6 +254,16 @@
   color: #669c4b;
 }
 
+.button-stargaze--MARS {
+  color: #590d1e;
+}
+.button-stargaze--MARS:focus,
+.button-stargaze--MARS:hover,
+.button-star-settings--MARS:focus,
+.button-star-settings--MARS:hover {
+  color: #d9525b;
+}
+
 .button-stargaze--PURPLY {
   color: #311b14;
 }
@@ -187,14 +274,24 @@
   color: #6cc4fa;
 }
 
-.button-stargaze--DIRTSNOW {
-  color: #4b4b4b;
+.button-stargaze--VIVID {
+  color: #0f3044;
 }
-.button-stargaze--DIRTSNOW:focus,
-.button-stargaze--DIRTSNOW:hover,
-.button-star-settings--DIRTSNOW:focus,
-.button-star-settings--DIRTSNOW:hover {
-  color: #b64641;
+.button-stargaze--VIVID:focus,
+.button-stargaze--VIVID:hover,
+.button-star-settings--VIVID:focus,
+.button-star-settings--VIVID:hover {
+  color: #bc2619;
+}
+
+.button-stargaze--FOREST {
+  color: #000232;
+}
+.button-stargaze--FOREST:focus,
+.button-stargaze--FOREST:hover,
+.button-star-settings--FOREST:focus,
+.button-star-settings--FOREST:hover {
+  color: #395c39;
 }
 
 .button-stargaze--RHENIUM {
@@ -215,6 +312,36 @@
 .button-star-settings--SEWERS:focus,
 .button-star-settings--SEWERS:hover {
   color: #babbbd;
+}
+
+.button-stargaze--NIKAIDO {
+  color: #1a1a0d;
+}
+.button-stargaze--NIKAIDO:focus,
+.button-stargaze--NIKAIDO:hover,
+.button-star-settings--NIKAIDO:focus,
+.button-star-settings--NIKAIDO:hover {
+  color: #f19737;
+}
+
+.button-stargaze--SEPIA {
+  color: #4f2108;
+}
+.button-stargaze--SEPIA:focus,
+.button-stargaze--SEPIA:hover,
+.button-star-settings--SEPIA:focus,
+.button-star-settings--SEPIA:hover {
+  color: #7ca597;
+}
+
+.button-stargaze--WETLAND {
+  color: #265341;
+}
+.button-stargaze--WETLAND:focus,
+.button-stargaze--WETLAND:hover,
+.button-star-settings--WETLAND:focus,
+.button-star-settings--WETLAND:hover {
+  color: #a47e45;
 }
 
 .button-stargaze--NOSTALGIA {
