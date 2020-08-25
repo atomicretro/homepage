@@ -55,6 +55,10 @@ const App = () => {
     'button-star-settings--contrast': !hideStuff,
   });
 
+  const footerClass = classNames(`footer`, {
+    'footer--solid': !hideStuff,
+  });
+
   return (
     <main
       className={ appClass }
@@ -67,7 +71,7 @@ const App = () => {
 
       <Stuff isHidden={ hideStuff } _setIsHidden={ setIsHidden } />
 
-      <button
+      <button 
         className={ colorClass }
         onClick={ rotateStarColor }
         onKeyDown={ (e) => { e.stopPropagation(); } }

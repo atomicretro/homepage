@@ -42,11 +42,11 @@
 
 /* Navbar */
 .navbar {
-  height: 25px;
+  height: 30px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-around;
   background-color: #FFFFFF;
   z-index: 2;
@@ -74,9 +74,14 @@
 
 /* Display */
 .display {
-  height: calc(100% - 115px);
+  height: 100px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
   background-color: #FFFFFF;
+  overflow: auto;
   z-index: 1;
 }
 
@@ -86,7 +91,7 @@
   }
 
   .navbar {
-    height: 30px;
+    height: 40px;
   }
 
   .navbar a:link {
@@ -98,9 +103,5 @@
 
   .navbar button {
     font-size: 18px;
-  }
-
-  .display {
-    height: calc(100% - 130px);
   }
 }
