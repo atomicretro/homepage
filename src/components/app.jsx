@@ -24,54 +24,54 @@ const getRandomInt = (max) => {
 const defaultPalette = palettes[0];
 
 const App = () => {
-  const [hideStuff, setIsHidden] = useState(true);
+  const [isStuffHidden, hideStuff] = useState(true);
   const [currentPalette, setPalette] = useState(defaultPalette);
   const [isPaused, pauseStars] = useState(false);
-  const previousHideStuff = usePrevious(hideStuff);
+  const previousHideStuff = usePrevious(isStuffHidden);
   const mainRef = useRef(null);
 
   const handleKeyDown = (e) => {
     const { keyCode } = e;
     if (keyCode === 13 || keyCode === 32) {
-      setIsHidden(false);
+      hideStuff(false);
     }
   }
 
   const pickRandomPalette = (e) => {
     e.stopPropagation();
     const currentIdx = palettes.findIndex((el) => el === currentPalette);
-    const copyArray = [ ...palettes ];
-    copyArray.splice(currentIdx, 1);
-    const nextIdx = getRandomInt(copyArray.length);
-    const nextPalette = copyArray[nextIdx];
+    const duplicatedPalettes = [ ...palettes ];
+    duplicatedPalettes.splice(currentIdx, 1);
+    const nextIdx = getRandomInt(duplicatedPalettes.length);
+    const nextPalette = duplicatedPalettes[nextIdx];
     setPalette(nextPalette);
   }
 
-  if (previousHideStuff === false && hideStuff === true) {
+  if (previousHideStuff === false && isStuffHidden === true) {
     mainRef.current.focus();
   }
 
   const appClass = classNames(`app app--palette-${currentPalette}`, {
     'app--pause-stars': isPaused,
   });
-  const pauseClass = classNames(
+  const paletteButtonClass = classNames(
+    'button-no-style',
+    'button-star-settings',
+    'button-star-settings--random-palette',
+    `button-star-settings--${currentPalette}`,
+    { 'button-star-settings--hidden': !isStuffHidden },
+  );
+  const pauseButtonClass = classNames(
     'button-no-style',
     'button-star-settings',
     'button-star-settings--pause',
     `button-star-settings--${currentPalette}`,
   );
-  const paletteClass = classNames(
-    'button-no-style',
-    'button-star-settings',
-    'button-star-settings--random-palette',
-    `button-star-settings--${currentPalette}`,
-    { 'button-star-settings--hidden': !hideStuff },
-  );
 
   return (
     <main
       className={ appClass }
-      onClick={ (e) => { setIsHidden(false); } }
+      onClick={ (e) => { hideStuff(false); } }
       onKeyDown={ handleKeyDown }
       ref={ mainRef }
       tabIndex='0'>
@@ -79,21 +79,21 @@ const App = () => {
       <NightSky />
 
       <Stuff
-        isHidden={ hideStuff }
+        isHidden={ isStuffHidden }
         palette={ currentPalette }
-        _setIsHidden={ setIsHidden }
+        _setIsHidden={ hideStuff }
         _setPalette={ setPalette } />
 
       <button
-        className={ paletteClass }
-        tabIndex={ hideStuff ? '0' : '-1' }
+        className={ paletteButtonClass }
+        tabIndex={ isStuffHidden ? '0' : '-1' }
         onClick={ pickRandomPalette }
         onKeyDown={ (e) => { e.stopPropagation(); } }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
         Random palette
       </button>
       <button
-        className={ pauseClass }
+        className={ pauseButtonClass }
         onClick={ (e) => { e.stopPropagation(); pauseStars(!isPaused); } }
         onKeyDown={ (e) => { e.stopPropagation(); } }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>

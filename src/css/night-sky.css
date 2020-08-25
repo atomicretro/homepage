@@ -34,13 +34,3 @@
 .app--pause-stars .star {
   animation-play-state: paused;
 }
-
-/*.app--stars-white .star {
-  background: #ffffff;
-}
-.app--stars-orange .star {
-  background: #fec060;
-}
-.app--stars-red .star {
-  background: #fe7160;
-}*/

@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 const Navbar = ({ isHidden, palette, _setIsHidden }) => {
-  const handleMouseUp = (e) => { e.currentTarget.blur(); }
+  const handleMouseUp = (e) => {
+    e.currentTarget.blur();
+  }
+
   const stargazeClass = classNames(
     'button-no-style',
     `button-stargaze--${palette}`,

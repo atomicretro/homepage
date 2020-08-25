@@ -20,6 +20,7 @@
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
+
 .button-star-settings--pause {
   right: 10px;
 }
@@ -38,6 +39,7 @@
   .button-star-settings--random-palette {
     left: 12px;
   }
+
   .button-star-settings--pause {
     right: 12px;
   }
