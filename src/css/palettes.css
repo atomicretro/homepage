@@ -354,6 +354,73 @@
   color: #e7a7a5;
 }
 
+
+/* PALETTE CARDS :hover*/
+.palette_card--NIGHTSKY:focus,
+.palette_card--NIGHTSKY:hover {
+  color: #fe7160;
+}
+
+.palette_card--PASTEL:focus,
+.palette_card--PASTEL:hover {
+  color: #fe7160;
+}
+
+.palette_card--GRANDMA:focus,
+.palette_card--GRANDMA:hover {
+  color: #669c4b;
+}
+
+.palette_card--MARS:focus,
+.palette_card--MARS:hover {
+  color: #d9525b;
+}
+
+.palette_card--PURPLY:focus,
+.palette_card--PURPLY:hover {
+  color: #6cc4fa;
+}
+
+.palette_card--VIVID:focus,
+.palette_card--VIVID:hover {
+  color: #bc2619;
+}
+
+.palette_card--FOREST:focus,
+.palette_card--FOREST:hover {
+  color: #395c39;
+}
+
+.palette_card--RHENIUM:focus,
+.palette_card--RHENIUM:hover {
+  color: #d79abe;
+}
+
+.palette_card--SEWERS:focus,
+.palette_card--SEWERS:hover {
+  color: #babbbd;
+}
+
+.palette_card--NIKAIDO:focus,
+.palette_card--NIKAIDO:hover {
+  color: #f19737;
+}
+
+.palette_card--SEPIA:focus,
+.palette_card--SEPIA:hover {
+  color: #7ca597;
+}
+
+.palette_card--WETLAND:focus,
+.palette_card--WETLAND:hover {
+  color: #a47e45;
+}
+
+.palette_card--NOSTALGIA:focus,
+.palette_card--NOSTALGIA:hover {
+  color: #e7a7a5;
+}
+
 /* good colors */
 /* #8667b0 */
 /* #fec060 */

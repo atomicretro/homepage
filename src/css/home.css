@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0 0 0;
+}
+
+.home__col {
+  margin: 0 50px;
+}
+
+.palette_card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+
+.palette_card__img {
+  max-height: 50px;
+  max-width: 50px;
+  margin: 0 10px 0 0;
+}
+
+.palette_card__desc {
+  font-size: 24px;
+}

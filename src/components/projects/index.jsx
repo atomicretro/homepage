@@ -19,7 +19,7 @@ const Projects = () => {
         desc={ neonCirclesDesc }
         header='Neon Circles'
         imgDesc='Logo for Neon Circles'
-        imgSrc='/neon_circles-logo.png' />
+        imgSrc='/projects/neon_circles-logo.png' />
     </div>
   );
 }

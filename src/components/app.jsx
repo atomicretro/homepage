@@ -88,7 +88,7 @@ const App = () => {
         className={ paletteButtonClass }
         tabIndex={ isStuffHidden ? '0' : '-1' }
         onClick={ pickRandomPalette }
-        onKeyDown={ (e) => { e.stopPropagation(); } }
+
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
         Random palette
       </button>
