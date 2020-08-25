@@ -1,29 +1,10 @@
-a:link {
-  text-decoration: none;
-  color: #1d50c2;
-}
-a:visited {
-  text-decoration: none;
-  color: #1d50c2;
-}
-a:hover {
-  color: #fe7160;
-}
-a:focus {
-  outline: 0;
-  color: #fe7160;
-}
-a:active {
-  color: #fe7160;
-}
-
 .app {
   outline: 0;
   height: 100vh;
   width: 100vw;
   position: relative;
   font-family: 'Alata', sans-serif;
-  overflow: none;
+  overflow: hidden;
 }
 
 .button-star-settings {
@@ -34,12 +15,7 @@ a:active {
   z-index: 100;
 }
 
-.button-star-settings:focus,
-.button-star-settings:hover {
-  color: #fec060 !important;
-}
-
-.button-star-settings--color {
+.button-star-settings--random-palette {
   left: 10px;
   opacity: 1;
   transition: opacity 1s ease-in-out;
@@ -54,19 +30,12 @@ a:active {
 }
 
 @media only screen and (min-width: 768px) {
-  a:link {
-    font-size: 18px;
-  }
-  a:visited {
-    font-size: 18px;
-  }
-
   .button-star-settings {
     top: 12px;
     font-size: 18px;
   }
 
-  .button-star-settings--color {
+  .button-star-settings--random-palette {
     left: 12px;
   }
   .button-star-settings--pause {

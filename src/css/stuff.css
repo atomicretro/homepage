@@ -67,11 +67,6 @@
   font-size: 15px;
 }
 
-.button-stargaze:focus,
-.button-stargaze:hover {
-  color: #fec060 !important;
-}
-
 /* Display */
 .display {
   height: 100px;

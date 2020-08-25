@@ -1,3 +1,7 @@
+a:focus {
+  outline: 0;
+}
+
 .button-no-style {
   background: none;
   color: inherit;

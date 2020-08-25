@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../css/night-time.css';
+import '../../css/night-sky.css';
 
 const randomIntMinMax = (min, max) => {
   min = Math.ceil(min);

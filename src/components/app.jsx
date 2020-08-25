@@ -3,8 +3,10 @@ import classNames from 'classnames';
 
 import NightSky from './night_sky';
 import Stuff from './stuff';
+import palettes from '../utils/palettes';
 
 import '../css/utils.css';
+import '../css/palettes.css';
 import '../css/app.css';
 
 const usePrevious = (value) => {
@@ -15,15 +17,15 @@ const usePrevious = (value) => {
   return ref.current;
 }
 
-const starColorArray = [
-  'orange',
-  'red',
-  'white',
-];
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+const defaultPalette = palettes[0];
 
 const App = () => {
   const [hideStuff, setIsHidden] = useState(true);
-  const [starColor, setStarColor] = useState('white');
+  const [currentPalette, setPalette] = useState(defaultPalette);
   const [isPaused, pauseStars] = useState(false);
   const previousHideStuff = usePrevious(hideStuff);
   const mainRef = useRef(null);
@@ -35,26 +37,36 @@ const App = () => {
     }
   }
 
-  const rotateStarColor = (e) => {
+  const pickRandomPalette = (e) => {
     e.stopPropagation();
-    const nextColor = starColorArray.shift();
-    starColorArray.push(nextColor);
-    setStarColor(nextColor);
+    const currentIdx = palettes.findIndex((el) => el === currentPalette);
+    const copyArray = [ ...palettes ];
+    copyArray.splice(currentIdx, 1);
+    const nextIdx = getRandomInt(copyArray.length);
+    const nextPalette = copyArray[nextIdx];
+    setPalette(nextPalette);
   }
 
   if (previousHideStuff === false && hideStuff === true) {
     mainRef.current.focus();
   }
 
-  const appClass = classNames(`app app--stars-${starColor}`, {
+  const appClass = classNames(`app app--palette-${currentPalette}`, {
     'app--pause-stars': isPaused,
   });
-  const pauseClass = classNames('button-no-style button-star-settings button-star-settings--pause', {
-
-  });
-  const colorClass = classNames('button-no-style button-star-settings button-star-settings--color', {
-    'button-star-settings--hidden': !hideStuff,
-  });
+  const pauseClass = classNames(
+    'button-no-style',
+    'button-star-settings',
+    'button-star-settings--pause',
+    `button-star-settings--${currentPalette}`,
+  );
+  const paletteClass = classNames(
+    'button-no-style',
+    'button-star-settings',
+    'button-star-settings--random-palette',
+    `button-star-settings--${currentPalette}`,
+    { 'button-star-settings--hidden': !hideStuff },
+  );
 
   return (
     <main
@@ -66,15 +78,19 @@ const App = () => {
 
       <NightSky />
 
-      <Stuff isHidden={ hideStuff } _setIsHidden={ setIsHidden } />
+      <Stuff
+        isHidden={ hideStuff }
+        palette={ currentPalette }
+        _setIsHidden={ setIsHidden }
+        _setPalette={ setPalette } />
 
       <button
-        className={ colorClass }
+        className={ paletteClass }
         tabIndex={ hideStuff ? '0' : '-1' }
-        onClick={ rotateStarColor }
+        onClick={ pickRandomPalette }
         onKeyDown={ (e) => { e.stopPropagation(); } }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
-        Change star color
+        Random palette
       </button>
       <button
         className={ pauseClass }

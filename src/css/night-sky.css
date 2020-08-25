@@ -2,7 +2,6 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  background-color: black;
   z-index: -5;
 }
 
@@ -36,7 +35,7 @@
   animation-play-state: paused;
 }
 
-.app--stars-white .star {
+/*.app--stars-white .star {
   background: #ffffff;
 }
 .app--stars-orange .star {
@@ -44,4 +43,4 @@
 }
 .app--stars-red .star {
   background: #fe7160;
-}
+}*/
