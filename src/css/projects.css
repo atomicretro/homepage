@@ -1,20 +1,20 @@
 .projects {
-  /*height: calc(100% - 40px);*/
   width: 80%;
   display: flex;
   flex-direction: column;
-  margin: 40px 0 0 0;
+  margin: 30px 0 0 0;
 }
 
 .project_card {
   display: flex;
   flex-direction: column;
-  margin: 0 0 30px 0;
+  margin: 0 0 40px 0;
 }
 
 .project_card__img {
   max-width: 400px;
-  margin: 0 20px 0 0;
+  object-fit: contain;
+  margin: 0 0 10px 0;
 }
 
 .project_card__info {
@@ -35,7 +35,15 @@
 }
 
 @media only screen and (min-width: 992px) {
+  .projects {
+    margin: 40px 0 0 0;
+  }
+
   .project_card {
     flex-direction: row;
+  }
+
+  .project_card__img {
+    margin: 0 20px 0 0;
   }
 }

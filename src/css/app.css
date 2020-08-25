@@ -1,10 +1,8 @@
 a:link {
-  font-size: 15px;
   text-decoration: none;
   color: #1d50c2;
 }
 a:visited {
-  font-size: 15px;
   text-decoration: none;
   color: #1d50c2;
 }
@@ -28,57 +26,9 @@ a:active {
   overflow: none;
 }
 
-.footer {
-  height: 30px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0px;
-  background: rgba(255,255,255,0);
-  z-index: 10;
-  transition: background 1s;
-}
-
-.footer--solid {
-  background: rgba(255,255,255,1);
-}
-
-.button-no-style {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  text-rendering: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  text-indent: inherit;
-  text-shadow: inherit;
-  text-align: inherit;
-  align-items: inherit;
-}
-
-.button-fake-link {
-  color: #1d50c2;
-}
-
-.button-fake-link:focus,
-.button-fake-link:hover {
-  color: #fe7160;
-}
-
-@keyframes starSettingsToContrast {
-  from { color: #ffffff; }
-  to { color: #1d50c2; }
-}
-
 .button-star-settings {
   position: absolute;
-  bottom: 8px;
+  top: 10px;
   font-size: 16px;
   color: #ffffff;
   z-index: 100;
@@ -89,16 +39,18 @@ a:active {
   color: #fec060 !important;
 }
 
-.button-star-settings--contrast {
-  color: #1d50c2;
-  animation: starSettingsToContrast 2s;
-}
-
 .button-star-settings--color {
-  left: 8px;
+  left: 10px;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 .button-star-settings--pause {
-  right: 8px;
+  right: 10px;
+}
+
+.button-star-settings--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -110,15 +62,15 @@ a:active {
   }
 
   .button-star-settings {
-    bottom: 10px;
+    top: 12px;
     font-size: 18px;
   }
 
   .button-star-settings--color {
-    left: 10px;
+    left: 12px;
   }
   .button-star-settings--pause {
-    right: 10px;
+    right: 12px;
   }
 }
 

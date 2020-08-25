@@ -42,7 +42,7 @@
 
 /* Navbar */
 .navbar {
-  height: 30px;
+  height: 40px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -88,10 +88,6 @@
 @media only screen and (min-width: 768px) {
   .header {
     height: 100px;
-  }
-
-  .navbar {
-    height: 40px;
   }
 
   .navbar a:link {

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import NightSky from './night_sky';
 import Stuff from './stuff';
 
+import '../css/utils.css';
 import '../css/app.css';
 
 const usePrevious = (value) => {
@@ -49,14 +50,10 @@ const App = () => {
     'app--pause-stars': isPaused,
   });
   const pauseClass = classNames('button-no-style button-star-settings button-star-settings--pause', {
-    'button-star-settings--contrast': !hideStuff,
+
   });
   const colorClass = classNames('button-no-style button-star-settings button-star-settings--color', {
-    'button-star-settings--contrast': !hideStuff,
-  });
-
-  const footerClass = classNames(`footer`, {
-    'footer--solid': !hideStuff,
+    'button-star-settings--hidden': !hideStuff,
   });
 
   return (
@@ -71,7 +68,7 @@ const App = () => {
 
       <Stuff isHidden={ hideStuff } _setIsHidden={ setIsHidden } />
 
-      <button 
+      <button
         className={ colorClass }
         onClick={ rotateStarColor }
         onKeyDown={ (e) => { e.stopPropagation(); } }
