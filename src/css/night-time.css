@@ -30,7 +30,6 @@
 .star {
   position: absolute;
   animation-name: blink;
-  /*animation-timing-function: ease-out;*/
 }
 
 .app--pause-stars .star {

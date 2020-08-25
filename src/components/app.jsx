@@ -70,6 +70,7 @@ const App = () => {
 
       <button
         className={ colorClass }
+        tabIndex={ hideStuff ? '0' : '-1' }
         onClick={ rotateStarColor }
         onKeyDown={ (e) => { e.stopPropagation(); } }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
