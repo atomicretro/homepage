@@ -5,9 +5,11 @@ import allPalettes from '../../utils/palettes';
 
 import '../../css/home.css';
 
-const midIdx = Math.ceil(allPalettes.length / 2);
-const col1 = allPalettes.slice(0, midIdx);
-const col2 = allPalettes.slice(midIdx, allPalettes.length);
+const firstIdx = Math.ceil(allPalettes.length / 3);
+const secondIdx = firstIdx * 2;
+const col1 = allPalettes.slice(0, firstIdx);
+const col2 = allPalettes.slice(firstIdx, secondIdx);
+const col3 = allPalettes.slice(secondIdx, allPalettes.length);
 
 const Home = ({ palette: currentPalette, _setPalette }) => {
   return (
@@ -32,6 +34,16 @@ const Home = ({ palette: currentPalette, _setPalette }) => {
           ))
         }
       </div>
+      <div className='home__col home__col--three'>
+        {
+          col3.map((palette) => (
+            <PaletteCard
+              isSelected={ palette === currentPalette }
+              palette={ palette }
+              _setPalette={ _setPalette } />
+          ))
+        }
+      </div>
     </div>
   );
 }
@@ -40,4 +52,4 @@ export default Home;
 
 // TO DO:
 //  - touch event (onTouchEnd) not blurring button presses
-//  - CONTACT
+// Above is DUMB ------- CAN PROBS DO ALL THAT EITH CSS GRID
