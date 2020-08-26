@@ -2,7 +2,7 @@ import React from 'react';
 
 import ProjectCard from './project_card';
 
-import '../../css/projects.css';
+import '../../scss/projects.scss';
 
 const neonCirclesDesc = (
   <React.Fragment>

@@ -5,7 +5,7 @@ import NightSky from './night_sky';
 import Stuff from './stuff';
 import palettes from '../utils/palettes';
 
-import '../css/utils.css';
+import '../scss/utils.scss';
 import '../scss/palettes.scss';
 import '../scss/app.scss';
 

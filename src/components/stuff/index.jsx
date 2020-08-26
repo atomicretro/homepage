@@ -5,7 +5,7 @@ import Header from './header';
 import Display from './display';
 import Navbar from './navbar';
 
-import '../../css/stuff.css';
+import '../../scss/stuff.scss';
 
 const Stuff = ({ isHidden, palette, _setIsHidden, _setPalette }) => {
   const stuffClass = classNames('stuff', {
