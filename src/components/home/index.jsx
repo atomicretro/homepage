@@ -29,3 +29,8 @@ export default Home;
 
 // TO DO:
 //  - touch event (onTouchEnd) not blurring button presses
+//  - "palettes inspired by downwell"
+//  - better colors for default?
+//  - more tertiary colors?
+//  - some way to indicate which palette is selected
+//  - clicking on a palette button sets focus to <body> -- MIGHT BE ALL THE TABINDEX=0!!!!
