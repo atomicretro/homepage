@@ -1,13 +1,4 @@
-a:link,
-a:visited {
-  text-decoration: none;
-}
-
-a:focus {
-  outline: 0;
-}
-
-.button-no-style {
+@mixin button-no-style {
   background: none;
   color: inherit;
   border: none;
@@ -23,11 +14,9 @@ a:focus {
   text-align: inherit;
 }
 
-.button-fake-link {
+@mixin button-fake-link {
   color: #1d50c2;
-}
-
-.button-fake-link:focus,
-.button-fake-link:hover {
-  color: #fe7160;
+  &:focus, &:hover {
+    color: #fe7160;
+  }
 }

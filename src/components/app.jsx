@@ -51,18 +51,16 @@ const App = () => {
     mainRef.current.focus();
   }
 
-  const appClass = classNames(`app app--palette-${currentPalette}`, {
+  const appClass = classNames(`app app--${currentPalette}`, {
     'app--pause-stars': isPaused,
   });
   const paletteButtonClass = classNames(
-    'button-no-style',
     'button-star-settings',
     'button-star-settings--random-palette',
     `button-star-settings--${currentPalette}`,
     { 'button-star-settings--hidden': !isStuffHidden },
   );
   const pauseButtonClass = classNames(
-    'button-no-style',
     'button-star-settings',
     'button-star-settings--pause',
     `button-star-settings--${currentPalette}`,

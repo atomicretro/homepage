@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 
 const Navbar = ({ isHidden, palette, _setIsHidden }) => {
   const handleMouseUp = (e) => {
@@ -8,10 +7,6 @@ const Navbar = ({ isHidden, palette, _setIsHidden }) => {
   }
 
   const tabIndex = isHidden ? '-1' : '0';
-  const stargazeClass = classNames(
-    'button-no-style',
-    `button-stargaze--${palette}`,
-  );
 
   return (
     <nav className={ `navbar navbar--${palette}` } >
@@ -19,7 +14,7 @@ const Navbar = ({ isHidden, palette, _setIsHidden }) => {
       <Link tabIndex={ tabIndex } to='/projects' onMouseUp={ handleMouseUp }>Projects</Link>
       <Link tabIndex={ tabIndex } to='/contact' onMouseUp={ handleMouseUp }>Contact</Link>
       <button
-        className={ stargazeClass }
+        className={ `button-stargaze button-stargaze--${palette}` }
         onClick={ (e) => { e.stopPropagation(); _setIsHidden(!isHidden); } }
         onMouseUp={ handleMouseUp }
         tabIndex={ tabIndex }>

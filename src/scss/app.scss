@@ -1,3 +1,6 @@
+@import './palettes';
+@import './utils';
+
 .app {
   outline: 0;
   height: 100vh;
@@ -7,7 +10,8 @@
   overflow: hidden;
 }
 
-.button-star-settings {
+.app .button-star-settings {
+  @include button-no-style;
   position: absolute;
   top: 10px;
   font-size: 16px;
@@ -15,39 +19,175 @@
   z-index: 100;
 }
 
-.button-star-settings--random-palette {
+.app .button-star-settings--random-palette {
   left: 10px;
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
 
-.button-star-settings--pause {
+.app .button-star-settings--pause {
   right: 10px;
 }
 
-.button-star-settings--hidden {
+.app .button-star-settings--hidden {
   opacity: 0;
   pointer-events: none;
 }
 
+.app--NIGHTSKY {
+  a:link, a:visited,
+  button {
+    color: $NIGHTSKY-tertiary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $NIGHTSKY-quaternary;
+  }
+}
+
+.app--PASTEL {
+  a:link, a:visited,
+  button {
+    color: $PASTEL-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $PASTEL-secondary;
+  }
+}
+
+.app--GRANDMA {
+  a:link, a:visited,
+  button {
+    color: $GRANDMA-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $GRANDMA-secondary;
+  }
+}
+
+.app--MARS {
+  a:link, a:visited,
+  button {
+    color: $MARS-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $MARS-secondary;
+  }
+}
+
+.app--PURPLY {
+  a:link, a:visited,
+  button {
+    color: $PURPLY-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $PURPLY-secondary;
+  }
+}
+
+.app--VIVID {
+  a:link, a:visited,
+  button {
+    color: $VIVID-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $VIVID-secondary;
+  }
+}
+
+.app--FOREST {
+  a:link, a:visited,
+  button {
+    color: $FOREST-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $FOREST-secondary;
+  }
+}
+
+.app--RHENIUM {
+  a:link, a:visited,
+  button {
+    color: $RHENIUM-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $RHENIUM-secondary;
+  }
+}
+
+.app--SEWERS {
+  a:link, a:visited,
+  button {
+    color: $SEWERS-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $SEWERS-secondary;
+  }
+}
+
+.app--NIKAIDO {
+  a:link, a:visited,
+  button {
+    color: $NIKAIDO-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $NIKAIDO-secondary;
+  }
+}
+
+.app--SEPIA {
+  a:link, a:visited,
+  button {
+    color: $SEPIA-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $SEPIA-secondary;
+  }
+}
+
+.app--WETLAND {
+  a:link, a:visited,
+  button {
+    color: $WETLAND-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $WETLAND-secondary;
+  }
+}
+
+.app--NOSTALGIA {
+  a:link, a:visited,
+  button {
+    color: $NOSTALGIA-primary;
+  }
+  a:active, a:focus, a:hover,
+  button:focus, button:hover {
+    color: $NOSTALGIA-secondary;
+  }
+}
+
 @media only screen and (min-width: 768px) {
-  .button-star-settings {
+  .app .button-star-settings {
     top: 12px;
     font-size: 18px;
   }
 
-  .button-star-settings--random-palette {
+  .app .button-star-settings--random-palette {
     left: 12px;
   }
 
-  .button-star-settings--pause {
+  .app .button-star-settings--pause {
     right: 12px;
   }
 }
-
-/*
-$break-sm: 576px;
-$break-md: 768px;
-$break-lg: 992px;
-$break-xl: 1200px;
-*/

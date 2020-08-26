@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 const PaletteCard = ({ isHidden, isSelected, palette, _setPalette }) => {
-  const paletteClass = classNames(`button-no-style palette_card palette_card--${palette}`, {
+  const paletteClass = classNames(`palette_card palette_card--${palette}`, {
     'palette_card--selected': isSelected,
   });
 

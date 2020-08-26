@@ -54,6 +54,15 @@ table {
   border-spacing: 0;
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 0;
+}
+
 .root {
   height: 100vh;
   width: 100vw;
