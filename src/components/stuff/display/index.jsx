@@ -5,13 +5,15 @@ import Contact from '../../contact';
 import Home from '../../home';
 import Projects from '../../projects';
 
-const Display = ({ palette, _setPalette }) => {
+const Display = ({ isHidden, palette, _setPalette }) => {
   return(
-    <section className='display'>
+    <section className={ `display display--${palette}` }>
       <Switch>
         <Route path='/contact' component={ Contact }/>
         <Route path='/projects' component={ Projects }/>
-        <Route path='/' component={ () => <Home palette={ palette } _setPalette={ _setPalette } /> }/>
+        <Route path='/' component={ () => (
+          <Home isHidden={ isHidden } palette={ palette } _setPalette={ _setPalette } />
+        ) }/>
       </Switch>
     </section>
   );

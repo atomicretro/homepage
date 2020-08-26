@@ -5,7 +5,7 @@ import allPalettes from '../../utils/palettes';
 
 import '../../css/home.css';
 
-const Home = ({ palette: currentPalette, _setPalette }) => {
+const Home = ({ isHidden, palette: currentPalette, _setPalette }) => {
   return (
     <div className='home'>
       <h2 className='home__title'>Paint the sky</h2>
@@ -13,6 +13,7 @@ const Home = ({ palette: currentPalette, _setPalette }) => {
         {
           allPalettes.map((palette) => (
             <PaletteCard
+              isHidden={ isHidden }
               isSelected={ palette === currentPalette }
               key={ palette }
               palette={ palette }

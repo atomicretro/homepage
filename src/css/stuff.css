@@ -16,11 +16,6 @@
   pointer-events: none;
 }
 
-.stuff--hidden .navbar a,
-.stuff--hidden .navbar button {
-  display: none;
-}
-
 /* Header */
 .header {
   height: 90px;

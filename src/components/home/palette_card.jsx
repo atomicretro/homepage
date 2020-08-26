@@ -1,12 +1,18 @@
 import React from 'react';
+import classNames from 'classnames';
 
-const PaletteCard = ({ isSelected, palette, _setPalette }) => {
+const PaletteCard = ({ isHidden, isSelected, palette, _setPalette }) => {
+  const paletteClass = classNames(`button-no-style palette_card palette_card--${palette}`, {
+    'palette_card--selected': isSelected,
+  });
+
   return (
     <button
-      className={ `button-no-style palette_card palette_card--${palette}` }
+      className={ paletteClass }
       onClick={ (e) => { e.stopPropagation(); _setPalette(palette); } }
       onKeyDown={ (e) => { e.stopPropagation(); } }
-      onMouseUp={ (e) => { e.currentTarget.blur(); } }>
+      onMouseUp={ (e) => { e.currentTarget.blur(); } }
+      tabIndex={ isHidden ? '-1' : '0' }>
       <img alt={ palette } className='palette_card__img' src={ `/palettes/${palette}.png` } />
       <span className='palette_card__desc'>{ palette }</span>
     </button>

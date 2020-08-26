@@ -38,6 +38,10 @@
   font-size: 24px;
 }
 
+.palette_card--selected {
+
+}
+
 @media only screen and (min-width: 768px) {
   .home__title {
     margin: 0 0 50px 0;

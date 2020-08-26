@@ -6,8 +6,8 @@ import Stuff from './stuff';
 import palettes from '../utils/palettes';
 
 import '../css/utils.css';
-import '../css/palettes.css';
-import '../css/app.css';
+import '../scss/palettes.scss';
+import '../scss/app.scss';
 
 const usePrevious = (value) => {
   const ref = useRef();
