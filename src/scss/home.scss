@@ -2,6 +2,9 @@
 @import './utils';
 
 .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   margin: 20px 0 0 0;
 }
 
@@ -14,7 +17,7 @@
 }
 
 .home__title {
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -25,11 +28,18 @@
   margin: 40px 0 0 0;
 }
 
+.home__acknowledgment {
+  align-self: flex-end;
+  font-size: 12px;
+  margin: 30px 0 0 0;
+}
+
 .palette_card {
   @include button-no-style;
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 }
 
 .palette_card__img {
@@ -44,103 +54,116 @@
 
 .palette_card.palette_card--NIGHTSKY {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $NIGHTSKY-quaternary;
   }
 }
 
 .palette_card.palette_card--PASTEL {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $PASTEL-secondary;
   }
 }
 
 .palette_card.palette_card--GRANDMA {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $GRANDMA-secondary;
   }
 }
 
 .palette_card.palette_card--MARS {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $MARS-secondary;
   }
 }
 
 .palette_card.palette_card--PURPLY {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $PURPLY-secondary;
   }
 }
 
 .palette_card.palette_card--VIVID {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $VIVID-secondary;
   }
 }
 
 .palette_card.palette_card--FOREST {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $FOREST-secondary;
   }
 }
 
 .palette_card.palette_card--RHENIUM {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $RHENIUM-secondary;
   }
 }
 
 .palette_card.palette_card--SEWERS {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $SEWERS-tertiary;
   }
 }
 
 .palette_card.palette_card--NIKAIDO {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $NIKAIDO-secondary;
   }
 }
 
 .palette_card.palette_card--SEPIA {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $SEPIA-secondary;
   }
 }
 
 .palette_card.palette_card--WETLAND {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $WETLAND-secondary;
   }
 }
 
 .palette_card.palette_card--NOSTALGIA {
   color: #000000;
-  &:focus, &:hover {
+  &:focus, &:hover,
+  &.palette_card--selected {
     color: $NOSTALGIA-secondary;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .home__title {
-    margin: 0 0 50px 0;
-  }
-
   .home__grid {
     grid-template-columns: repeat(2, auto);
     grid-column-gap: 60px;
+  }
+
+  .home__acknowledgment {
+    margin: 20px 0 0 0;
   }
 }
 

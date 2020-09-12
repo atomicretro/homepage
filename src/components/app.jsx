@@ -11,9 +11,7 @@ import '../scss/app.scss';
 
 const usePrevious = (value) => {
   const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
+  useEffect(() => { ref.current = value; });
   return ref.current;
 }
 
@@ -27,6 +25,7 @@ const App = () => {
   const [isStuffHidden, hideStuff] = useState(true);
   const [currentPalette, setPalette] = useState(defaultPalette);
   const [isPaused, pauseStars] = useState(false);
+  const [showInstructions, toggleInstructions] = useState(false);
   const previousHideStuff = usePrevious(isStuffHidden);
   const mainRef = useRef(null);
 
@@ -51,6 +50,10 @@ const App = () => {
     mainRef.current.focus();
   }
 
+  setTimeout(function(){
+    toggleInstructions(true);
+  }, 2000);
+
   const appClass = classNames(`app app--${currentPalette}`, {
     'app--pause-stars': isPaused,
   });
@@ -65,6 +68,9 @@ const App = () => {
     'button-star-settings--pause',
     `button-star-settings--${currentPalette}`,
   );
+  const instructionsClass = classNames('app__instructions', {
+    'app__instructions--show': showInstructions,
+  });
 
   return (
     <main
@@ -86,7 +92,6 @@ const App = () => {
         className={ paletteButtonClass }
         tabIndex={ isStuffHidden ? '0' : '-1' }
         onClick={ pickRandomPalette }
-
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
         Random palette
       </button>
@@ -97,6 +102,8 @@ const App = () => {
         onMouseUp={ (e) => { e.currentTarget.blur(); } }>
         { isPaused ? 'Resume Stars' : 'Pause stars' }
       </button>
+
+      <span className={instructionsClass}>Click anywhere to enter</span>
     </main>
   );
 }
