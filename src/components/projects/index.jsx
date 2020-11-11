@@ -21,7 +21,7 @@ const Projects = ({ isHidden }) => {
         desc={ neonCirclesDesc }
         header='Neon Circles'
         imgDesc='Logo for Neon Circles'
-        imgSrc='/projects/neon_circles-logo.png'
+        imgSrc={ `${process.env.PUBLIC_URL}/projects/neon_circles-logo.png` }
         tabIndex={ tabIndex } />
     </div>
   );

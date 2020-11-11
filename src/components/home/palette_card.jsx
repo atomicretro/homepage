@@ -13,7 +13,7 @@ const PaletteCard = ({ isHidden, isSelected, palette, _setPalette }) => {
       onKeyDown={ (e) => { e.stopPropagation(); } }
       onMouseUp={ (e) => { e.currentTarget.blur(); } }
       tabIndex={ isHidden ? '-1' : '0' }>
-      <img alt={ palette } className='palette_card__img' src={ `/palettes/${palette}.png` } />
+      <img alt={ palette } className='palette_card__img' src={ `${process.env.PUBLIC_URL}/palettes/${palette}.png` } />
       <span className='palette_card__desc'>{ palette }</span>
     </button>
   );
