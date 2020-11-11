@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import NightSky from './night_sky';
 import Stuff from './stuff';
 import palettes from '../utils/palettes';
+import { bgColors } from '../utils/colors';
 
 import '../scss/utils.scss';
 import '../scss/palettes.scss';
@@ -80,7 +81,9 @@ const App = () => {
       ref={ mainRef }
       tabIndex='0'>
 
-      <NightSky />
+      <NightSky
+        currentPalette={ currentPalette }
+      />
 
       <Stuff
         isHidden={ isStuffHidden }
@@ -103,7 +106,7 @@ const App = () => {
         { isPaused ? 'Resume Stars' : 'Pause stars' }
       </button>
 
-      <span className={instructionsClass}>Click anywhere to enter</span>
+      {/*<span className={instructionsClass}>Click anywhere to enter</span>*/}
     </main>
   );
 }
