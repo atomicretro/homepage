@@ -1,0 +1,31 @@
+export const primaryColors = {
+  NIGHTSKY: '#000000',
+  PASTEL: '#2753bb',
+  GRANDMA: '#5b1734',
+  MARS: '#590d1e',
+  PURPLY: '#311b14',
+  VIVID: '#0f3044',
+  FOREST: '#000232',
+  RHENIUM: '#252c41',
+  SEWERS: '#0a1e35',
+  NIKAIDO: '#1a1a0d',
+  SEPIA: '#4f2108',
+  WETLAND: '#265341',
+  NOSTALGIA: '#3c5a77',
+};
+
+export const secondaryColors = {
+  NIGHTSKY: '#ffffff',
+  PASTEL: '#ee7967',
+  GRANDMA: '#669c4b',
+  MARS: '#d9525b',
+  PURPLY: '#6cc4fa',
+  VIVID: '#bc2619',
+  FOREST: '#395c39',
+  RHENIUM: '#d79abe',
+  SEWERS: '#72f9ff',
+  NIKAIDO: '#f19737',
+  SEPIA: '#7ca597',
+  WETLAND: '#a47e45',
+  NOSTALGIA: '#e7a7a5',
+};

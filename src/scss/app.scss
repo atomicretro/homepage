@@ -10,26 +10,26 @@
   overflow: hidden;
 }
 
-.app .button-star-settings {
+.app .main-button {
   @include button-no-style;
   position: absolute;
   top: 10px;
   font-size: 16px;
   color: #ffffff;
   z-index: 100;
-}
-
-.app .button-star-settings--random-palette {
-  left: 10px;
   opacity: 1;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.app .button-star-settings--pause {
+.app .main-button--random-palette {
+  left: 10px;
+}
+
+.app .main-button--instructions {
   right: 10px;
 }
 
-.app .button-star-settings--hidden {
+.app .main-button--hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -37,16 +37,9 @@
 .app__instructions {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  font-size: 36px;
+  left: 10px;
   color: #ffffff;
-  transform: translateX(-50%);
   z-index: 100;
-}
-
-.app__instructions--show {
-  transform: translate(50%, -500px);
-  transition: transform 2s;
 }
 
 .app--NIGHTSKY {
@@ -193,16 +186,16 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .app .button-star-settings {
+  .app .main-button {
     top: 12px;
     font-size: 18px;
   }
 
-  .app .button-star-settings--random-palette {
+  .app .main-button--random-palette {
     left: 12px;
   }
 
-  .app .button-star-settings--pause {
+  .app .main-button--instructions {
     right: 12px;
   }
 }

@@ -9,10 +9,10 @@ const Display = ({ isHidden, palette, _setPalette }) => {
   return(
     <section className={ `display display--${palette}` }>
       <Switch>
-        <Route path='/contact' component={ Contact }/>
-        <Route path='/projects' component={ Projects }/>
+        <Route path='/contact' component={ () => <Contact isHidden={ isHidden } /> }/>
+        <Route path='/projects' component={ () => <Projects isHidden={ isHidden } /> }/>
         <Route path='/' component={ () => (
-          <Home isHidden={ isHidden } palette={ palette } _setPalette={ _setPalette } />
+          <Home isHidden={ isHidden } currentPalette={ palette } _setPalette={ _setPalette } />
         ) }/>
       </Switch>
     </section>
