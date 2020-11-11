@@ -40,7 +40,6 @@ const StarField = React.memo((props) => {
   const [allStars, populateAllStars] = useState([]);
 
   useEffect(() => {
-    console.log('1');
     // Set aspect ratio
     const canvas = ref.current;
     const ctx = canvas.getContext('2d');
@@ -48,7 +47,6 @@ const StarField = React.memo((props) => {
   }, []);
 
   useEffect(() => {
-    console.log('2');
     // Determine star coordinates
     const canvas = ref.current;
     const stars = [];
@@ -68,7 +66,6 @@ const StarField = React.memo((props) => {
   }, []);
 
   useEffect(() => {
-    console.log('3');
     // Animate stars
     const canvas = ref.current;
     const ctx = canvas.getContext('2d');
@@ -107,8 +104,7 @@ const StarField = React.memo((props) => {
   return (
     <canvas
       className='night-sky'
-      ref={ ref }
-    />
+      ref={ ref } />
   );
 });
 

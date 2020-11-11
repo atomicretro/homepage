@@ -9,6 +9,7 @@ const NightSky = React.memo((props) => {
   return (
     <>
       <Background currentPalette={ currentPalette } />
+
       <Stars currentPalette={ currentPalette } />
     </>
   );

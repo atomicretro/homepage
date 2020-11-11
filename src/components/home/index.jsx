@@ -5,7 +5,7 @@ import allPalettes from '../../utils/palettes';
 
 import '../../scss/home.scss';
 
-const Home = ({ isHidden, palette: currentPalette, _setPalette }) => {
+const Home = ({ isHidden, currentPalette, _setPalette }) => {
   return (
     <div className='home'>
       <h2 className='home__title'>Paint the sky</h2>
@@ -22,7 +22,7 @@ const Home = ({ isHidden, palette: currentPalette, _setPalette }) => {
         }
       </div>
       <span className='home__acknowledgment'>
-        Color palettes inspired by <a href='https://downwellgame.com/'>downwell</a>
+        Color palettes inspired by <a href='https://downwellgame.com/' tabIndex={ isHidden ? '-1' : '0' }>downwell</a>
       </span>
     </div>
   );

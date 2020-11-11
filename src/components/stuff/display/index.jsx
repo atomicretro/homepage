@@ -12,7 +12,7 @@ const Display = ({ isHidden, palette, _setPalette }) => {
         <Route path='/contact' component={ Contact }/>
         <Route path='/projects' component={ Projects }/>
         <Route path='/' component={ () => (
-          <Home isHidden={ isHidden } palette={ palette } _setPalette={ _setPalette } />
+          <Home isHidden={ isHidden } currentPalette={ palette } _setPalette={ _setPalette } />
         ) }/>
       </Switch>
     </section>

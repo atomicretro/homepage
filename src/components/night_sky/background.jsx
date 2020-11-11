@@ -21,8 +21,7 @@ const Background = React.memo((props) => {
     <canvas
       className='night-sky'
       ref={ ref }
-      style={ { width: '100vw', height: '100vh' } }
-    />
+      style={ { width: '100vw', height: '100vh' } } />
   );
 });
 
