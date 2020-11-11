@@ -8,13 +8,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  opacity: 100%;
-  transition: opacity 1s ease-in-out;
+  transition: transform 0.5s ease-out;
 }
 
 .stuff--hidden {
-  transition: opacity 1s;
-  opacity: 0;
+  transform: translate(0, calc(100vh - 100px));
+  transition: transform 1s ease-out;
   pointer-events: none;
 }
 
@@ -78,6 +77,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .stuff--hidden {
+    transform: translate(0, calc(100vh - 110px));
+  }
+
   .header {
     height: 100px;
   }
