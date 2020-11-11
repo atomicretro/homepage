@@ -101,11 +101,7 @@ const StarField = React.memo((props) => {
     };
   });
 
-  return (
-    <canvas
-      className='night-sky'
-      ref={ ref } />
-  );
+  return <canvas className='stars' ref={ ref } />;
 });
 
 export default StarField;
