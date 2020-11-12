@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from "react-router-dom";
 import classNames from 'classnames';
 
 import NightSky from './night_sky';
@@ -19,9 +20,12 @@ const usePrevious = (value) => {
 
 const defaultPalette = palettes[0];
 
-const App = () => {
-  const [isStuffHidden, hideStuff] = useState(true);
+const App = (props) => {
+  const history = useHistory();
+
   const [currentPalette, setPalette] = useState(defaultPalette);
+  const [isCrazy, setCrazy] = useState(false);
+  const [isStuffHidden, hideStuff] = useState(true);
   const previousHideStuff = usePrevious(isStuffHidden);
   const mainRef = useRef(null);
 
@@ -40,6 +44,13 @@ const App = () => {
     const nextIdx = randomIntMinMax(0, duplicatedPalettes.length);
     const nextPalette = duplicatedPalettes[nextIdx];
     setPalette(nextPalette);
+  }
+  
+  const openToolbox = (e) => {
+    e.stopPropagation();
+    // setCrazy(!isCrazy);
+    history.push('/toolbox');
+    hideStuff(false);
   }
 
   if (previousHideStuff === false && isStuffHidden === true) {
@@ -60,7 +71,7 @@ const App = () => {
       ref={ mainRef }
       tabIndex={ isStuffHidden ? '0' : '-1' }>
 
-      <NightSky currentPalette={ currentPalette } />
+      <NightSky currentPalette={ currentPalette } isCrazy={ isCrazy } />
 
       <Stuff
         isHidden={ isStuffHidden }
@@ -74,6 +85,13 @@ const App = () => {
         onMouseUp={ (e) => { e.currentTarget.blur(); } }
         tabIndex={ isStuffHidden ? '0' : '-1' }>
         Random palette
+      </button>
+      <button
+        className={ `${mainButtonClass} main-button--toolbox` }
+        onClick={ openToolbox }
+        onMouseUp={ (e) => { e.currentTarget.blur(); } }
+        tabIndex={ isStuffHidden ? '0' : '-1' }>
+        Open toolbox
       </button>
       <button
         className={ `${mainButtonClass} main-button--instructions` }

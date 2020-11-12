@@ -13,6 +13,7 @@ const Navbar = ({ isHidden, palette, _setIsHidden }) => {
       <Link tabIndex={ tabIndex } to='/' onMouseUp={ handleMouseUp }>Home</Link>
       <Link tabIndex={ tabIndex } to='/projects' onMouseUp={ handleMouseUp }>Projects</Link>
       <Link tabIndex={ tabIndex } to='/contact' onMouseUp={ handleMouseUp }>Contact</Link>
+      <Link tabIndex={ tabIndex } to='/toolbox' onMouseUp={ handleMouseUp }>Toolbox</Link>
       <button
         className={ `button-stargaze button-stargaze--${palette}` }
         onClick={ (e) => { e.stopPropagation(); _setIsHidden(!isHidden); } }

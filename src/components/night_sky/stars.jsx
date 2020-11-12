@@ -6,7 +6,7 @@ import { setCanvasDimensions } from '../../utils/canvas';
 
 import '../../scss/night-sky.scss';
 
-const NUM_STARS = 1000;
+const NUM_STARS = 3;
 
 class Star {
   constructor({ x, y, size, alpha, alphaStep }) {
@@ -29,15 +29,31 @@ class Star {
     }
 
     this.alpha = newAlpha;
-    // this.x = this.x + 1;
     // this.y = this.y + 1;
+  }
+  
+  updatePos = ({ x: mouseX, y: mouseY, }) => {
+    const slope = (mouseY - this.y) / (mouseX - this.x);
+    const distance = Math.sqrt((this.x - mouseX) ** 2 + (this.y - mouseY) ** 2);
+    const slopeX = this.x >= mouseX ? slope * -1 : slope;
+    const slopeY = this.y >= mouseY ? slope * -1 : slope;
+    console.log('mouseX - this.x', mouseX - this.x)
+    this.x = this.x - mouseX;
+    this.y = this.y - mouseY;
+    // console.log('mouseX', mouseX)
+    // console.log('mouseY', mouseY)
+    // console.log('this.x', this.x)
+    // console.log('this.y', this.y)
+    // console.log('slope', slope)
+    // console.log('distance', distance)
+    // console.log('---')
   }
 }
 
-const StarField = React.memo((props) => {
-  const { currentPalette } = props;
+const StarField = React.memo(({ currentPalette, isCrazy }) => {
   const ref = useRef();
   const [allStars, populateAllStars] = useState([]);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Set aspect ratio
@@ -72,6 +88,19 @@ const StarField = React.memo((props) => {
     let requestId;
 
     const render = () => {
+
+      const {
+        top: canvasTop,
+        right: canvasRight,
+        bottom: canvasBottom,
+        left: canvasLeft,
+      } = canvas.getBoundingClientRect()
+      const canvasX = (mousePosition.x - canvasLeft) / (canvasRight - canvasLeft) * canvas.width;
+      const canvasY = (mousePosition.y - canvasTop) / (canvasBottom - canvasTop) * canvas.height;
+      // ctx.fillStyle = 'green';
+      // ctx.fillRect(canvasX, canvasY, 50, 50);
+      // ctx.fill();
+
       for (let idx = 0; idx < allStars.length; idx++) {
         const star = allStars[idx];
 
@@ -82,6 +111,16 @@ const StarField = React.memo((props) => {
 
         // Update current star's alpha
         star.updateAlpha();
+        if (isCrazy) {
+          star.updatePos({x:canvasX, y:canvasY});
+          // console.log('canvasX, canvasY', canvasX, canvasY)
+          // ctx.strokeStyle = 'green';
+          // ctx.beginPath();
+          // ctx.moveTo(star.x, star.y);
+          // ctx.lineTo(canvasX, canvasY);
+          // ctx.stroke();
+          // console.log('star', star.x, star.y)
+        }
 
         // Draw star
         ctx.fillStyle = secondaryColors[currentPalette];
@@ -92,6 +131,7 @@ const StarField = React.memo((props) => {
 
       // Request the next animation frame
       requestId = requestAnimationFrame(render);
+      // cancelAnimationFrame(requestId);
     };
 
     render();
@@ -101,7 +141,14 @@ const StarField = React.memo((props) => {
     };
   });
 
-  return <canvas className='stars' ref={ ref } />;
+  // onMouseMove={ (e) => { setMousePosition({ x: e.screenX, y: e.screenY }); } }
+  return (
+    <canvas
+      className='stars'
+      onMouseMove={ (e) => { setMousePosition({ x: e.clientX, y: e.clientY }); } }
+      ref={ ref }
+      />
+  );
 });
 
 export default StarField;
