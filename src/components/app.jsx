@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
+import AppContext from '../context/app_context';
 import NightSky from './night_sky';
 import Stuff from './stuff';
 
@@ -15,15 +16,22 @@ const usePrevious = (value) => {
   const ref = useRef();
   useEffect(() => { ref.current = value; });
   return ref.current;
-}
-
-const defaultPalette = palettes[0];
+};
 
 const App = () => {
-  const [isStuffHidden, hideStuff] = useState(true);
-  const [currentPalette, setPalette] = useState(defaultPalette);
-  const previousHideStuff = usePrevious(isStuffHidden);
+  const {
+    comingFromOddsAndEnds,
+    currentPalette,
+    setPalette,
+  } = useContext(AppContext);
+
+  const [isStuffHidden, hideStuff] = useState(comingFromOddsAndEnds ? false : true);
+  const prevIsStuffHidden = usePrevious(isStuffHidden);
   const mainRef = useRef(null);
+
+  if (prevIsStuffHidden === false && isStuffHidden === true) {
+    mainRef.current.focus();
+  }
 
   const handleKeyDown = (e) => {
     const { keyCode } = e;
@@ -40,10 +48,6 @@ const App = () => {
     const nextIdx = randomIntMinMax(0, duplicatedPalettes.length);
     const nextPalette = duplicatedPalettes[nextIdx];
     setPalette(nextPalette);
-  }
-
-  if (previousHideStuff === false && isStuffHidden === true) {
-    mainRef.current.focus();
   }
 
   const mainButtonClass = classNames(

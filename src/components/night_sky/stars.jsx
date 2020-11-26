@@ -34,8 +34,7 @@ class Star {
   }
 }
 
-const StarField = React.memo((props) => {
-  const { currentPalette } = props;
+const StarField = React.memo(({ currentPalette }) => {
   const ref = useRef();
   const [allStars, populateAllStars] = useState([]);
 

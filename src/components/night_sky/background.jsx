@@ -4,8 +4,7 @@ import { primaryColors } from '../../utils/colors';
 
 import '../../scss/night-sky.scss';
 
-const Background = React.memo((props) => {
-  const { currentPalette } = props;
+const Background = React.memo(({ currentPalette }) => {
   const ref = useRef();
 
   useEffect(() => {
