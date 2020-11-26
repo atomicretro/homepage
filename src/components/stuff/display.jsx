@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Contact from '../../contact';
-import Home from '../../home';
-import Projects from '../../projects';
-import OddsAndEnds from '../../odds_ends';
+import Contact from '../contact';
+import Home from '../home';
+import Projects from '../projects';
+import OddsAndEnds from '../odds_ends';
 
 const Display = ({ isHidden, palette, _setPalette }) => {
   return(
