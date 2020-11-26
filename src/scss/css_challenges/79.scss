@@ -1,0 +1,88 @@
+.css-challenge-79 {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.css-challenge-79__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  outline: 0; 
+  transition:
+    height 0.75s ease,
+    font-size 0.75s ease,
+    color 0.75s ease;
+
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+  &:focus,
+  &:hover {
+    height: 75%;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 1);
+    transition:
+      height 0.75s ease,
+      font-size 0.75s ease,
+      color 0.75s ease;
+  }
+}
+
+.css-challenge-79__dark {
+  height: 25%;
+  width: 100%;
+  background: #34495e;
+}
+
+.css-challenge-79__light {
+  height: 25%;
+  width: 100%;
+  background: #e67e22;
+}
+
+@media only screen and (min-width: 768px) {
+  .css-challenge-79 {
+    flex-direction: row;
+  }
+
+  .css-challenge-79__box {
+    transition:
+      width 0.75s ease,
+      font-size 0.75s ease,
+      color 0.75s ease;
+
+    &:focus,
+    &:hover {
+      height: 100%;
+      width: 75%;
+      font-size: 30px;
+      color: rgba(255, 255, 255, 1);
+      transition:
+        width 0.75s ease,
+        font-size 0.75s ease,
+        color 0.75s ease;
+    }
+  }
+
+  .css-challenge-79__dark {
+    height: 100%;
+    width: 25%;
+  }
+
+  .css-challenge-79__light {
+    height: 100%;
+    width: 25%;
+  }
+}
