@@ -1,0 +1,42 @@
+.css-challenge-46 {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+}
+
+.css-challenge-46__field {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #2c3e50;
+  border: 1px solid #E24E3F;
+}
+
+.pixel {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  outline: 0;
+  height: 20px;
+  width: 20px;
+  background: white;
+  margin: 0;
+  cursor: pointer;
+
+  &:checked {
+    background: #DE4738;
+    border: 1px solid #E24E3F;
+  }
+  &:focus {
+    background: #BC2819;
+    border: 1px solid #E24E3F;
+  }
+}
