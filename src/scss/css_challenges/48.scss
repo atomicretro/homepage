@@ -1,0 +1,51 @@
+.css-challenge-48 {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #cab8ec;
+}
+
+.css-challenge-48__field {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #2c3e50;
+  border-radius: 3px;
+}
+
+.css-challenge-48__field__square {
+  height: 25px;
+  width: 25px;
+}
+
+@for $idx from 0 to 400 {
+  .css-challenge-48__field__square--#{$idx}:hover
+     ~ .css-challenge-48__field__monster {
+    $vert: ($idx % 20) * 25;
+    $horz: floor($idx / 20) * 25;
+    transform: translate(
+      #{$vert - 238}px,
+      #{$horz - 238}px,
+    );
+    transition: all 0.3s ease-out;
+  }
+}
+
+.css-challenge-48__field__monster {
+  position: absolute;
+  top: 238px;
+  left: 238px;
+  height: 25px;
+  width: 25px;
+  background: #2ecc71;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}

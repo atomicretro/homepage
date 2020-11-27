@@ -10,6 +10,7 @@ const Navbar = ({ isHidden, palette, _setIsHidden }) => {
 
   return (
     <nav className={ `navbar navbar--${palette}` } >
+    <span>
       <Link tabIndex={ tabIndex } to='/' onMouseUp={ handleMouseUp }>Home</Link>
       <Link tabIndex={ tabIndex } to='/projects' onMouseUp={ handleMouseUp }>Projects</Link>
       <Link tabIndex={ tabIndex } to='/odds-and-ends' onMouseUp={ handleMouseUp }>Odds And Ends</Link>
@@ -21,6 +22,7 @@ const Navbar = ({ isHidden, palette, _setIsHidden }) => {
         tabIndex={ tabIndex }>
         Stargaze
       </button>
+      </span>
     </nav>
   );
 }
