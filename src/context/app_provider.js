@@ -6,13 +6,11 @@ import palettes from '../utils/palettes';
 const defaultPalette = palettes[0];
 
 const AppProvider = (props) => {
-  const [comingFromOddsAndEnds, setComingFromOddsAndEnds] = useState(false);
-  const [currentPalette, setPalette] = useState(defaultPalette);
+  const [currentPalette, _setPalette] = useState(defaultPalette);
+
   const value = {
-    comingFromOddsAndEnds,
     currentPalette,
-    setComingFromOddsAndEnds,
-    setPalette,
+    _setPalette,
   };
 
   return (

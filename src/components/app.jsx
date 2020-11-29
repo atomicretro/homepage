@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
+import {
+  useLocation
+} from "react-router-dom";
+
+
 import AppContext from '../context/app_context';
 import NightSky from './night_sky';
 import Stuff from './stuff';
@@ -20,12 +25,12 @@ const usePrevious = (value) => {
 
 const App = () => {
   const {
-    comingFromOddsAndEnds,
     currentPalette,
-    setPalette,
+    _setPalette,
   } = useContext(AppContext);
+  const location = useLocation();
 
-  const [isStuffHidden, hideStuff] = useState(comingFromOddsAndEnds ? false : true);
+  const [isStuffHidden, _hideStuff] = useState(location.pathname === '/');
   const prevIsStuffHidden = usePrevious(isStuffHidden);
   const mainRef = useRef(null);
 
@@ -36,7 +41,7 @@ const App = () => {
   const handleKeyDown = (e) => {
     const { keyCode } = e;
     if (keyCode === 13 || keyCode === 32) {
-      hideStuff(false);
+      _hideStuff(false);
     }
   }
 
@@ -47,7 +52,7 @@ const App = () => {
     duplicatedPalettes.splice(currentIdx, 1);
     const nextIdx = randomIntMinMax(0, duplicatedPalettes.length);
     const nextPalette = duplicatedPalettes[nextIdx];
-    setPalette(nextPalette);
+    _setPalette(nextPalette);
   }
 
   const mainButtonClass = classNames(
@@ -59,7 +64,7 @@ const App = () => {
   return (
     <main
       className={ `app app--${currentPalette}` }
-      onClick={ (e) => { hideStuff(false); } }
+      onClick={ (e) => { _hideStuff(false); } }
       onKeyDown={ handleKeyDown }
       ref={ mainRef }
       tabIndex={ isStuffHidden ? '0' : '-1' }>
@@ -69,8 +74,8 @@ const App = () => {
       <Stuff
         isHidden={ isStuffHidden }
         palette={ currentPalette }
-        _setIsHidden={ hideStuff }
-        _setPalette={ setPalette } />
+        _setIsHidden={ _hideStuff }
+        _setPalette={ _setPalette } />
 
       <button
         className={ `${mainButtonClass} main-button--random-palette` }

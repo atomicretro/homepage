@@ -1,6 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-
-import AppContext from '../../../context/app_context';
+import React, { useEffect } from 'react';
 
 import '../../../scss/css_challenges/48.scss';
 
@@ -15,12 +13,8 @@ const Challenge48 = () => {
     console.log('Challenge: https://100dayscss.com/?dayIndex=48');
   }, []);
 
-  const { setComingFromOddsAndEnds } = useContext(AppContext);
   useEffect(() => {
-    return () => {
-      setComingFromOddsAndEnds(true);
-      console.clear();
-    };
+    return console.clear();
   });
 
   return (
