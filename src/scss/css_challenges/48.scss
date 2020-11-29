@@ -1,6 +1,6 @@
 .css-challenge-48 {
-  height: 100vh;
-  width: 100vw;
+  height: 175vh;
+  width: 175vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,11 +41,23 @@
   position: absolute;
   top: 238px;
   left: 238px;
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
   background: #2ecc71;
   border-radius: 50%;
   z-index: 1;
   pointer-events: none;
   transition: all 0.5s ease-out;
+}
+
+@media only screen and (min-width: 768px) {
+  .css-challenge-48 {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .css-challenge-48__field__monster {
+    height: 25px;
+    width: 25px;
+  }
 }
