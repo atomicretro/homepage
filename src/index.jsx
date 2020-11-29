@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import AppProvider from './context/app_provider';
 import App from './components/app';
@@ -10,12 +10,12 @@ import './scss/reset.scss';
 
 ReactDOM.render(
   <AppProvider>
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route path='/css' component={ CSSChallenges } />
         <Route path='/' component={ App } />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </AppProvider>,
   document.getElementById('root')
 );
