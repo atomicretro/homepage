@@ -14,7 +14,7 @@ const Stuff = ({ isHidden, palette, _setIsHidden, _setPalette }) => {
 
   return(
     <section className={ stuffClass }>
-      <Header />
+      <Header isHidden={ isHidden } _setIsHidden={ _setIsHidden } />
       <Navbar isHidden={ isHidden } palette={ palette } _setIsHidden={ _setIsHidden } />
       <Display isHidden={ isHidden } palette={ palette } _setPalette={ _setPalette } />
     </section>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
 
 import {
@@ -17,12 +17,6 @@ import '../scss/utils.scss';
 import '../scss/palettes.scss';
 import '../scss/app.scss';
 
-const usePrevious = (value) => {
-  const ref = useRef();
-  useEffect(() => { ref.current = value; });
-  return ref.current;
-};
-
 const App = () => {
   const {
     currentPalette,
@@ -31,12 +25,6 @@ const App = () => {
   const location = useLocation();
 
   const [isStuffHidden, _hideStuff] = useState(location.pathname === '/');
-  const prevIsStuffHidden = usePrevious(isStuffHidden);
-  const mainRef = useRef(null);
-
-  if (prevIsStuffHidden === false && isStuffHidden === true) {
-    mainRef.current.focus();
-  }
 
   const handleKeyDown = (e) => {
     const { keyCode } = e;
@@ -55,10 +43,17 @@ const App = () => {
     _setPalette(nextPalette);
   }
 
-  const mainButtonClass = classNames(
+  const paletteButtonClass = classNames(
     'main-button',
+    'main-button--random-palette',
     `main-button--${currentPalette}`,
-    { 'main-button--hidden': !isStuffHidden },
+    { 'main-button--random-palette-hidden': !isStuffHidden },
+  );
+  const instructionsButtonClass = classNames(
+    'main-button',
+    'main-button--instructions',
+    `main-button--${currentPalette}`,
+    { 'main-button--instructions-hidden': !isStuffHidden },
   );
 
   return (
@@ -66,7 +61,7 @@ const App = () => {
       className={ `app app--${currentPalette}` }
       onClick={ (e) => { _hideStuff(false); } }
       onKeyDown={ handleKeyDown }
-      ref={ mainRef }
+
       tabIndex={ isStuffHidden ? '0' : '-1' }>
 
       <NightSky currentPalette={ currentPalette } />
@@ -78,14 +73,13 @@ const App = () => {
         _setPalette={ _setPalette } />
 
       <button
-        className={ `${mainButtonClass} main-button--random-palette` }
+        className={ `${paletteButtonClass}` }
         onClick={ pickRandomPalette }
-        onMouseUp={ (e) => { e.currentTarget.blur(); } }
-        tabIndex={ isStuffHidden ? '0' : '-1' }>
+        onMouseUp={ (e) => { e.currentTarget.blur(); } }>
         Random palette
       </button>
       <button
-        className={ `${mainButtonClass} main-button--instructions` }
+        className={ `${instructionsButtonClass}` }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }
         tabIndex={ isStuffHidden ? '0' : '-1' }>
         Click to enter
