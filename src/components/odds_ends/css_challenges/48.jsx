@@ -14,7 +14,9 @@ const Challenge48 = () => {
   }, []);
 
   useEffect(() => {
-    return console.clear();
+    return () => {
+      console.clear();
+    };
   });
 
   return (

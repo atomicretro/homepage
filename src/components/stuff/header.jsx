@@ -8,7 +8,11 @@ const Header = ({ isHidden, _setIsHidden }) => {
         e.stopPropagation();
         _setIsHidden(!isHidden);
       } }>
-      <h1 className='header__title'>Alec Cuccia</h1>
+      <h1
+        className='header__title'
+        onClick={ (e) => { e.stopPropagation(); } }>
+        Alec Cuccia
+      </h1>
     </header>
   );
 }

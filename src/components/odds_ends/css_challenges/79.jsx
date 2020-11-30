@@ -13,7 +13,9 @@ const Challenge79 = () => {
   }, []);
 
   useEffect(() => {
-    return console.clear();
+    return () => {
+      console.clear();
+    };
   });
 
   return (
