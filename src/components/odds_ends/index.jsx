@@ -14,6 +14,7 @@ const OddsAndEnds = ({ isHidden }) => {
         <span className='odds-ends__column__link'>From <a href='https://100dayscss.com/'>100 Days CSS Challenge</a></span>
         <Link tabIndex={ tabIndex } to='/css/46'>46</Link>
         <Link tabIndex={ tabIndex } to='/css/48'>48</Link>
+        <Link tabIndex={ tabIndex } to='/css/59'>59</Link>
         <Link tabIndex={ tabIndex } to='/css/79'>79</Link>
       </div>
     </div>
