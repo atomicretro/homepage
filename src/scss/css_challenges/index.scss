@@ -1,6 +1,6 @@
 @import '../utils';
 
-.css-challenge {
+.css-challenges {
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
@@ -10,14 +10,14 @@
   align-items: center;
 }
 
-.css-challenge__return-link {
+.css-challenges__return-link {
   position: absolute;
   bottom: 10px;
   left: 10px;
   font-size: 20px;
 }
 
-.css-challenge__explanation-button {
+.css-challenges__explanation-button {
   @include button-no-style;
   position: absolute;
   bottom: 10px;
@@ -25,7 +25,7 @@
   font-size: 20px;
 }
 
-.css-challenge__explanation-text {
+.css-challenges__explanation-text {
   position: absolute;
   top: -10px;
   height: 460px;
@@ -52,25 +52,34 @@
   }
 }
 
-.css-challenge__explanation-text--hide {
+.css-challenges__explanation-text--hide {
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
+.css-challenges__submission {
+  transition: filter 0.5s ease;
+}
+
+.css-challenges__submission--blur {
+  filter: blur(5px);
+  transition: filter 0.5s ease;
+}
+
 @media only screen and (min-width: 768px) {
-  .css-challenge__return-link {
+  .css-challenges__return-link {
     position: absolute;
     bottom: 10px;
     left: 10px;
     font-size: 24px;
   }
 
-  .css-challenge__explanation-button {
+  .css-challenges__explanation-button {
     margin: 50px 0 0 0;
   }
 
-  .css-challenge__explanation-text {
+  .css-challenges__explanation-text {
     width: 80%;
     justify-content: center;
 
@@ -79,16 +88,16 @@
     }
   }
 
-  .css-challenge__explanation-text--46 {
+  .css-challenges__explanation-text--46 {
     height: 425px;
   }
-  .css-challenge__explanation-text--48 {
+  .css-challenges__explanation-text--48 {
     height: 525px;
   }
-  .css-challenge__explanation-text--59 {
+  .css-challenges__explanation-text--59 {
     height: 425px;
   }
-  .css-challenge__explanation-text--79 {
+  .css-challenges__explanation-text--79 {
     height: 425px;
   }
 }

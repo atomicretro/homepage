@@ -1,12 +1,4 @@
-.css-challenge-48 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // background: #cab8ec;
-}
-
-.css-challenge-48__field {
+.css-challenges-48 {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -16,7 +8,7 @@
   overflow: hidden;
 }
 
-.css-challenge-48__field__monster {
+.css-challenges-48__monster {
   position: absolute;
   background: #2ecc71;
   border-radius: 50%;
@@ -25,7 +17,7 @@
   transition: all 0.5s ease-out;
 }
 
-.css-challenge-48__field__monster:after{
+.css-challenges-48__monster:after{
   content: '';
   position: absolute;
   top: -1px;
@@ -53,18 +45,18 @@
 }
 
 @media only screen and (max-width: 576px) {
-  .css-challenge-48__field {
+  .css-challenges-48 {
     height: 300px;
     width: 300px;
   }
 
-  .css-challenge-48__field__square {
+  .css-challenges-48__square {
     height: 15px;
     width: 15px;
   }
 
   @for $idx from 0 to 400 {
-    .css-challenge-48__field__square--#{$idx}:hover ~ .css-challenge-48__field__monster {
+    .css-challenges-48__square--#{$idx}:hover ~ .css-challenges-48__monster {
       $vert: (($idx % 20) * 15) - 138;
       $horz: (floor($idx / 20) * 15) - 138;
 
@@ -80,14 +72,14 @@
     }
   }
 
-  .css-challenge-48__field__monster {
+  .css-challenges-48__monster {
     top: 138px;
     left: 138px;
     height: 30px;
     width: 30px;
   }
 
-  .css-challenge-48__field__monster:after {
+  .css-challenges-48__monster:after {
     top: -1px;
     left: -1px;
     height: 30px;
@@ -96,18 +88,18 @@
 }
 
 @media only screen and (min-width: 577px) and (max-width: 767px) {
-  .css-challenge-48__field {
+  .css-challenges-48 {
     height: 400px;
     width: 400px;
   }
 
-  .css-challenge-48__field__square {
+  .css-challenges-48__square {
     height: 20px;
     width: 20px;
   }
 
   @for $idx from 0 to 400 {
-    .css-challenge-48__field__square--#{$idx}:hover ~ .css-challenge-48__field__monster {
+    .css-challenges-48__square--#{$idx}:hover ~ .css-challenges-48__monster {
       $vert: (($idx % 20) * 20) - 190;
       $horz: (floor($idx / 20) * 20) - 190;
 
@@ -123,14 +115,14 @@
     }
   }
 
-  .css-challenge-48__field__monster {
+  .css-challenges-48__monster {
     top: 190px;
     left: 190px;
     height: 25px;
     width: 25px;
   }
 
-  .css-challenge-48__field__monster:after {
+  .css-challenges-48__monster:after {
     top: -1px;
     left: -1px;
     height: 25px;
@@ -139,18 +131,18 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .css-challenge-48__field {
+  .css-challenges-48 {
     height: 500px;
     width: 500px;
   }
 
-  .css-challenge-48__field__square {
+  .css-challenges-48__square {
     height: 25px;
     width: 25px;
   }
 
   @for $idx from 0 to 400 {
-    .css-challenge-48__field__square--#{$idx}:hover ~ .css-challenge-48__field__monster {
+    .css-challenges-48__square--#{$idx}:hover ~ .css-challenges-48__monster {
       $vert: (($idx % 20) * 25) - 238;
       $horz: (floor($idx / 20) * 25) - 238;
 
@@ -159,14 +151,14 @@
     }
   }
 
-  .css-challenge-48__field__monster {
+  .css-challenges-48__monster {
     top: 238px;
     left: 238px;
     height: 25px;
     width: 25px;
   }
 
-  .css-challenge-48__field__monster:after {
+  .css-challenges-48__monster:after {
     top: -1px;
     left: -1px;
     height: 25px;

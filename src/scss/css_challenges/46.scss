@@ -1,11 +1,4 @@
-.css-challenge-46 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.css-challenge-46__field {
+.css-challenges-46 {
   position: relative;
   height: 300px;
   width: 300px;
@@ -14,12 +7,6 @@
   flex-wrap: wrap;
   background: #2c3e50;
   border: 1px solid #E24E3F;
-  transition: filter 0.5s ease;
-}
-
-.css-challenge-46__field--blur {
-  filter: blur(5px);
-  transition: filter 0.5s ease;
 }
 
 .pixel {
@@ -45,7 +32,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .css-challenge-46__field {
+  .css-challenges-46 {
     height: 400px;
     width: 400px;
   }

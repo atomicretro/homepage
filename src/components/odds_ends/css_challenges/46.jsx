@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import '../../../scss/css_challenges/46.scss';
 
@@ -18,27 +17,21 @@ const unchecked = {
   172: true,    211: true,    273: true,
 };
 
-const Challenge46 = ({ showExplanation }) => {
-  const fieldClass = classNames('css-challenge-46__field', {
-    'css-challenge-46__field--blur': showExplanation,
-  });
-
+const Challenges46 = () => {
   return (
-    <div className='css-challenge-46'>
-      <div className={ fieldClass }>
-        {
-          [ ...Array(400).keys() ].map((idx) => (
-            <input
-              className='pixel'
-              defaultChecked={ !unchecked[idx] }
-              key={ idx }
-              onMouseUp={ (e) => { e.target.blur(); } }
-              type='checkbox' />
-          ))
-        }
-      </div>
+    <div className='css-challenges-46'>
+      {
+        [ ...Array(400).keys() ].map((idx) => (
+          <input
+            className='pixel'
+            defaultChecked={ !unchecked[idx] }
+            key={ idx }
+            onMouseUp={ (e) => { e.target.blur(); } }
+            type='checkbox' />
+        ))
+      }
     </div>
   );
 };
 
-export default Challenge46;
+export default Challenges46;

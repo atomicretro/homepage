@@ -1,11 +1,11 @@
-.css-challenge-79 {
+.css-challenges-79 {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
 }
 
-.css-challenge-79__box {
+.css-challenges-79__box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,24 +40,24 @@
   }
 }
 
-.css-challenge-79__dark {
+.css-challenges-79__dark {
   height: 25%;
   width: 100%;
   background: #34495e;
 }
 
-.css-challenge-79__light {
+.css-challenges-79__light {
   height: 25%;
   width: 100%;
   background: #e67e22;
 }
 
 @media only screen and (min-width: 768px) {
-  .css-challenge-79 {
+  .css-challenges-79 {
     flex-direction: row;
   }
 
-  .css-challenge-79__box {
+  .css-challenges-79__box {
     transition:
       width 0.75s ease,
       font-size 0.75s ease,
@@ -76,12 +76,12 @@
     }
   }
 
-  .css-challenge-79__dark {
+  .css-challenges-79__dark {
     height: 100%;
     width: 25%;
   }
 
-  .css-challenge-79__light {
+  .css-challenges-79__light {
     height: 100%;
     width: 25%;
   }
