@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 
 import '../../../scss/css_challenges/46.scss';
 
@@ -17,25 +18,14 @@ const unchecked = {
   172: true,    211: true,    273: true,
 };
 
-const Challenge46 = () => {
-  useEffect(() => {
-    console.log('Oh hello!');
-    console.log('At first I had no idea how I was going to complete this challenge, and walked away from it to do other things. Hours later, thinking about something else entirely, it hit me: "they\'re all checkboxes!"');
-    console.log('Once I realized that, writing the code was straightforward. I used JS to create the series of checkboxes, but then used vanilla CSS to arrange them and style them into pixels.');
-    console.log('The default image was brute-forced by figuring out which pixels are white in the demo template, and simply marking them "unchecked" as they are generated. It\'s low-tech, but since the default image is static I don\'t mind cheesing it a bit.');
-    console.log('If you like what you see check out my other work at https://www.aleccuccia.dev!');
-    console.log('Challenge: https://100dayscss.com/?dayIndex=46');
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      console.clear();
-    };
+const Challenge46 = ({ showExplanation }) => {
+  const fieldClass = classNames('css-challenge-46__field', {
+    'css-challenge-46__field--blur': showExplanation,
   });
 
   return (
     <div className='css-challenge-46'>
-      <div className='css-challenge-46__field'>
+      <div className={ fieldClass }>
         {
           [ ...Array(400).keys() ].map((idx) => (
             <input
