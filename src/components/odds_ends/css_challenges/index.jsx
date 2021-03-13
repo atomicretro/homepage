@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import '../../../scss/css_challenges/index.scss';
 
-import Challenges05 from './05';
+import Challenges04 from './04';
 import Challenges46 from './46';
 import Challenges48 from './48';
 import Challenges59 from './59';
@@ -38,7 +38,7 @@ const CSSChallenges = () => {
 
       <div className={ submissionClass }>
         <Switch>
-          <Route path='/css/05' component={ Challenges05 } />
+          <Route path='/css/04' component={ Challenges04 } />
           <Route path='/css/46' component={ Challenges46 } />
           <Route path='/css/48' component={ Challenges48 } />
           <Route path='/css/59' component={ Challenges59 } />
