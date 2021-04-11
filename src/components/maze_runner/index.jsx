@@ -4,8 +4,8 @@ import Maze from './maze';
 
 import '../../scss/maze-runner.scss';
 
-const mazeNodeLength = 3;
-const mazePixelLength = 300;
+const mazeNodeLength = 7;
+const mazePixelLength = 700;
 
 const Background = React.memo(({ isHidden }) => {
   const ref = useRef();
@@ -17,7 +17,8 @@ const Background = React.memo(({ isHidden }) => {
     maze.setCanvas(canvas);
     maze.generate();
 
-    console.log(maze);
+    window.maze = maze;
+    // console.log(maze);
   }, [maze]);
 
   return (
