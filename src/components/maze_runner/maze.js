@@ -44,13 +44,15 @@ class Maze {
   }
 
   _buildWalls(mazeArray, height, width) {
+    if (height <= 1 || width <= 1) {
+      return;
+    }
+
     // Get wall indices for sub-maze
     const vertWallIdx = this.getRandomInt(0, width - 1);
     const horzWallIdx = this.getRandomInt(0, height - 1);
 console.log('vertWallIdx', vertWallIdx)
 console.log('horzWallIdx', horzWallIdx)
-console.log('-----')
-
     // Get opening indices for sub-maze
     let vertOpening;
     let horzOpening;
@@ -68,11 +70,6 @@ console.log('-----')
       randOpening = this.getRandomInt(vertWallIdx + 1, height);
       vertOpening = this.getRandomInt(0, width);
     }
-console.log('horzOpening', horzOpening)
-console.log('randOpening', randOpening)
-console.log('vertOpening', vertOpening)
-console.log('randIsVertical', randIsVertical)
-console.log('+++')
 
     const topLeft = [];
     const topRight = [];
@@ -111,10 +108,21 @@ console.log('+++')
       }
     }
 
-    console.log('topLeft', topLeft.map(n => n.nodeIdx));
-    console.log('topRight', topRight.map(n => n.nodeIdx));
-    console.log('bottomLeft', bottomLeft.map(n => n.nodeIdx));
-    console.log('bottomRight', bottomRight.map(n => n.nodeIdx));
+    console.log('topLeft', topLeft.map(n => n));
+    console.log('topRight', topRight.map(n => n));
+    console.log('bottomLeft', bottomLeft.map(n => n));
+    console.log('bottomRight', bottomRight.map(n => n));
+
+    this._buildWalls(topLeft, horzWallIdx + 1, vertWallIdx + 1);
+    // NOTE:
+    //  Recursion seems to be working (read: not infinite looping), BUT THERE'S STILL A PROBLEM.
+    //  In the above you are using nodeIdx to sort nodes into diff quadrants.
+    //  This works for the first func level, as the nodeIdxs are based on the indices of the nodes in the overall array.
+    //  HOWEVER, once you start to step into smalelr quadrants, the indicies are off b/c they're still based on the 
+    //    dimensions of the overall array.
+    //  To fix this, you should be able to reversive engineer the index of each node in each sub array by the node's
+    //    horzPos and vertPos and the sub array's dimensions.
+    //  For example, for the overall array, nodeIdx = 20 === horzPos = 6 + (vertPos = 2 * height = 7)
   }
 
   drawWall(currentNode, orientation) {
