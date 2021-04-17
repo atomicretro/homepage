@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { primaryColors, secondaryColors } from '../../utils/colors';
-import { randomFloatMinMax, randomIntMinMax } from '../../utils/math';
+import { randomIntMinMax } from '../../utils/math';
 import { setCanvasDimensions } from '../../utils/canvas';
 
 import '../../scss/night-sky.scss';
@@ -9,12 +9,13 @@ import '../../scss/night-sky.scss';
 const NUM_STARS = 1000;
 
 class Star {
-  constructor({ x, y, size, alpha, alphaStep }) {
+  constructor({ x, y, size, alpha, alphaStep, alphaDirection }) {
     this.x = x;
     this.y = y;
     this.size = size;
     this.alpha = alpha;
     this.alphaStep = alphaStep;
+    this.alphaDirection = alphaDirection;
   }
 
   updateAlpha = () => {
@@ -29,8 +30,6 @@ class Star {
     }
 
     this.alpha = newAlpha;
-    // this.x = this.x + 1;
-    // this.y = this.y + 1;
   }
 }
 
@@ -51,12 +50,14 @@ const StarField = React.memo(({ currentPalette }) => {
     const stars = [];
 
     for (let idx = 0; idx < NUM_STARS; idx++) {
+      let alphaStep = randomIntMinMax(5, 11) / 3000;
+      alphaStep *= randomIntMinMax(1, 3) === 1 ? -1 : 1;
       const star = new Star({
         x: randomIntMinMax(1, canvas.width),
         y: randomIntMinMax(1, canvas.height),
         size: randomIntMinMax(1, 5),
-        alpha: randomFloatMinMax(0, 1),
-        alphaStep: randomIntMinMax(1, 11) / 2000,
+        alpha: 0,
+        alphaStep,
       });
       stars.push(star);
     }
