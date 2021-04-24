@@ -6,6 +6,7 @@ import Home from '../home';
 import Projects from '../projects';
 import OddsAndEnds from '../odds_ends';
 import CSSChallenges from '../odds_ends/css_challenges';
+import Squeebs from './squeebs';
 
 const Display = ({ isHidden, palette, _setPalette }) => {
   return(
@@ -15,6 +16,7 @@ const Display = ({ isHidden, palette, _setPalette }) => {
         <Route path='/odds-and-ends' component={ () => <OddsAndEnds isHidden={ isHidden } /> }/>
         <Route path='/projects' component={ () => <Projects isHidden={ isHidden } /> }/>
         <Route path='/css' component={ () => <CSSChallenges isHidden={ isHidden } /> }/>
+        <Route path='/squeebs' component={ () => <Squeebs isHidden={ isHidden } /> }/>
         <Route path='/' component={ () => (
           <Home isHidden={ isHidden } currentPalette={ palette } _setPalette={ _setPalette } />
         ) }/>
