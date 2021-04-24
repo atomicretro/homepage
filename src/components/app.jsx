@@ -61,7 +61,6 @@ const App = () => {
       className={ `app app--${currentPalette}` }
       onClick={ (e) => { _hideStuff(false); } }
       onKeyDown={ handleKeyDown }
-
       tabIndex={ isStuffHidden ? '0' : '-1' }>
 
       <NightSky currentPalette={ currentPalette } />

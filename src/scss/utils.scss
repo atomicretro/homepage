@@ -13,10 +13,3 @@
   text-shadow: inherit;
   text-align: inherit;
 }
-
-@mixin button-fake-link {
-  color: #1d50c2;
-  &:focus, &:hover {
-    color: #fe7160;
-  }
-}

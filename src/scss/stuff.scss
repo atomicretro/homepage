@@ -53,12 +53,8 @@
     align-items: center;
     justify-content: space-around;
   }
-  a:link {
-    font-size: 13px;
-  }
-  a:visited {
-    font-size: 13px;
-  }
+  a:link,
+  a:visited,
   button {
     font-size: 13px;
   }
@@ -86,12 +82,8 @@
     span {
       width: 90%;
     }
-    a:link {
-      font-size: 15px;
-    }
-    a:visited {
-      font-size: 15px;
-    }
+    a:link,
+    a:visited,
     button {
       font-size: 15px;
     }
@@ -108,12 +100,8 @@
   }
 
   .navbar {
-    a:link {
-      font-size: 18px;
-    }
-    a:visited {
-      font-size: 18px;
-    }
+    a:link,
+    a:visited,
     button {
       font-size: 18px;
     }
