@@ -1,0 +1,106 @@
+.css-challenges-51 {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #313c46;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.css-challenges-51__display {
+  position: relative;
+  height: 40px;
+  width: 110px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.css-challenges-51__pause {
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 25px;
+  height: 25px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+
+  border-style: solid;
+  border-width: 0px 8px 0px 8px;
+  border-color: #ffffff;
+
+  &:checked {
+    border-width: 13px 0px 13px 25px;
+    border-color: transparent transparent transparent #ffffff;
+  }
+  &:checked ~ .css-challenges-51__display {
+    & .css-challenges-51__display__numbers {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.css-challenges-51__display__numbers {
+  position: absolute;
+  top: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 32px;
+  line-height: 50px;
+}
+
+@mixin clock-animation {
+  animation-name: clock_tick;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, jump-end);
+}
+
+.css-challenges-51__display__numbers__thousands {
+  left: 7px;
+  @include clock-animation;
+  animation-duration: 10000s;
+}
+
+.css-challenges-51__display__numbers__hundreds {
+  left: 32px;
+  @include clock-animation;
+  animation-duration: 1000s;
+}
+
+.css-challenges-51__display__numbers__tens {
+  left: 57px;
+  @include clock-animation;
+  animation-duration: 100s;
+}
+
+.css-challenges-51__display__numbers__ones {
+  left: 82px;
+  @include clock-animation;
+  animation-duration: 10s;
+}
+
+@keyframes clock_tick {
+  0%   { top: -6px; }
+  10%  { top: -56px; }
+  20%  { top: -106px; }
+  30%  { top: -156px; }
+  40%  { top: -206px; }
+  50%  { top: -256px; }
+  60%  { top: -306px; }
+  70%  { top: -356px; }
+  80%  { top: -406px; }
+  90%  { top: -456px; }
+  100% { top: -506px; }
+}
