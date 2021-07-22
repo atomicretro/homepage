@@ -1,10 +1,6 @@
 import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
-
-import {
-  useLocation
-} from "react-router-dom";
-
+import { useLocation } from 'react-router-dom';
 
 import AppContext from '../context/app_context';
 import NightSky from './night_sky';

@@ -1,4 +1,4 @@
-.css-challenges-59 {
+.css-hover {
   position: relative;
   height: 300px;
   width: 300px;
@@ -9,14 +9,14 @@
   overflow: hidden;
 }
 
-.css-challenges-59__slice {
+.css-hover__slice {
   outline: 0;
   height: 1.5px;
   width: 100%;
   cursor: pointer;
 }
 
-.css-challenges-59__overlay {
+.css-hover__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,8 +30,8 @@
 
 @media only screen and (max-width: 767px) {
   @for $idx from 1 through 400 {
-    .css-challenges-59__slice--#{$idx}:focus ~ .css-challenges-59__overlay,
-    .css-challenges-59__slice--#{$idx}:hover ~ .css-challenges-59__overlay {
+    .css-hover__slice--#{$idx}:focus ~ .css-hover__overlay,
+    .css-hover__slice--#{$idx}:hover ~ .css-hover__overlay {
       $size: $idx * 1.5;
       height: #{$size}px;
       transition: none;
@@ -39,7 +39,7 @@
   }
 }
 
-.css-challenges-59__text {
+.css-hover__text {
   position: absolute;
   top: 50%;
   right: 0;
@@ -55,33 +55,33 @@
   transform: translateY(-50%);
 }
 
-.css-challenges-59__text--one {
+.css-hover__text--one {
   z-index: 1;
 }
-.css-challenges-59__text--two {
+.css-hover__text--two {
   filter: blur(5px);
   z-index: 3;
 }
 
 @media only screen and (min-width: 768px) {
-  .css-challenges-59 {
+  .css-hover {
     height: 400px;
     width: 400px;
   }
 
-  .css-challenges-59__slice {
+  .css-hover__slice {
     height: 2px;
     width: 100%;
     cursor: pointer;
   }
-  
-  .css-challenges-59__overlay {
+
+  .css-hover__overlay {
     height: 200px;
   }
 
   @for $idx from 1 through 400 {
-    .css-challenges-59__slice--#{$idx}:focus ~ .css-challenges-59__overlay,
-    .css-challenges-59__slice--#{$idx}:hover ~ .css-challenges-59__overlay {
+    .css-hover__slice--#{$idx}:focus ~ .css-hover__overlay,
+    .css-hover__slice--#{$idx}:hover ~ .css-hover__overlay {
       $size: $idx * 2;
       height: #{$size}px;
       transition: none;

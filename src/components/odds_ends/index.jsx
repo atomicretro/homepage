@@ -14,11 +14,11 @@ const OddsAndEnds = ({ isHidden }) => {
           From <a href='https://100dayscss.com/' rel='noopener noreferrer' target='_blank'>100 Days CSS Challenge</a>
         </span>
         { /* <Link tabIndex={ tabIndex } to='/css/05'>05</Link> */ }
-        <Link tabIndex={ tabIndex } to='/css/46'>46</Link>
-        <Link tabIndex={ tabIndex } to='/css/48'>48</Link>
-        <Link tabIndex={ tabIndex } to='/css/51'>51</Link>
-        <Link tabIndex={ tabIndex } to='/css/59'>59</Link>
-        <Link tabIndex={ tabIndex } to='/css/79'>79</Link>
+        <Link tabIndex={ tabIndex } to='/css/alien'>alien</Link>
+        <Link tabIndex={ tabIndex } to='/css/clock'>clock</Link>
+        <Link tabIndex={ tabIndex } to='/css/hover'>hover</Link>
+        <Link tabIndex={ tabIndex } to='/css/monster'>monster</Link>
+        <Link tabIndex={ tabIndex } to='/css/segments'>segments</Link>
       </div>
     </div>
   );

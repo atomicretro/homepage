@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../scss/css_challenges/46.scss';
+import '../../../../scss/css_challenges/alien.scss';
 
 const unchecked = {
   129: true,    186: true,    212: true,
@@ -17,9 +17,9 @@ const unchecked = {
   172: true,    211: true,    273: true,
 };
 
-const Challenges46 = () => {
+const Alien = () => {
   return (
-    <div className='css-challenges-46'>
+    <div className='css-alien'>
       {
         [ ...Array(400).keys() ].map((idx) => (
           <input
@@ -34,4 +34,4 @@ const Challenges46 = () => {
   );
 };
 
-export default Challenges46;
+export default Alien;

@@ -29,3 +29,29 @@ export const secondaryColors = {
   WETLAND: '#a47e45',
   NOSTALGIA: '#e7a7a5',
 };
+
+export const tertiaryColors = {
+  NIGHTSKY: '#2753bb',
+  PASTEL: '#3080f6',
+  GRANDMA: '#f4b386',
+  MARS: '#3080f6',
+  PURPLY: '#8368af',
+  VIVID: '#4f6baf',
+  FOREST: '#7a6739',
+  RHENIUM: '#ec5a4d',
+  SEWERS: '#babbbd',
+  NIKAIDO: '#3080f6',
+  SEPIA: '#314b6c',
+  WETLAND: '#314b6c',
+  NOSTALGIA: '#b99bf7',
+};
+
+export const quaternaryColors = {
+  NIGHTSKY: '#fec060',
+  MARS: '#e3dbb2',
+  FOREST: '#3080f6',
+  RHENIUM: '#e4f4da',
+  SEPIA: '#ceab73',
+  WETLAND: '#f5c8ad',
+  NOSTALGIA: '#6a88c4',
+};

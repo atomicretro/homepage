@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
-import { Link, Route, Switch, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
+
+import Challenges from './challenges';
+import * as Explanations from './explanations';
 
 import '../../../scss/css_challenges/index.scss';
 
-import Challenges05 from './05';
-import Challenges46 from './46';
-import Challenges48 from './48';
-import Challenges51 from './51';
-import Challenges59 from './59';
-import Challenges79 from './79';
-
-import * as Explanations from './explanations';
-
-const explanationSwitcher = (challengeNumber, className) => {
+const explanationSwitcher = (challengeName, className) => {
   try {
-    return Explanations[`Explanation${challengeNumber}`]({ className });
+    const capitalized = challengeName.slice(0, 1).toUpperCase() + challengeName.slice(1);
+    return Explanations[`Explanation${capitalized}`]({ className });
   } catch (err) {
     return null;
   }
@@ -30,10 +25,10 @@ const CSSChallenges = () => {
   });
 
   const pathArray = (location.pathname || '').split('/');
-  const challengeNumber = pathArray[pathArray.length - 1];
+  const challengeName = pathArray[pathArray.length - 1];
   const explanationClass = classNames(
     'css-challenges__explanation-text',
-    `css-challenges__explanation-text--${challengeNumber}`,
+    `css-challenges__explanation-text--${challengeName}`,
     {
       'css-challenges__explanation-text--hide': !showExplanation,
     },
@@ -48,14 +43,7 @@ const CSSChallenges = () => {
       </Link>
 
       <div className={ submissionClass }>
-        <Switch>
-          <Route path='/css/05' component={ Challenges05 } />
-          <Route path='/css/46' component={ Challenges46 } />
-          <Route path='/css/48' component={ Challenges48 } />
-          <Route path='/css/51' component={ Challenges51 } />
-          <Route path='/css/59' component={ Challenges59 } />
-          <Route path='/css/79' component={ Challenges79 } />
-        </Switch>
+        <Challenges />
       </div>
 
       <button
@@ -65,7 +53,7 @@ const CSSChallenges = () => {
         { showExplanation ? 'Hide' : 'See' } Explanation
       </button>
 
-      { explanationSwitcher(challengeNumber, explanationClass) }
+      { explanationSwitcher(challengeName, explanationClass) }
     </div>
   );
 };

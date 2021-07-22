@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import '../../../scss/css_challenges/51.scss';
+import '../../../../scss/css_challenges/clock.scss';
 
 const NumbersRibbon = ({ position }) => {
   const className = classNames(
-    'css-challenges-51__display__numbers',
-    `css-challenges-51__display__numbers__${position}`
+    'css-clock__display__numbers',
+    `css-clock__display__numbers__${position}`
   );
 
   return (
@@ -25,17 +25,15 @@ const NumbersRibbon = ({ position }) => {
   );
 };
 
-const Challenges51 = ({ showExplanation }) => {
-  const className = classNames('css-challenges-51', {
-    'css-challenges-51--blur': showExplanation,
-  });
-
+const Clock = () => {
   return (
-    <div className={ className }>
+    <div className='css-clock'>
       <input
-        className='css-challenges-51__pause'
+        className='css-clock__input'
         type='checkbox' />
-      <div className='css-challenges-51__display'>
+      <div className='css-clock__pause' />
+      <div className='css-clock__play' />
+      <div className='css-clock__display'>
         <NumbersRibbon position='thousands' />
         <NumbersRibbon position='hundreds' />
         <NumbersRibbon position='tens' />
@@ -45,4 +43,4 @@ const Challenges51 = ({ showExplanation }) => {
   );
 };
 
-export default Challenges51;
+export default Clock;

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import '../../../scss/css_challenges/05.scss';
+import '../../../../scss/css_challenges/05.scss';
 
 const Challenges05 = ({ showExplanation }) => {
   const className = classNames('css-challenges-05', {

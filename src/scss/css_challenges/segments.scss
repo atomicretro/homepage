@@ -1,6 +1,6 @@
 @import '../palettes';
 
-.css-challenges-79 {
+.css-segments {
   position: relative;
   height: 300px;
   width: 300px;
@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-.css-challenges-79__box {
+.css-segments__box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +21,7 @@
   font-weight: bold;
   color: rgba(255, 255, 255, 0);
   cursor: pointer;
-  outline: 0; 
+  outline: 0;
   transition:
     height 0.75s ease,
     font-size 0.75s ease,
@@ -46,25 +46,25 @@
   }
 }
 
-.css-challenges-79__dark {
+.css-segments__dark {
   height: 25%;
   width: 100%;
   background: $NOSTALGIA-primary;
 }
 
-.css-challenges-79__light {
+.css-segments__light {
   height: 25%;
   width: 100%;
   background: $NOSTALGIA-secondary;
 }
 
 @media only screen and (min-width: 768px) {
-  .css-challenges-79 {
+  .css-segments {
     height: 400px;
     width: 400px;
   }
 
-  .css-challenges-79__box {
+  .css-segments__box {
     &:focus,
     &:hover {
       font-size: 30px;
