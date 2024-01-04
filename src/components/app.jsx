@@ -14,10 +14,7 @@ import '../scss/palettes.scss';
 import '../scss/app.scss';
 
 const App = () => {
-  const {
-    currentPalette,
-    _setPalette,
-  } = useContext(AppContext);
+  const { currentPalette, _setPalette } = useContext(AppContext);
   const location = useLocation();
 
   const [isStuffHidden, _hideStuff] = useState(location.pathname === '/');
@@ -65,18 +62,22 @@ const App = () => {
         isHidden={ isStuffHidden }
         palette={ currentPalette }
         _setIsHidden={ _hideStuff }
-        _setPalette={ _setPalette } />
+        _setPalette={ _setPalette }
+      />
 
       <button
         className={ `${paletteButtonClass}` }
         onClick={ pickRandomPalette }
-        onMouseUp={ (e) => { e.currentTarget.blur(); } }>
+        onMouseUp={ (e) => { e.currentTarget.blur(); } }
+      >
         Random palette
       </button>
+
       <button
         className={ `${instructionsButtonClass}` }
         onMouseUp={ (e) => { e.currentTarget.blur(); } }
-        tabIndex={ isStuffHidden ? '0' : '-1' }>
+        tabIndex={ isStuffHidden ? '0' : '-1' }
+      >
         Click to enter
       </button>
     </main>
