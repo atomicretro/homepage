@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../scss/odds-ends.scss';
+import '../../scss/odds-ends.css';
 
 const OddsAndEnds = ({ isHidden }) => {
   const tabIndex = isHidden ? '-1' : '0';

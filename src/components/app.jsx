@@ -9,9 +9,9 @@ import Stuff from './stuff';
 import palettes from '../utils/palettes';
 import { randomIntMinMax } from '../utils/math';
 
-import '../scss/utils.scss';
-import '../scss/palettes.scss';
-import '../scss/app.scss';
+import '../scss/utils.css';
+import '../scss/palettes.css';
+import '../scss/app.css';
 
 const App = () => {
   const { currentPalette, _setPalette } = useContext(AppContext);

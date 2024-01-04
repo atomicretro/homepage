@@ -3,7 +3,7 @@ import React from 'react';
 import PaletteCard from './palette_card';
 import allPalettes from '../../utils/palettes';
 
-import '../../scss/home.scss';
+import '../../scss/home.css';
 
 const Home = ({ isHidden, currentPalette, _setPalette }) => {
   return (

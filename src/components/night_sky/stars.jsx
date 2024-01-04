@@ -4,7 +4,7 @@ import { primaryColors, secondaryColors } from '../../utils/colors';
 import { randomIntMinMax } from '../../utils/math';
 import { setCanvasDimensions } from '../../utils/canvas';
 
-import '../../scss/night-sky.scss';
+import '../../scss/night-sky.css';
 
 const NUM_STARS = 1000;
 

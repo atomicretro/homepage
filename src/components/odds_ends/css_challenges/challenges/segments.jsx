@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../scss/css_challenges/segments.scss';
+import '../../../../scss/css_challenges/segments.css';
 
 const Segments = () => {
   return (

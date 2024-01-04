@@ -2,7 +2,7 @@ import React, { useEffect, useRef} from 'react';
 
 import { primaryColors } from '../../utils/colors';
 
-import '../../scss/night-sky.scss';
+import '../../scss/night-sky.css';
 
 const Background = React.memo(({ currentPalette }) => {
   const ref = useRef();

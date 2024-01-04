@@ -28,7 +28,7 @@
   transition: height 1s ease;
 }
 
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
   @for $idx from 1 through 400 {
     .css-hover__slice--#{$idx}:focus ~ .css-hover__overlay,
     .css-hover__slice--#{$idx}:hover ~ .css-hover__overlay {
@@ -37,7 +37,7 @@
       transition: none;
     }
   }
-}
+} */
 
 .css-hover__text {
   position: absolute;
@@ -79,12 +79,12 @@
     height: 200px;
   }
 
-  @for $idx from 1 through 400 {
+  /* @for $idx from 1 through 400 {
     .css-hover__slice--#{$idx}:focus ~ .css-hover__overlay,
     .css-hover__slice--#{$idx}:hover ~ .css-hover__overlay {
       $size: $idx * 2;
       height: #{$size}px;
       transition: none;
     }
-  }
+  } */
 }

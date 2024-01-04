@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Challenges from './challenges';
 import * as Explanations from './explanations';
 
-import '../../../scss/css_challenges/index.scss';
+import '../../../scss/css_challenges/index.css';
 
 const explanationSwitcher = (challengeName, className) => {
   try {

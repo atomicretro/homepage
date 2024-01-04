@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import AppProvider from './context/app_provider';
 import App from './components/app';
 
-import './scss/reset.scss';
+import './scss/reset.css';
 
 ReactDOM.render(
   <AppProvider>

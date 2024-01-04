@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../scss/css_challenges/hover.scss';
+import '../../../../scss/css_challenges/hover.css';
 
 const Hover = () => {
   return (
