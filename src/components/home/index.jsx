@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { usePaletteContext } from '../../context/palette_provider';
 
-import PaletteCard from './palette_card';
+import { PaletteCard } from './palette_card';
 import { OutsideLink } from '../library/links/outside_link';
 
 const StyledHome = styled.div`
@@ -36,128 +36,6 @@ const StyledHome = styled.div`
     align-self: flex-end;
     font-size: 12px;
     margin: 30px 0 0 0;
-  }
-
-  .palette_card {
-    @include button-no-style;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-  }
-
-  .palette_card__img {
-    max-height: 50px;
-    max-width: 50px;
-    margin: 0 10px 0 0;
-  }
-
-  .palette_card__desc {
-    font-size: 24px;
-  }
-
-  .palette_card.palette_card--NIGHTSKY {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $NIGHTSKY-quaternary;
-    }
-  }
-
-  .palette_card.palette_card--PASTEL {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $PASTEL-secondary;
-    }
-  }
-
-  .palette_card.palette_card--GRANDMA {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $GRANDMA-secondary;
-    }
-  }
-
-  .palette_card.palette_card--MARS {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $MARS-secondary;
-    }
-  }
-
-  .palette_card.palette_card--PURPLY {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $PURPLY-secondary;
-    }
-  }
-
-  .palette_card.palette_card--VIVID {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $VIVID-secondary;
-    }
-  }
-
-  .palette_card.palette_card--FOREST {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $FOREST-secondary;
-    }
-  }
-
-  .palette_card.palette_card--RHENIUM {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $RHENIUM-secondary;
-    }
-  }
-
-  .palette_card.palette_card--SEWERS {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $SEWERS-tertiary;
-    }
-  }
-
-  .palette_card.palette_card--NIKAIDO {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $NIKAIDO-secondary;
-    }
-  }
-
-  .palette_card.palette_card--SEPIA {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $SEPIA-secondary;
-    }
-  }
-
-  .palette_card.palette_card--WETLAND {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $WETLAND-secondary;
-    }
-  }
-
-  .palette_card.palette_card--NOSTALGIA {
-    color: #000000;
-    &:focus, &:hover,
-    &.palette_card--selected {
-      color: $NOSTALGIA-secondary;
-    }
   }
 
   @media only screen and (min-width: 768px) {
@@ -193,8 +71,8 @@ const StyledHome = styled.div`
   }
 `;
 
-export function Home({ isHidden, currentPalette, setPalette }) {
-  const { paletteNames } = usePaletteContext();
+export function Home() {
+  const { palettes } = usePaletteContext();
 
   return (
     <StyledHome>
@@ -202,14 +80,8 @@ export function Home({ isHidden, currentPalette, setPalette }) {
 
       <div className='paints'>
         {
-          paletteNames.map((palette) => (
-            <PaletteCard
-              isHidden={isHidden}
-              isSelected={palette === currentPalette}
-              key={palette}
-              palette={palette}
-              setPalette={setPalette}
-            />
+          palettes.map((palette) => (
+            <PaletteCard key={palette.name} palette={palette} />
           ))
         }
       </div>

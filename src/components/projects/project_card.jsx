@@ -46,7 +46,7 @@ const StyledProjectCard = styled.div`
   }
 `;
 
-const ProjectCard = (props) => {
+export function ProjectCard(props) {
   const {
     desc,
     imgDesc,
@@ -86,5 +86,3 @@ const ProjectCard = (props) => {
     </StyledProjectCard>
   );
 }
-
-export default ProjectCard;

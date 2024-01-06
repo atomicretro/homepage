@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ProjectCard from './project_card';
+import { ProjectCard } from './project_card';
 
 const StyledProjects = styled.div`
   width: 80%;
