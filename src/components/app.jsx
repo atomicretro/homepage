@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { usePaletteContext } from '../context/palette_provider';
 import { useAppContext } from '../context/app_provider';
 
-import NightSky from './night_sky';
+import { NightSky } from './night_sky';
 import { Content } from './content';
 
 import { BackgroundButton } from './library/buttons/background_button';
