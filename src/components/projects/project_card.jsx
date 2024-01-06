@@ -46,11 +46,24 @@ const StyledProjectCard = styled.div`
   }
 `;
 
-const ProjectCard = ({ desc, imgDesc, imgSrc, link, tabIndex, title }) => {
+const ProjectCard = (props) => {
+  const {
+    desc,
+    imgDesc,
+    imgSrc,
+    link,
+    tabIndex,
+    title,
+  } = props;
+
   return (
     <StyledProjectCard>
       <a href={link} rel='noopener noreferrer' target='_blank'>
-        <img alt={imgDesc} className='project_card__img' src={imgSrc} />
+        <img
+          alt={imgDesc}
+          className='project_card__img'
+          src={ `${process.env.PUBLIC_URL}/projects/${imgSrc}` }
+        />
       </a>
 
       <div className='info'>
@@ -58,7 +71,7 @@ const ProjectCard = ({ desc, imgDesc, imgSrc, link, tabIndex, title }) => {
         <div className='description'>
           {desc}
           <p>
-            Live link:
+            Live link:&nbsp;
             <a
               href={link}
               rel='noopener noreferrer'

@@ -13,7 +13,7 @@ const Navbar = ({ isHidden, palette, _setIsHidden }) => {
     <span>
       <Link tabIndex={ tabIndex } to='/' onMouseUp={ handleMouseUp }>Home</Link>
       <Link tabIndex={ tabIndex } to='/projects' onMouseUp={ handleMouseUp }>Projects</Link>
-      <Link tabIndex={ tabIndex } to='/odds-and-ends' onMouseUp={ handleMouseUp }>Odds And Ends</Link>
+      <Link tabIndex={ tabIndex } to='/odds-and-ends' onMouseUp={ handleMouseUp }>Odds and Ends</Link>
       <Link tabIndex={ tabIndex } to='/contact' onMouseUp={ handleMouseUp }>Contact</Link>
       <button
         className={ `button-stargaze button-stargaze--${palette}` }

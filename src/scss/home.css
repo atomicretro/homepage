@@ -1,5 +1,4 @@
 @import './palettes';
-@import './utils';
 
 .home {
   display: flex;

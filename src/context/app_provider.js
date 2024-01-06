@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import AppContext from './app_context';
+import React, { createContext, useContext, useState } from 'react';
 
-import palettes from '../utils/palettes';
+import { palettes } from '../utils/palettes';
 
-const defaultPalette = palettes[0];
+const defaultPalette = palettes.NIGHTSKY;
 
-const AppProvider = (props) => {
-  const [currentPalette, _setPalette] = useState(defaultPalette);
+const AppContext = createContext();
+
+export const AppProvider = (props) => {
+  const [currentPalette, setPalette] = useState(defaultPalette);
+  const [showContent, setShowContent] = useState(false);
 
   const value = {
     currentPalette,
-    _setPalette,
+    setPalette,
+    setShowContent,
+    showContent,
   };
 
   return (
@@ -20,4 +24,11 @@ const AppProvider = (props) => {
   );
 }
 
-export default AppProvider;
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error('App context misconfigured');
+  }
+
+  return context;
+};

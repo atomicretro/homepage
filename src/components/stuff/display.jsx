@@ -7,17 +7,19 @@ import { Projects } from '../projects';
 import OddsAndEnds from '../odds_ends';
 import CSSChallenges from '../odds_ends/css_challenges';
 
-const Display = ({ isHidden, palette, _setPalette }) => {
+const Display = (props) => {
+  const { isHidden, palette, setPalette } = props;
+
   return(
     <section className={ `display display--${palette}` }>
       <Routes>
-        <Route path='/contact' component={ () => <Contact isHidden={ isHidden } /> }/>
-        <Route path='/odds-and-ends' component={ () => <OddsAndEnds isHidden={ isHidden } /> }/>
-        <Route path='/projects' component={ () => <Projects isHidden={ isHidden } /> }/>
-        <Route path='/css' component={ () => <CSSChallenges isHidden={ isHidden } /> }/>
-        <Route path='/' component={ () => (
-          <Home isHidden={ isHidden } currentPalette={ palette } _setPalette={ _setPalette } />
-        ) }/>
+        <Route path='/contact' element={<Contact isHidden={ isHidden } />}/>
+        <Route path='/odds-and-ends' element={<OddsAndEnds isHidden={ isHidden } />}/>
+        <Route path='/projects' element={<Projects isHidden={ isHidden } />}/>
+        <Route path='/css' element={<CSSChallenges isHidden={ isHidden } />}/>
+        <Route path='/' element={
+          <Home isHidden={ isHidden } currentPalette={ palette } setPalette={ setPalette } />
+        }/>
       </Routes>
     </section>
   );

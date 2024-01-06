@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const PaletteCard = ({ isHidden, isSelected, palette, _setPalette }) => {
+const PaletteCard = ({ isHidden, isSelected, palette, setPalette }) => {
   const paletteClass = classNames(`palette_card palette_card--${palette}`, {
     'palette_card--selected': isSelected,
   });
@@ -9,7 +9,7 @@ const PaletteCard = ({ isHidden, isSelected, palette, _setPalette }) => {
   return (
     <button
       className={ paletteClass }
-      onClick={ (e) => { e.stopPropagation(); _setPalette(palette); } }
+      onClick={ (e) => { e.stopPropagation(); setPalette(palette); } }
       onKeyDown={ (e) => { e.stopPropagation(); } }
       onMouseUp={ (e) => { e.currentTarget.blur(); } }
       tabIndex={ isHidden ? '-1' : '0' }>

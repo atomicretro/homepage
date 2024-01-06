@@ -7,7 +7,7 @@ import Navbar from './navbar';
 
 import '../../scss/stuff.css';
 
-const Stuff = ({ isHidden, palette, _setIsHidden, _setPalette }) => {
+const Stuff = ({ isHidden, palette, _setIsHidden, setPalette }) => {
   const stuffClass = classNames('stuff', {
     'stuff--hidden': isHidden,
   });
@@ -16,7 +16,7 @@ const Stuff = ({ isHidden, palette, _setIsHidden, _setPalette }) => {
     <section className={ stuffClass }>
       <Header isHidden={ isHidden } _setIsHidden={ _setIsHidden } />
       <Navbar isHidden={ isHidden } palette={ palette } _setIsHidden={ _setIsHidden } />
-      <Display isHidden={ isHidden } palette={ palette } _setPalette={ _setPalette } />
+      <Display isHidden={ isHidden } palette={ palette } setPalette={ setPalette } />
     </section>
   );
 }

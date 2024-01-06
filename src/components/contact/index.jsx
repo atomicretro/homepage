@@ -7,7 +7,7 @@ const StyledContact = styled.div`
   align-items: center;
   margin: 30px 0 0 0;
 
-  .a {
+  a {
     font-size: 30px;
     margin: 0 0 60px 0;
 

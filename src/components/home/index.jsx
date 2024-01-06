@@ -1,23 +1,23 @@
 import React from 'react';
 
 import PaletteCard from './palette_card';
-import allPalettes from '../../utils/palettes';
+import { paletteNames } from '../../utils/palettes';
 
 import '../../scss/home.css';
 
-const Home = ({ isHidden, currentPalette, _setPalette }) => {
+const Home = ({ isHidden, currentPalette, setPalette }) => {
   return (
     <div className='home'>
       <h2 className='home__title'>Paint the sky</h2>
       <div className='home__grid'>
         {
-          allPalettes.map((palette) => (
+          paletteNames.map((palette) => (
             <PaletteCard
               isHidden={ isHidden }
               isSelected={ palette === currentPalette }
               key={ palette }
               palette={ palette }
-              _setPalette={ _setPalette } />
+              setPalette={ setPalette } />
           ))
         }
       </div>
