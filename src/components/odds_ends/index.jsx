@@ -1,25 +1,56 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { styled } from 'styled-components';
 
-import '../../scss/odds-ends.css';
+import { OutsideLink } from '../library/links/outside_link';
+import { RouterLink } from '../library/links/router_link';
 
-export function OddsAndEnds({ isHidden }) {
-  const tabIndex = isHidden ? '-1' : '0';
+const StyledOddsAndEnds = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0 0;
 
+  a {
+    font-size: 30px;
+    margin: 0 0 20px 0;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+
+    span {
+      font-size: 10px;
+      margin: 0 0 20px 0;
+
+      a {
+        font-size: 10px;
+      }
+    }
+  }
+`;
+
+export function OddsAndEnds() {
   return (
-    <div className='odds-ends'>
-      <div className='odds-ends__column'>
-        <h2 className='odds-ends__column__header'>CSS Challenges</h2>
-        <span className='odds-ends__column__link'>
-          From <a href='https://100dayscss.com/' rel='noopener noreferrer' target='_blank'>100 Days CSS Challenge</a>
+    <StyledOddsAndEnds>
+      <div className='column'>
+        <h2>CSS Challenges</h2>
+
+        <span>
+          From <OutsideLink to='https://100dayscss.com/'>100 Days CSS Challenge</OutsideLink>
         </span>
-        { /* <Link tabIndex={ tabIndex } to='/css/05'>05</Link> */ }
-        <Link tabIndex={ tabIndex } to='/css/alien'>alien</Link>
-        <Link tabIndex={ tabIndex } to='/css/clock'>clock</Link>
-        <Link tabIndex={ tabIndex } to='/css/hover'>hover</Link>
-        <Link tabIndex={ tabIndex } to='/css/monster'>monster</Link>
-        <Link tabIndex={ tabIndex } to='/css/segments'>segments</Link>
+
+        <RouterLink to='/css/alien'>alien</RouterLink>
+        <RouterLink to='/css/clock'>clock</RouterLink>
+        <RouterLink to='/css/hover'>hover</RouterLink>
+        <RouterLink to='/css/monster'>monster</RouterLink>
+        <RouterLink to='/css/segments'>segments</RouterLink>
       </div>
-    </div>
+    </StyledOddsAndEnds>
   );
 }

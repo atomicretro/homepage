@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { OutsideLink } from '../library/links/outside_link';
+
 const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,42 +19,12 @@ const StyledContact = styled.div`
   }
 `;
 
-export function Contact({ isHidden }) {
-  const handleMouseUp = (e) => {
-    e.currentTarget.blur();
-  }
-
-  const tabIndex = isHidden ? '-1' : '0';
-
+export function Contact() {
   return (
     <StyledContact>
-      <a
-        href='mailto:ajcuccia+dev@gmail.com'
-        onMouseUp={ handleMouseUp }
-        tabIndex={ tabIndex }
-      >
-        Email
-      </a>
-
-      <a
-        href='https://www.github.com/atomicretro'
-        onMouseUp={ handleMouseUp }
-        rel='noopener noreferrer'
-        tabIndex={ tabIndex }
-        target='_blank'
-      >
-        GitHub
-      </a>
-
-      <a
-        href='https://www.linkedin.com/in/alec-cuccia'
-        onMouseUp={ handleMouseUp }
-        rel='noopener noreferrer'
-        tabIndex={ tabIndex }
-        target='_blank'
-      >
-        LinkedIn
-      </a>
+      <OutsideLink to='mailto:ajcuccia+dev@gmail.com'>Email</OutsideLink>
+      <OutsideLink to='https://www.github.com/atomicretro'>GitHub</OutsideLink>
+      <OutsideLink to='https://www.linkedin.com/in/alec-cuccia'>LinkedIn</OutsideLink>
     </StyledContact>
   );
 }

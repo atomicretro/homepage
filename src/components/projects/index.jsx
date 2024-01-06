@@ -29,13 +29,11 @@ const projectsList = [
   },
 ];
 
-export function Projects({ isHidden }) {
-  const tabIndex = isHidden ? '-1' : '0';
-
+export function Projects() {
   return (
     <StyledProjects>
       { projectsList.map((project) => (
-        <ProjectCard {...project} key={project.title} tabIndex={ tabIndex } />
+        <ProjectCard key={project.title} {...project} />
       )) }
     </StyledProjects>
   );

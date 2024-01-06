@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { OutsideLink } from '../library/links/outside_link';
+
 const StyledProjectCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,7 +54,6 @@ export function ProjectCard(props) {
     imgDesc,
     imgSrc,
     link,
-    tabIndex,
     title,
   } = props;
 
@@ -62,7 +63,7 @@ export function ProjectCard(props) {
         <img
           alt={imgDesc}
           className='project_card__img'
-          src={ `${process.env.PUBLIC_URL}/projects/${imgSrc}` }
+          src={`${process.env.PUBLIC_URL}/projects/${imgSrc}`}
         />
       </a>
 
@@ -70,17 +71,7 @@ export function ProjectCard(props) {
         <h2 className='title'>{title}</h2>
         <div className='description'>
           {desc}
-          <p>
-            Live link:&nbsp;
-            <a
-              href={link}
-              rel='noopener noreferrer'
-              tabIndex={tabIndex}
-              target='_blank'
-            >
-              {title}
-            </a>
-          </p>
+          <p>Live link: <OutsideLink to={link}>{title}</OutsideLink></p>
         </div>
       </div>
     </StyledProjectCard>

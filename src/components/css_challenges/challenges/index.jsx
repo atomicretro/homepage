@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Challenges05 from './05';
 import Alien from './alien';
 import Monster from './monster';
 import Clock from './clock';
@@ -11,7 +10,6 @@ import Segments from './segments';
 const Challenges = () => {
   return (
     <Routes>
-      <Route path='/css/05' component={ Challenges05 } />
       <Route path='/css/alien' component={ Alien } />
       <Route path='/css/clock' component={ Clock } />
       <Route path='/css/hover' component={ Hover } />

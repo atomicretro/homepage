@@ -18,14 +18,21 @@ export function OutsideLink(props) {
   const { tabIndex } = useAppContext();
   const paletteContext = usePaletteContext();
 
+  let extraProps = {};
+  if (to.includes('mailto') === false) {
+    extraProps = {
+      rel: 'noopener noreferrer',
+      target: '_blank',
+    };
+  }
+
   return (
     <StyledOutsideLink
       className={className}
       href={to}
       onMouseUp={(e) => e.currentTarget.blur()}
-      rel='noopener noreferrer'
       tabIndex={tabIndex}
-      target='_blank'
+      {...extraProps}
       $colors={paletteContext}
     >
       {children}

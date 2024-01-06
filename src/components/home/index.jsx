@@ -79,11 +79,9 @@ export function Home() {
       <h2>Paint the sky</h2>
 
       <div className='paints'>
-        {
-          palettes.map((palette) => (
-            <PaletteCard key={palette.name} palette={palette} />
-          ))
-        }
+        { palettes.map((palette) => (
+          <PaletteCard key={palette.name} palette={palette} />
+        )) }
       </div>
 
       <span className='acknowledgment'>
