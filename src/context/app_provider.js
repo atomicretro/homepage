@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 
 import { palettes } from '../utils/palettes';
 
@@ -10,11 +10,14 @@ export const AppProvider = (props) => {
   const [currentPalette, setPalette] = useState(defaultPalette);
   const [showContent, setShowContent] = useState(false);
 
+  const tabIndex = useMemo(() => showContent ? '0' : '-1', [showContent]);
+
   const value = {
     currentPalette,
     setPalette,
     setShowContent,
     showContent,
+    tabIndex,
   };
 
   return (

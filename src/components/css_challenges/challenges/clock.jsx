@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import '../../../../scss/css_challenges/clock.css';
+import '../../../scss/css_challenges/clock.css';
 
 const NumbersRibbon = ({ position }) => {
   const className = classNames(

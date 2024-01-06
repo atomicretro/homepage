@@ -6,9 +6,9 @@ import { usePaletteContext } from '../context/palette_provider';
 import { useAppContext } from '../context/app_provider';
 
 import NightSky from './night_sky';
-import Stuff from './stuff';
+import { Content } from './content';
 
-import { BackgroundButton } from './buttons/background_button';
+import { BackgroundButton } from './library/buttons/background_button';
 
 import '../scss/palettes.css';
 
@@ -169,7 +169,7 @@ const StyledApp = styled.main`
 
 const App = () => {
   const location = useLocation();
-  const { currentPalette, pickRandomPalette, setPalette } = usePaletteContext();
+  const { currentPalette, pickRandomPalette } = usePaletteContext();
   const { showContent, setShowContent } = useAppContext();
   console.log('showContent', showContent);
 
@@ -193,12 +193,7 @@ const App = () => {
     >
       <NightSky currentPalette={ currentPalette } />
 
-      <Stuff
-        isHidden={ !showContent }
-        palette={ currentPalette }
-        _setIsHidden={ setShowContent }
-        setPalette={ setPalette }
-      />
+      <Content />
 
       <BackgroundButton
         className='main-button random-palette'

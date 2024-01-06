@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState } from 'react';
 
-import { palettes, paletteNames } from '../utils/palettes';
+import { palettes } from '../utils/palettes';
 import { randomIntMinMax } from '../utils/math';
 
 const PaletteContext = createContext(null);
 
 const defaultPalette = palettes.NIGHTSKY;
+const paletteNames = Object.keys(palettes);
 
 export const PaletteProvider = (props) => {
   const [currentPalette, setPalette] = useState(defaultPalette);
@@ -22,6 +23,7 @@ export const PaletteProvider = (props) => {
   const value = {
     currentPalette,
     ...currentPalette,
+    paletteNames,
     pickRandomPalette,
     setPalette,
   };

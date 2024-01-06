@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { usePaletteContext } from '../../context/palette_provider';
+import { usePaletteContext } from '../../../context/palette_provider';
 
 import { DefaultButton } from './default';
 
 const StyledBackgroundButton = styled(DefaultButton)`
   position: absolute;
   top: 10px;
-  color: ${({ $colors }) => $colors.links};
+  color: ${({ $colors }) => $colors.linksOverride || $colors.links};
   font-size: 16px;
   z-index: 100;
   opacity: 1;

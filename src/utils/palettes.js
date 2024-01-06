@@ -5,8 +5,9 @@ export const palettes = {
     tertiary: '#2753bb',
     quaternary: '#fec060',
 
-    links: '#ffffff',
+    links: '#2753bb',
     linksActive:'#fec060',
+    linksOverride: '#ffffff',
   },
   PASTEL: {
     primary: '#2753bb',
@@ -117,5 +118,3 @@ export const palettes = {
     linksActive:'#e7a7a5',
   },
 };
-
-export const paletteNames = Object.keys(palettes);

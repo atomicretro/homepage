@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../scss/css_challenges/monster.css';
+import '../../../scss/css_challenges/monster.css';
 
 const Monster = () => {
   return (

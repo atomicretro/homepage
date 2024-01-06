@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Challenges from './challenges';
 import * as Explanations from './explanations';
 
-import '../../../scss/css_challenges/index.css';
+import '../../scss/css_challenges/index.css';
 
 const explanationSwitcher = (challengeName, className) => {
   try {
@@ -16,7 +16,7 @@ const explanationSwitcher = (challengeName, className) => {
   }
 }
 
-const CSSChallenges = () => {
+export function CSSChallenges() {
   const [showExplanation, toggleExplanation] = useState(false);
   const location = useLocation();
 
@@ -57,5 +57,3 @@ const CSSChallenges = () => {
     </div>
   );
 };
-
-export default CSSChallenges;

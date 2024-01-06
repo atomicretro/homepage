@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../scss/css_challenges/alien.css';
+import '../../../scss/css_challenges/alien.css';
 
 const unchecked = {
   129: true,    186: true,    212: true,

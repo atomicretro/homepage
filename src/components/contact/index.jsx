@@ -24,7 +24,7 @@ export function Contact({ isHidden }) {
 
   const tabIndex = isHidden ? '-1' : '0';
 
-  return(
+  return (
     <StyledContact>
       <a
         href='mailto:ajcuccia+dev@gmail.com'

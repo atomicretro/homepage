@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../../scss/odds-ends.css';
 
-const OddsAndEnds = ({ isHidden }) => {
+export function OddsAndEnds({ isHidden }) {
   const tabIndex = isHidden ? '-1' : '0';
 
   return (
@@ -23,5 +23,3 @@ const OddsAndEnds = ({ isHidden }) => {
     </div>
   );
 }
-
-export default OddsAndEnds;
