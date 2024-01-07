@@ -204,6 +204,9 @@ const StyledMonster = styled.div`
 `;
 
 const description = <>
+  <p>Hover over the playing field to flee!</p>
+  <p>(works best in Chromium-based browsers)</p>
+  <div className='explanation-line' />
   <p>This challenge was actually a lot simplier than I thought it would be.</p>
   <p>I racked my brain for a while trying to figure out how to pass the cursor position to the chasing circle. Eventually I decided to break the field into a grid of squares, then use SCSS and math to loop through the grid and reverse engineer the coordinate positioning of each square.</p>
   <p>I thought this was cheating, but after looking at how the demo template was created I saw it was done in almost exactly the same way. So... if it is cheating, then teacher cheated too :D</p>

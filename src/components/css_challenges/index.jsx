@@ -43,6 +43,7 @@ export function CSSChallenges() {
 
         <RouterLink to='/css/alien'>alien</RouterLink>
         <RouterLink to='/css/clock'>clock</RouterLink>
+        <RouterLink to='/css/flower'>flower</RouterLink>
         <RouterLink to='/css/hover'>hover</RouterLink>
         <RouterLink to='/css/monster'>monster</RouterLink>
         <RouterLink to='/css/segments'>segments</RouterLink>

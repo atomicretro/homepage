@@ -8,9 +8,10 @@ import { LinkButton } from '../../library/buttons/link_button';
 import { RouterLink } from '../../library/links/router_link';
 
 import { Alien } from './alien';
-import { Monster } from './monster';
 import { Clock } from './clock';
+import { Flower } from './flower';
 import { Hover } from './hover';
+import { Monster } from './monster';
 import { Segments } from './segments';
 
 const StyledChallenges = styled.div`
@@ -47,6 +48,7 @@ export function Challenges() {
       <Routes>
         <Route path='/alien' element={<Alien />} />
         <Route path='/clock' element={<Clock />} />
+        <Route path='/flower' element={<Flower />} />
         <Route path='/hover' element={<Hover />} />
         <Route path='/monster' element={<Monster />} />
         <Route path='/segments' element={<Segments />} />

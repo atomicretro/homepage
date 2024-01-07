@@ -38,6 +38,13 @@ const StyledExplanation = styled.div`
     text-align: center;
     margin-bottom: 15px;
   }
+
+  .explanation-line {
+    width: 60%;
+    min-height: 2px;
+    background: black;
+    margin: 0 0 30px 0;
+  }
 `;
 
 export function Explanation(props) {
