@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { useAppContext } from '../../../context/app_provider';
 import { usePaletteContext } from '../../../context/palette_provider';
