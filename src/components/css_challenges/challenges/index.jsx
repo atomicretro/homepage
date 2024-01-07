@@ -11,6 +11,7 @@ import { Alien } from './alien';
 import { Clock } from './clock';
 import { Flower } from './flower';
 import { Hover } from './hover';
+import { LightsOut } from './lights_out';
 import { Monster } from './monster';
 import { Segments } from './segments';
 
@@ -50,6 +51,7 @@ export function Challenges() {
         <Route path='/clock' element={<Clock />} />
         <Route path='/flower' element={<Flower />} />
         <Route path='/hover' element={<Hover />} />
+        <Route path='/lights-out' element={<LightsOut />} />
         <Route path='/monster' element={<Monster />} />
         <Route path='/segments' element={<Segments />} />
       </Routes>

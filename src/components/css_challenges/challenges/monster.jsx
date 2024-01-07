@@ -32,7 +32,7 @@ const StyledMonster = styled.div`
     transition: all 0.5s ease-out;
   }
 
-  .monster:after{
+  .monster::after{
     content: '';
     position: absolute;
     top: -1px;
@@ -101,7 +101,7 @@ const StyledMonster = styled.div`
       width: 30px;
     }
 
-    .monster:after {
+    .monster::after {
       top: -1px;
       left: -1px;
       height: 30px;
@@ -151,7 +151,7 @@ const StyledMonster = styled.div`
       width: 25px;
     }
 
-    .monster:after {
+    .monster::after {
       top: -1px;
       left: -1px;
       height: 25px;
@@ -194,7 +194,7 @@ const StyledMonster = styled.div`
       width: 25px;
     }
 
-    .monster:after {
+    .monster::after {
       top: -1px;
       left: -1px;
       height: 25px;

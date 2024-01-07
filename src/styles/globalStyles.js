@@ -5,4 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     width: 100vw;
   }
+
+  strong {
+    font-weight: bold;
+  }
 `;

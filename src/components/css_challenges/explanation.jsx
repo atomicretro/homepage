@@ -55,14 +55,16 @@ export function Explanation(props) {
   return (
     <StyledExplanation $show={showExplanation}>
       {children}
-      <p>
-        <OutsideLink
-          tabIndex={showContent && showExplanation ? '0' : '-1'}
-          to={`https://100dayscss.com/days/${number}`}
-        >
-          To the challenge!
-        </OutsideLink>
-      </p>
+      {number &&
+        <p>
+          <OutsideLink
+            tabIndex={showContent && showExplanation ? '0' : '-1'}
+            to={`https://100dayscss.com/days/${number}`}
+          >
+            To the challenge!
+          </OutsideLink>
+        </p>
+      }
     </StyledExplanation>
   );
 };
