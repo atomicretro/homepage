@@ -1,86 +1,91 @@
-import React, { useContext, useState } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
-import AppContext from '../context/app_context';
-import NightSky from './night_sky';
-import Stuff from './stuff';
+import { usePaletteContext } from '../context/palette_provider';
+import { useAppContext } from '../context/app_provider';
 
-import palettes from '../utils/palettes';
-import { randomIntMinMax } from '../utils/math';
+import { NightSky } from './night_sky';
+import { Content } from './content';
 
-import '../scss/utils.scss';
-import '../scss/palettes.scss';
-import '../scss/app.scss';
+import { BackgroundButton } from './library/buttons/background_button';
 
-const App = () => {
-  const {
-    currentPalette,
-    _setPalette,
-  } = useContext(AppContext);
-  const location = useLocation();
+const StyledApp = styled.main`
+  outline: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  font-family: 'Alata', sans-serif;
+  overflow: hidden;
+  zoom: 100%;
 
-  const [isStuffHidden, _hideStuff] = useState(location.pathname === '/');
+  .background-button {
+    position: absolute;
+    top: 10px;
+  }
 
-  const handleKeyDown = (e) => {
-    const { keyCode } = e;
-    if (keyCode === 13 || keyCode === 32) {
-      _hideStuff(false);
+  .background-button.random-palette {
+    left: 10px;
+  }
+
+  .background-button.instructions {
+    right: 10px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .background-button {
+      top: 12px;
+      font-size: 18px;
+    }
+
+    .background-button.random-palette {
+      left: 12px;
+    }
+
+    .background-button.instructions {
+      right: 12px;
     }
   }
+`;
 
-  const pickRandomPalette = (e) => {
+export function App() {
+  const location = useLocation();
+  const { currentPalette, pickRandomPalette } = usePaletteContext();
+  const { showContent, setShowContent } = useAppContext();
+
+  React.useEffect(() => {
+    if (location.pathname !== '/') {
+      setShowContent(true);
+    }
+  }, [location.pathname, setShowContent]);
+
+  const handleRandomPaletteClick = (e) => {
     e.stopPropagation();
-    const currentIdx = palettes.findIndex((el) => el === currentPalette);
-    const duplicatedPalettes = [ ...palettes ];
-    duplicatedPalettes.splice(currentIdx, 1);
-    const nextIdx = randomIntMinMax(0, duplicatedPalettes.length);
-    const nextPalette = duplicatedPalettes[nextIdx];
-    _setPalette(nextPalette);
-  }
-
-  const paletteButtonClass = classNames(
-    'main-button',
-    'main-button--random-palette',
-    `main-button--${currentPalette}`,
-    { 'main-button--random-palette-hidden': !isStuffHidden },
-  );
-  const instructionsButtonClass = classNames(
-    'main-button',
-    'main-button--instructions',
-    `main-button--${currentPalette}`,
-    { 'main-button--instructions-hidden': !isStuffHidden },
-  );
+    pickRandomPalette();
+  };
 
   return (
-    <main
-      className={ `app app--${currentPalette}` }
-      onClick={ (e) => { _hideStuff(false); } }
-      onKeyDown={ handleKeyDown }
-      tabIndex={ isStuffHidden ? '0' : '-1' }>
+    <StyledApp
+      onClick={() => setShowContent(true)}
+      tabIndex={!showContent ? '0' : '-1'}
+    >
+      <NightSky currentPalette={currentPalette} />
 
-      <NightSky currentPalette={ currentPalette } />
+      <Content />
 
-      <Stuff
-        isHidden={ isStuffHidden }
-        palette={ currentPalette }
-        _setIsHidden={ _hideStuff }
-        _setPalette={ _setPalette } />
-
-      <button
-        className={ `${paletteButtonClass}` }
-        onClick={ pickRandomPalette }
-        onMouseUp={ (e) => { e.currentTarget.blur(); } }>
+      <BackgroundButton
+        className='background-button random-palette'
+        onClick={handleRandomPaletteClick}
+      >
         Random palette
-      </button>
-      <button
-        className={ `${instructionsButtonClass}` }
-        onMouseUp={ (e) => { e.currentTarget.blur(); } }
-        tabIndex={ isStuffHidden ? '0' : '-1' }>
+      </BackgroundButton>
+
+      <BackgroundButton
+        className='background-button instructions'
+        tabIndex={!showContent ? '0' : '-1'}
+      >
         Click to enter
-      </button>
-    </main>
+      </BackgroundButton>
+    </StyledApp>
   );
 }
-
-export default App;
