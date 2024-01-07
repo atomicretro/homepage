@@ -59,13 +59,13 @@ export function ProjectCard(props) {
 
   return (
     <StyledProjectCard>
-      <a href={link} rel='noopener noreferrer' target='_blank'>
+      <OutsideLink to={link}>
         <img
           alt={imgDesc}
           className='project_card__img'
           src={`${process.env.PUBLIC_URL}/projects/${imgSrc}`}
         />
-      </a>
+      </OutsideLink>
 
       <div className='info'>
         <h2 className='title'>{title}</h2>

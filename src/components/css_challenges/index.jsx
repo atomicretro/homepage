@@ -1,59 +1,74 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
+import React from 'react';
+import styled from 'styled-components';
 
-import Challenges from './challenges';
-import * as Explanations from './explanations';
+import { OutsideLink } from '../library/links/outside_link';
+import { RouterLink } from '../library/links/router_link';
 
-import '../../scss/css_challenges/index.css';
+const StyledCSSChallenges = styled.div`
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-const explanationSwitcher = (challengeName, className) => {
-  try {
-    const capitalized = challengeName.slice(0, 1).toUpperCase() + challengeName.slice(1);
-    return Explanations[`Explanation${capitalized}`]({ className });
-  } catch (err) {
-    return null;
+    h2 {
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+
+    span {
+      font-size: 10px;
+      margin: 0 0 20px 0;
+
+      a {
+        font-size: 10px;
+      }
+    }
+
+    a {
+      font-size: 30px;
+      margin: 0 0 20px 0;
+    }
   }
-}
+
+  /*
+  @media only screen and (min-width: 768px) {
+    .css-challenges__explanation-text {
+      width: 80%;
+      justify-content: center;
+
+      p {
+        width: 100%;
+      }
+    }
+
+    .css-challenges__explanation-text--alien,
+    .css-challenges__explanation-text--clock,
+    .css-challenges__explanation-text--hover {
+      height: 425px;
+    }
+    .css-challenges__explanation-text--monster,
+    .css-challenges__explanation-text--segments {
+      height: 525px;
+    }
+  } */
+`;
 
 export function CSSChallenges() {
-  const [showExplanation, toggleExplanation] = useState(false);
-  const location = useLocation();
-
-  const submissionClass = classNames('css-challenges__submission', {
-    'css-challenges__submission--blur': showExplanation,
-  });
-
-  const pathArray = (location.pathname || '').split('/');
-  const challengeName = pathArray[pathArray.length - 1];
-  const explanationClass = classNames(
-    'css-challenges__explanation-text',
-    `css-challenges__explanation-text--${challengeName}`,
-    {
-      'css-challenges__explanation-text--hide': !showExplanation,
-    },
-  );
-
   return (
-    <div className='css-challenges'>
-      <Link
-        className='css-challenges__return-link'
-        to='/odds-and-ends'>
-        Go back
-      </Link>
+    <StyledCSSChallenges>
+      <div className='column'>
+        <h2>CSS Challenges</h2>
 
-      <div className={ submissionClass }>
-        <Challenges />
+        <span>
+          From <OutsideLink to='https://100dayscss.com/'>100 Days CSS Challenge</OutsideLink>
+        </span>
+
+        <RouterLink to='/css/alien'>alien</RouterLink>
+        <RouterLink to='/css/clock'>clock</RouterLink>
+        <RouterLink to='/css/hover'>hover</RouterLink>
+        <RouterLink to='/css/monster'>monster</RouterLink>
+        <RouterLink to='/css/segments'>segments</RouterLink>
       </div>
-
-      <button
-        className='css-challenges__explanation-button'
-        onClick={ () => { toggleExplanation(!showExplanation); } }
-        onMouseUp={ (e) => { e.target.blur(); } }>
-        { showExplanation ? 'Hide' : 'See' } Explanation
-      </button>
-
-      { explanationSwitcher(challengeName, explanationClass) }
-    </div>
+    </StyledCSSChallenges>
   );
 };

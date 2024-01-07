@@ -48,7 +48,7 @@ const StyledNavBar = styled.nav`
 export function Navbar() {
   const { tabIndex, setShowContent } = useAppContext();
 
-  const handleWatchButtonPress = (e) => {
+  const handleStargazeButtonPress = (e) => {
     e.stopPropagation();
     setShowContent((prevShowContent) => !prevShowContent);
   };
@@ -60,7 +60,7 @@ export function Navbar() {
         <RouterLink tabIndex={tabIndex} to='/projects'>Projects</RouterLink>
         <RouterLink tabIndex={tabIndex} to='/odds-and-ends'>Odds and Ends</RouterLink>
         <RouterLink tabIndex={tabIndex} to='/contact'>Contact</RouterLink>
-        <LinkButton onClick={handleWatchButtonPress} tabIndex={tabIndex}>Watch</LinkButton>
+        <LinkButton onClick={handleStargazeButtonPress} tabIndex={tabIndex}>Stargaze</LinkButton>
       </div>
     </StyledNavBar>
   );

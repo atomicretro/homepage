@@ -7,8 +7,8 @@ import { PaletteProvider } from './context/palette_provider';
 
 import App from './components/app';
 
-import './scss/reset.css';
-import { GlobalStyle } from './scss/globalStyles';
+import './styles/reset.css';
+import { GlobalStyle } from './styles/globalStyles';
 
 const root = createRoot(document.getElementById('root'));
 root.render(

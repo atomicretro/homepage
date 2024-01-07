@@ -7,13 +7,6 @@ const StyledProjects = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  margin: 30px 0 0 0;
-
-  @media only screen and (min-width: 992px) {
-    .projects {
-      margin: 40px 0 0 0;
-    }
-  }
 `;
 
 const projectsList = [

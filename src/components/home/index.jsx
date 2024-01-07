@@ -10,7 +10,6 @@ const StyledHome = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 20px 0 0 0;
 
   &::after {
     content: 'buffer zone';

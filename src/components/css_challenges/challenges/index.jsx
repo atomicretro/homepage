@@ -1,22 +1,64 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Alien from './alien';
+import { useChallengesContext } from '../../../context/challenges_provider';
+
+import { LinkButton } from '../../library/buttons/link_button';
+import { RouterLink } from '../../library/links/router_link';
+
+import { Alien } from './alien';
 import Monster from './monster';
 import Clock from './clock';
 import Hover from './hover';
 import Segments from './segments';
 
-const Challenges = () => {
+const StyledChallenges = styled.div`
+  position: relative;
+  width: 100%;
+
+  .return-link {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 20px;
+  }
+
+  .explanation-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .return-link,
+    .explanation-button {
+      font-size: 24px;
+    }
+  }
+`;
+
+export function Challenges() {
+  const { showExplanation, toggleExplanation } = useChallengesContext();
+
   return (
-    <Routes>
-      <Route path='/css/alien' component={ Alien } />
-      <Route path='/css/clock' component={ Clock } />
-      <Route path='/css/hover' component={ Hover } />
-      <Route path='/css/monster' component={ Monster } />
-      <Route path='/css/segments' component={ Segments } />
-    </Routes>
+    <StyledChallenges $blur={showExplanation}>
+      <Routes>
+        <Route path='/alien' element={<Alien />} />
+        <Route path='/clock' element={<Clock />} />
+        <Route path='/hover' element={<Hover />} />
+        <Route path='/monster' element={<Monster />} />
+        <Route path='/segments' element={<Segments />} />
+      </Routes>
+
+      <RouterLink className='return-link' to='/odds-and-ends'>
+        Go back
+      </RouterLink>
+
+      <LinkButton className='explanation-button' onClick={toggleExplanation}>
+        { showExplanation ? 'Hide' : 'See' } Explanation
+      </LinkButton>
+    </StyledChallenges>
   );
 };
-
-export default Challenges;

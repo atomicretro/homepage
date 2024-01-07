@@ -1,6 +1,57 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import '../../../scss/css_challenges/alien.css';
+import { usePaletteContext } from '../../../context/palette_provider';
+
+import { ChallengeField } from '../challenge_field';
+import { Explanation } from '../explanation';
+
+const StyledAlien = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .alien {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #ffffff;
+    border: 1px solid ${({ $colors }) => $colors.primary};
+  }
+
+  .pixel {
+    appearance: none;
+    outline: 0;
+    height: 15px;
+    width: 15px;
+    background: #ffffff;
+    margin: 0;
+    cursor: pointer;
+
+    &:checked {
+      background: ${({ $colors }) => $colors.secondary};
+      border: 1px solid ${({ $colors }) => $colors.primary};
+    }
+    &:focus {
+      background: ${({ $colors }) => $colors.tertiary};
+      border: 1px solid ${({ $colors }) => $colors.primary};
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .alien {
+      height: 400px;
+      width: 400px;
+    }
+
+    .pixel {
+      height: 20px;
+      width: 20px;
+    }
+  }
+`;
 
 const unchecked = {
   129: true,    186: true,    212: true,
@@ -17,21 +68,32 @@ const unchecked = {
   172: true,    211: true,    273: true,
 };
 
-const Alien = () => {
+const description = <>
+  <p>At first I had no idea how I was going to complete this challenge, and walked away from it to do other things. Hours later, thinking about something else entirely, it hit me: "they're all checkboxes!"</p>
+  <p>Once I realized that, writing the code was straightforward. I used JS to create the series of checkboxes, but then used vanilla CSS to arrange them and style them into pixels.</p>
+  <p>The default image was brute-forced by figuring out which pixels are white in the demo template, and simply marking them "unchecked" as they are generated. It's low-tech, but since the default image is static I don't mind cheesing it a bit.</p>
+</>;
+
+export function Alien() {
+  const { currentPalette } = usePaletteContext();
+
   return (
-    <div className='css-alien'>
-      {
-        [ ...Array(400).keys() ].map((idx) => (
-          <input
-            className='pixel'
-            defaultChecked={ !unchecked[idx] }
-            key={ idx }
-            onMouseUp={ (e) => { e.target.blur(); } }
-            type='checkbox' />
-        ))
-      }
-    </div>
+    <StyledAlien $colors={currentPalette}>
+      <Explanation number='47'>{description}</Explanation>
+
+      <ChallengeField className='alien'>
+        {
+          [ ...Array(400).keys() ].map((idx) => (
+            <input
+              className='pixel'
+              defaultChecked={!unchecked[idx]}
+              key={idx}
+              onMouseUp={(e) => e.target.blur()}
+              type='checkbox'
+            />
+          ))
+        }
+      </ChallengeField>
+    </StyledAlien>
   );
 };
-
-export default Alien;
