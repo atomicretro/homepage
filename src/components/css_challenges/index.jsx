@@ -29,28 +29,6 @@ const StyledCSSChallenges = styled.div`
       margin: 0 0 20px 0;
     }
   }
-
-  /*
-  @media only screen and (min-width: 768px) {
-    .css-challenges__explanation-text {
-      width: 80%;
-      justify-content: center;
-
-      p {
-        width: 100%;
-      }
-    }
-
-    .css-challenges__explanation-text--alien,
-    .css-challenges__explanation-text--clock,
-    .css-challenges__explanation-text--hover {
-      height: 425px;
-    }
-    .css-challenges__explanation-text--monster,
-    .css-challenges__explanation-text--segments {
-      height: 525px;
-    }
-  } */
 `;
 
 export function CSSChallenges() {

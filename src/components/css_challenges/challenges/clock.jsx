@@ -171,7 +171,7 @@ const description = <>
   <p>To get the pause effect working I turned back to our good friend the checkbox. When you click on the pause button what you're actually doing is filling in an empty checkbox. Using the checkbox's :checked pseudo class and the CSS general sibling combinator I was able to set each column's animation-play-state to paused when the checkbox is checked.</p>
 </>;
 
-const Clock = () => {
+export function Clock() {
   const { currentPalette } = usePaletteContext();
 
   return (
@@ -192,5 +192,3 @@ const Clock = () => {
     </StyledClock>
   );
 };
-
-export default Clock;

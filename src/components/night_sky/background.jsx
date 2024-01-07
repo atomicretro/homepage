@@ -9,6 +9,7 @@ const StyledBackground = styled.div`
   z-index: -5;
 `;
 
-export function Background({ currentPalette }) {
+export function Background(props) {
+  const { currentPalette } = props;
   return <StyledBackground $colors={currentPalette} />;
 }

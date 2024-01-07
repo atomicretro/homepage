@@ -1,16 +1,16 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React from 'react';
 
 import { palettes } from '../utils/palettes';
 import { randomIntMinMax } from '../utils/math';
 
-const PaletteContext = createContext(null);
+const PaletteContext = React.createContext(null);
 
 const defaultPalette = palettes[0];
 
 export const PaletteProvider = (props) => {
-  const [currentPalette, setPalette] = useState(defaultPalette);
+  const [currentPalette, setPalette] = React.useState(defaultPalette);
 
-  const pickRandomPalette = useCallback(() => {
+  const pickRandomPalette = React.useCallback(() => {
     const currentIdx = palettes.findIndex((el) => el === currentPalette);
     const duplicatedPalettes = [ ...palettes ];
     duplicatedPalettes.splice(currentIdx, 1);
@@ -27,14 +27,14 @@ export const PaletteProvider = (props) => {
   };
 
   return (
-    <PaletteContext.Provider value={ value }>
-      { props.children }
+    <PaletteContext.Provider value={value}>
+      {props.children}
     </PaletteContext.Provider>
   );
 };
 
 export const usePaletteContext = () => {
-  const context = useContext(PaletteContext);
+  const context = React.useContext(PaletteContext);
   if (!context) {
     throw new Error('Palette context misconfigured');
   }

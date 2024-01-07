@@ -37,5 +37,5 @@ export function OutsideLink(props) {
     >
       {children}
     </StyledOutsideLink>
-  )
+  );
 }

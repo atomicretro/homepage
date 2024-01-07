@@ -15,5 +15,3 @@ export function NightSky() {
     </>
   );
 }
-
-export default NightSky;

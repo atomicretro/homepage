@@ -57,5 +57,5 @@ export function Explanation(props) {
         </OutsideLink>
       </p>
     </StyledExplanation>
-  )
+  );
 };

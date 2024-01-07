@@ -16,5 +16,5 @@ export function ChallengeField(props) {
     <StyledChallengeField className={className} $blur={showExplanation}>
       {children}
     </StyledChallengeField>
-  )
+  );
 }

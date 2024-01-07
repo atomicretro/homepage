@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import { AppProvider } from './context/app_provider';
 import { PaletteProvider } from './context/palette_provider';
 
-import App from './components/app';
+import { App } from './components/app';
 
 import './styles/reset.css';
 import { GlobalStyle } from './styles/globalStyles';

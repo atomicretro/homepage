@@ -99,7 +99,7 @@ const Box = (props) => {
   );
 };
 
-const Segments = () => {
+export function Segments() {
   const { currentPalette } = usePaletteContext();
 
   return (

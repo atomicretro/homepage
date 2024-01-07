@@ -8,10 +8,10 @@ import { LinkButton } from '../../library/buttons/link_button';
 import { RouterLink } from '../../library/links/router_link';
 
 import { Alien } from './alien';
-import Monster from './monster';
-import Clock from './clock';
-import Hover from './hover';
-import Segments from './segments';
+import { Monster } from './monster';
+import { Clock } from './clock';
+import { Hover } from './hover';
+import { Segments } from './segments';
 
 const StyledChallenges = styled.div`
   position: relative;
@@ -57,7 +57,7 @@ export function Challenges() {
       </RouterLink>
 
       <LinkButton className='explanation-button' onClick={toggleExplanation}>
-        { showExplanation ? 'Hide' : 'See' } Explanation
+        {showExplanation ? 'Hide' : 'See'} Explanation
       </LinkButton>
     </StyledChallenges>
   );

@@ -15,8 +15,8 @@ export const ChallengesProvider = (props) => {
   };
 
   return (
-    <ChallengesContext.Provider value={ value }>
-      { props.children }
+    <ChallengesContext.Provider value={value}>
+      {props.children}
     </ChallengesContext.Provider>
   );
 }

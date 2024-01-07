@@ -28,5 +28,5 @@ export function LinkButton(props) {
     >
       {children}
     </StyledLinkButton>
-  )
+  );
 }

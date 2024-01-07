@@ -48,7 +48,7 @@ const StyledApp = styled.main`
   }
 `;
 
-const App = () => {
+export function App() {
   const location = useLocation();
   const { currentPalette, pickRandomPalette } = usePaletteContext();
   const { showContent, setShowContent } = useAppContext();
@@ -82,12 +82,10 @@ const App = () => {
 
       <BackgroundButton
         className='background-button instructions'
-        tabIndex={ !showContent ? '0' : '-1' }
+        tabIndex={!showContent ? '0' : '-1'}
       >
         Click to enter
       </BackgroundButton>
     </StyledApp>
   );
 }
-
-export default App;

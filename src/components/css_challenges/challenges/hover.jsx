@@ -111,7 +111,7 @@ const description = <>
   <p>To achieve the blur effect on the text I've stacked two spans on top of each other with different z-indices. The higher z-index text has a blur filter while the lower text does not. The order goes: grey background, non-blurred text, orange overlay, blurred text. This causes the non-blurred text to get hidden by the orange layer, leaving only the blurred effect.</p>
 </>;
 
-const Hover = () => {
+export function Hover() {
   const { tabIndex } = useAppContext();
   const { currentPalette } = usePaletteContext();
 
@@ -137,5 +137,3 @@ const Hover = () => {
     </StyledHover>
   );
 };
-
-export default Hover;

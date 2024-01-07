@@ -29,5 +29,5 @@ export function RouterLink(props) {
     >
       {children}
     </StyledRouterLink>
-  )
+  );
 }

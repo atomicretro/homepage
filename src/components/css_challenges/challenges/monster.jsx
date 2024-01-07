@@ -210,7 +210,7 @@ const description = <>
   <p>The only JS used is to create the grid. All positioning data is calculated in CSS from the index number of each square.</p>
 </>;
 
-const Monster = () => {
+export function Monster() {
   const { currentPalette } = usePaletteContext();
 
   return (
@@ -231,5 +231,3 @@ const Monster = () => {
     </StyledMonster>
   );
 };
-
-export default Monster;
