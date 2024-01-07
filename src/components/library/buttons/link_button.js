@@ -6,17 +6,17 @@ import { usePaletteContext } from '../../../context/palette_provider';
 import { DefaultButton } from './default';
 
 const StyledLinkButton = styled(DefaultButton)`
-  color: ${({ $colors }) => $colors.links};
+  color: ${({ $colors }) => $colors.link};
 
   &:active, &:focus, &:hover {
-    color: ${({ $colors }) => $colors.linksActive};
+    color: ${({ $colors }) => $colors.linkInteraction};
   }
 `;
 
 export function LinkButton(props) {
   const { children, className, onClick } = props;
   const { tabIndex } = useAppContext();
-  const paletteContext = usePaletteContext();
+  const { currentPalette } = usePaletteContext();
 
   return (
     <StyledLinkButton
@@ -24,7 +24,7 @@ export function LinkButton(props) {
       onClick={onClick}
       onMouseUp={(e) => e.currentTarget.blur()}
       tabIndex={tabIndex}
-      $colors={paletteContext}
+      $colors={currentPalette}
     >
       {children}
     </StyledLinkButton>

@@ -54,12 +54,10 @@ const App = () => {
   const { showContent, setShowContent } = useAppContext();
 
   React.useEffect(() => {
-    console.log('location.pathname', location.pathname);
     if (location.pathname !== '/') {
       setShowContent(true);
     }
-  // }, [location.pathname, setShowContent]);
-  }, []);
+  }, [location.pathname, setShowContent]);
 
   const handleRandomPaletteClick = (e) => {
     e.stopPropagation();

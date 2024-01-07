@@ -6,18 +6,18 @@ import { usePaletteContext } from '../../../context/palette_provider';
 
 const StyledRouterLink = styled(Link)`
   &:link, &:visited {
-    color: ${({ $colors }) => $colors.links};
+    color: ${({ $colors }) => $colors.link};
   }
 
   &:active, &:focus, &:hover {
-    color: ${({ $colors }) => $colors.linksActive};
+    color: ${({ $colors }) => $colors.linkInteraction};
   }
 `;
 
 export function RouterLink(props) {
   const { children, className, to } = props;
   const { tabIndex } = useAppContext();
-  const paletteContext = usePaletteContext();
+  const { currentPalette } = usePaletteContext();
 
   return (
     <StyledRouterLink
@@ -25,7 +25,7 @@ export function RouterLink(props) {
       onMouseUp={(e) => e.currentTarget.blur()}
       tabIndex={tabIndex}
       to={to}
-      $colors={paletteContext}
+      $colors={currentPalette}
     >
       {children}
     </StyledRouterLink>

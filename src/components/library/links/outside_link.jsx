@@ -5,18 +5,18 @@ import { usePaletteContext } from '../../../context/palette_provider';
 
 const StyledOutsideLink = styled.a`
   &:link, &:visited {
-    color: ${({ $colors }) => $colors.links};
+    color: ${({ $colors }) => $colors.link};
   }
 
   &:active, &:focus, &:hover {
-    color: ${({ $colors }) => $colors.linksActive};
+    color: ${({ $colors }) => $colors.linkInteraction};
   }
 `;
 
 export function OutsideLink(props) {
   const { children, className, tabIndex, to } = props;
   const { tabIndex: tabIndexContext } = useAppContext();
-  const paletteContext = usePaletteContext();
+  const { currentPalette } = usePaletteContext();
 
   let extraProps = {};
   if (to.includes('mailto') === false) {
@@ -33,7 +33,7 @@ export function OutsideLink(props) {
       onMouseUp={(e) => e.currentTarget.blur()}
       tabIndex={tabIndex || tabIndexContext}
       {...extraProps}
-      $colors={paletteContext}
+      $colors={currentPalette}
     >
       {children}
     </StyledOutsideLink>

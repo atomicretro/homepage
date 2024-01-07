@@ -3,13 +3,12 @@ export const palettes = [
     name: 'NIGHTSKY',
 
     primary: '#000000',
-    secondary: '#ffffff',
+    secondary: '#fec060',
     tertiary: '#2753bb',
     quaternary: '#fec060',
 
-    links: '#2753bb',
-    linksActive:'#fec060',
-    linksOverride: '#ffffff',
+    link: '#2753bb',
+    linkInteraction:'#fec060',
   },
   {
     name: 'PASTEL',
@@ -19,8 +18,8 @@ export const palettes = [
     tertiary: '#3080f6',
     quaternary: '#3080f6',
 
-    links: '#2753bb',
-    linksActive:'#ee7967',
+    link: '#2753bb',
+    linkInteraction:'#ee7967',
   },
   {
     name: 'GRANDMA',
@@ -30,8 +29,8 @@ export const palettes = [
     tertiary: '#f4b386',
     quaternary: '#f4b386',
 
-    links: '#5b1734',
-    linksActive:'#669c4b',
+    link: '#5b1734',
+    linkInteraction:'#669c4b',
   },
   {
     name: 'MARS',
@@ -41,8 +40,8 @@ export const palettes = [
     tertiary: '#3080f6',
     quaternary: '#e3dbb2',
 
-    links: '#590d1e',
-    linksActive:'#d9525b',
+    link: '#590d1e',
+    linkInteraction:'#d9525b',
   },
   {
     name: 'PURPLY',
@@ -52,8 +51,8 @@ export const palettes = [
     tertiary: '#8368af',
     quaternary: '#8368af',
 
-    links: '#311b14',
-    linksActive:'#6cc4fa',
+    link: '#311b14',
+    linkInteraction:'#6cc4fa',
   },
   {
     name: 'VIVID',
@@ -63,8 +62,8 @@ export const palettes = [
     tertiary: '#4f6baf',
     quaternary: '#4f6baf',
 
-    links: '#0f3044',
-    linksActive:'#bc2619',
+    link: '#0f3044',
+    linkInteraction:'#bc2619',
   },
   {
     name: 'FOREST',
@@ -74,8 +73,8 @@ export const palettes = [
     tertiary: '#7a6739',
     quaternary: '#3080f6',
 
-    links: '#000232',
-    linksActive:'#395c39',
+    link: '#000232',
+    linkInteraction:'#395c39',
   },
   {
     name: 'RHENIUM',
@@ -85,8 +84,8 @@ export const palettes = [
     tertiary: '#ec5a4d',
     quaternary: '#e4f4da',
 
-    links: '#252c41',
-    linksActive:'#d79abe',
+    link: '#252c41',
+    linkInteraction:'#d79abe',
   },
   {
     name: 'SEWERS',
@@ -96,8 +95,8 @@ export const palettes = [
     tertiary: '#babbbd',
     quaternary: '#babbbd',
 
-    links: '#0a1e35',
-    linksActive:'#babbbd',
+    link: '#0a1e35',
+    linkInteraction:'#babbbd',
   },
   {
     name: 'NIKAIDO',
@@ -107,8 +106,8 @@ export const palettes = [
     tertiary: '#3080f6',
     quaternary: '#3080f6',
 
-    links: '#1a1a0d',
-    linksActive:'#f19737',
+    link: '#1a1a0d',
+    linkInteraction:'#f19737',
   },
   {
     name: 'SEPIA',
@@ -118,8 +117,8 @@ export const palettes = [
     tertiary: '#314b6c',
     quaternary: '#ceab73',
 
-    links: '#4f2108',
-    linksActive:'#7ca597',
+    link: '#4f2108',
+    linkInteraction:'#7ca597',
   },
   {
     name: 'WETLAND',
@@ -129,8 +128,8 @@ export const palettes = [
     tertiary: '#314b6c',
     quaternary: '#f5c8ad',
 
-    links: '#265341',
-    linksActive:'#a47e45',
+    link: '#265341',
+    linkInteraction:'#a47e45',
   },
   {
     name: 'NOSTALGIA',
@@ -140,7 +139,7 @@ export const palettes = [
     tertiary: '#b99bf7',
     quaternary: '#6a88c4',
 
-    links: '#3c5a77',
-    linksActive:'#e7a7a5',
+    link: '#3c5a77',
+    linkInteraction:'#e7a7a5',
   },
 ];

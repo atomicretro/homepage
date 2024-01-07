@@ -7,7 +7,7 @@ import { DefaultButton } from './default';
 const StyledBackgroundButton = styled(DefaultButton)`
   position: absolute;
   top: 10px;
-  color: ${({ $colors }) => $colors.linksOverride || $colors.links};
+  color: #ffffff;
   font-size: 16px;
   z-index: 100;
   opacity: 1;
@@ -19,13 +19,13 @@ const StyledBackgroundButton = styled(DefaultButton)`
   `}
 
   &:focus, &:hover {
-    color: ${({ $colors }) => $colors.linksActive};
+    color: ${({ $colors }) => $colors.secondary};
   }
 `;
 
 export function BackgroundButton(props) {
   const { children, className, onClick, tabIndex } = props;
-  const paletteContext = usePaletteContext();
+  const { currentPalette } = usePaletteContext();
 
   return (
     <StyledBackgroundButton
@@ -33,7 +33,7 @@ export function BackgroundButton(props) {
       onMouseUp={(e) => e.currentTarget.blur()}
       onClick={onClick || null}
       tabIndex={tabIndex || '0'}
-      $colors={paletteContext}
+      $colors={currentPalette}
       $hidden={tabIndex === '-1'}
     >
       {children}

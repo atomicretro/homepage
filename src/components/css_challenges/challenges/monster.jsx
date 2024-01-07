@@ -18,14 +18,14 @@ const StyledMonster = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background: #2c3e50;
+    background: ${({ $colors }) => $colors.primary};
     border-radius: 3px;
     overflow: hidden;
   }
 
   .monster {
     position: absolute;
-    background: #2ecc71;
+    background: ${({ $colors }) => $colors.secondary};
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
@@ -39,7 +39,7 @@ const StyledMonster = styled.div`
     left: -1px;
     height: 25px;
     width: 25px;
-    border: 1px solid #2ecc71;
+    border: 1px solid ${({ $colors }) => $colors.secondary};
     border-radius: 50%;
     animation-duration: 2s;
     animation-iteration-count: infinite;

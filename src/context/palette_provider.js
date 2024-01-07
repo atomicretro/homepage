@@ -6,14 +6,9 @@ import { randomIntMinMax } from '../utils/math';
 const PaletteContext = createContext(null);
 
 const defaultPalette = palettes[0];
-const paletteNames = palettes.map((palette) => palette.name);
 
 export const PaletteProvider = (props) => {
   const [currentPalette, setPalette] = useState(defaultPalette);
-
-  const setPaletteByName = useCallback((paletteName) => {
-    setPalette(palettes[paletteName]);
-  }, [setPalette]);
 
   const pickRandomPalette = useCallback(() => {
     const currentIdx = palettes.findIndex((el) => el === currentPalette);
@@ -26,12 +21,9 @@ export const PaletteProvider = (props) => {
 
   const value = {
     currentPalette,
-    ...currentPalette,
     palettes,
-    paletteNames,
     pickRandomPalette,
     setPalette,
-    setPaletteByName,
   };
 
   return (

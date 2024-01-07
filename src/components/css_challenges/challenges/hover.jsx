@@ -35,7 +35,7 @@ const StyledHover = styled.div`
     width: 300px;
     display: flex;
     flex-direction: column;
-    background: #34495e;
+    background: ${({ $colors }) => $colors.primary};
     border-radius: 3px;
     overflow: hidden;
   }
@@ -53,7 +53,7 @@ const StyledHover = styled.div`
     left: 0;
     height: 150px;
     width: 100%;
-    background: #e67e22;
+    background: ${({ $colors }) => $colors.secondary};
     pointer-events: none;
     z-index: 2;
     transition: height 1s ease;

@@ -11,16 +11,29 @@ const StyledPaletteCard = styled(DefaultButton)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: ${({ $colors, $selected }) => $selected ? $colors.linksActive : '#000000'};
+  color: ${({ $colors, $selected }) => $selected ? $colors.linkInteraction : '#000000'};
 
   &:focus, &:hover {
-    color: ${({ $colors }) => $colors.linksActive};
+    color: ${({ $colors }) => $colors.linkInteraction};
   }
 
-  img {
-    max-height: 50px;
-    max-width: 50px;
+  .swatch {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
     margin: 0 10px 0 0;
+
+    div {
+      height: 50%;
+      width: 100%;
+    }
+    .primary {
+      background-color: ${({ $colors }) => $colors.primary};
+    }
+    .secondary {
+      background-color: ${({ $colors }) => $colors.secondary};
+    }
   }
 
   span {
@@ -47,10 +60,10 @@ export function PaletteCard(props) {
       $colors={palette}
       $selected={palette.name === currentPalette.name}
     >
-      <img
-        alt={palette.name}
-        src={`${process.env.PUBLIC_URL}/palettes/${palette.name}.png`}
-      />
+      <div className='swatch'>
+        <div className='primary' />
+        <div className='secondary' />
+      </div>
       <span>{palette.name}</span>
     </StyledPaletteCard>
   );
