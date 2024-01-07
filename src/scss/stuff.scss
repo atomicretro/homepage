@@ -1,0 +1,109 @@
+@import './utils';
+
+/* Stuff */
+.stuff {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  transition: transform 0.5s ease-out;
+}
+
+.stuff--hidden {
+  transform: translate(0, calc(100vh - 100px));
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+/* Header */
+.header {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.header__title {
+  font-size: 50px;
+  color: #FFFFFF;
+  line-height: 41px;
+  cursor: default;
+}
+
+/* Navbar */
+.navbar {
+  height: 40px;
+  width: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 2;
+
+  span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  a:link,
+  a:visited,
+  button {
+    font-size: 13px;
+  }
+}
+
+.button-stargaze {
+  @include button-no-style;
+}
+
+/* Display */
+.display {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: #FFFFFF;
+  overflow: auto;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 576px) {
+  .navbar {
+    span {
+      width: 90%;
+    }
+    a:link,
+    a:visited,
+    button {
+      font-size: 15px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .stuff--hidden {
+    transform: translate(0, calc(100vh - 110px));
+  }
+
+  .header {
+    height: 100px;
+  }
+
+  .navbar {
+    a:link,
+    a:visited,
+    button {
+      font-size: 18px;
+    }
+  }
+}

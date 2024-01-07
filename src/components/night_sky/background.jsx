@@ -1,15 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef} from 'react';
 
-const StyledBackground = styled.div`
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: ${({ $colors }) => $colors.primary};
-  z-index: -5;
-`;
+import { primaryColors } from '../../utils/colors';
 
-export function Background(props) {
-  const { currentPalette } = props;
-  return <StyledBackground $colors={currentPalette} />;
-}
+import '../../scss/night-sky.scss';
+
+const Background = React.memo(({ currentPalette }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    const canvas = ref.current;
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = primaryColors[currentPalette];
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fill();
+  }, [currentPalette]);
+
+  return (
+    <canvas
+      className='night-sky'
+      ref={ ref }
+      style={ { width: '100vw', height: '100vh' } } />
+  );
+});
+
+export default Background;
