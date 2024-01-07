@@ -1,17 +1,27 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { CSSChallenges } from '../css_challenges';
+import '../../scss/odds-ends.scss';
 
-const StyledOddsAndEnds = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const OddsAndEnds = ({ isHidden }) => {
+  const tabIndex = isHidden ? '-1' : '0';
 
-export function OddsAndEnds() {
   return (
-    <StyledOddsAndEnds>
-      <CSSChallenges />
-    </StyledOddsAndEnds>
+    <div className='odds-ends'>
+      <div className='odds-ends__column'>
+        <h2 className='odds-ends__column__header'>CSS Challenges</h2>
+        <span className='odds-ends__column__link'>
+          From <a href='https://100dayscss.com/' rel='noopener noreferrer' target='_blank'>100 Days CSS Challenge</a>
+        </span>
+        { /* <Link tabIndex={ tabIndex } to='/css/05'>05</Link> */ }
+        <Link tabIndex={ tabIndex } to='/css/alien'>alien</Link>
+        <Link tabIndex={ tabIndex } to='/css/clock'>clock</Link>
+        <Link tabIndex={ tabIndex } to='/css/hover'>hover</Link>
+        <Link tabIndex={ tabIndex } to='/css/monster'>monster</Link>
+        <Link tabIndex={ tabIndex } to='/css/segments'>segments</Link>
+      </div>
+    </div>
   );
 }
+
+export default OddsAndEnds;

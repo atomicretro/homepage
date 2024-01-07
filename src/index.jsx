@@ -1,23 +1,17 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 
-import { AppProvider } from './context/app_provider';
-import { PaletteProvider } from './context/palette_provider';
+import AppProvider from './context/app_provider';
+import App from './components/app';
 
-import { App } from './components/app';
+import './scss/reset.scss';
 
-import './styles/reset.css';
-import { GlobalStyle } from './styles/globalStyles';
-
-const root = createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <AppProvider>
-    <PaletteProvider>
-      <HashRouter>
-        <GlobalStyle />
-        <App />
-      </HashRouter>
-    </PaletteProvider>
+    <HashRouter>
+      <App />
+    </HashRouter>
   </AppProvider>,
+  document.getElementById('root')
 );

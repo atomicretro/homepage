@@ -1,0 +1,134 @@
+.css-clock {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #313c46;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.css-clock__display {
+  position: relative;
+  height: 40px;
+  width: 110px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.css-clock__input {
+  position: absolute;
+  top: 236px;
+  left: calc(50% - 15px);
+  width: 27px;
+  height: 27px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+
+  &:checked ~ .css-clock__pause {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  &:checked ~ .css-clock__play {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  &:checked ~ .css-clock__display {
+    & .css-clock__display__numbers {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.css-clock__pause {
+  position: absolute;
+  top: 240px;
+  left: calc(50% - 11px);
+  height: 25px;
+  width: 9px;
+  opacity: 1;
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+
+  border-style: solid;
+  border-width: 0 8px 0 8px;
+  border-color: #ffffff;
+}
+
+.css-clock__play {
+  position: absolute;
+  top: 240px;
+  left: calc(50% - 11px);
+  opacity: 0;
+  transform: scale(0, 0);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+
+  border-style: solid;
+  border-width: 13px 0px 13px 25px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+.css-clock__display__numbers {
+  position: absolute;
+  top: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 32px;
+  line-height: 50px;
+}
+
+@mixin clock-animation {
+  animation-name: clock_tick;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, jump-end);
+}
+
+.css-clock__display__numbers__thousands {
+  left: 7px;
+  @include clock-animation;
+  animation-duration: 10000s;
+}
+
+.css-clock__display__numbers__hundreds {
+  left: 32px;
+  @include clock-animation;
+  animation-duration: 1000s;
+}
+
+.css-clock__display__numbers__tens {
+  left: 57px;
+  @include clock-animation;
+  animation-duration: 100s;
+}
+
+.css-clock__display__numbers__ones {
+  left: 82px;
+  @include clock-animation;
+  animation-duration: 10s;
+}
+
+@keyframes clock_tick {
+  0%   { top: -6px; }
+  10%  { top: -56px; }
+  20%  { top: -106px; }
+  30%  { top: -156px; }
+  40%  { top: -206px; }
+  50%  { top: -256px; }
+  60%  { top: -306px; }
+  70%  { top: -356px; }
+  80%  { top: -406px; }
+  90%  { top: -456px; }
+  100% { top: -506px; }
+}

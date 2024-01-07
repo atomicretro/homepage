@@ -1,17 +1,15 @@
 import React from 'react';
 
-import { usePaletteContext } from '../../context/palette_provider';
+import Background from './background';
+import Stars from './stars';
 
-import { Background } from './background';
-import { StarField } from './stars';
-
-export function NightSky() {
-  const { currentPalette } = usePaletteContext();
-
+const NightSky = React.memo(({ currentPalette }) => {
   return (
     <>
-      <Background currentPalette={currentPalette} />
-      <StarField currentPalette={currentPalette} />
+      <Background currentPalette={ currentPalette } />
+      <Stars currentPalette={ currentPalette } />
     </>
   );
-}
+});
+
+export default NightSky;

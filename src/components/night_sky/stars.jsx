@@ -1,20 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from 'react';
 
+import { primaryColors, secondaryColors } from '../../utils/colors';
 import { randomIntMinMax } from '../../utils/math';
-import { setCanvasDimensions } from '../../utils/canvas'
+import { setCanvasDimensions } from '../../utils/canvas';
+
+import '../../scss/night-sky.scss';
 
 const NUM_STARS = 1000;
 
-const StyledStarField = styled.canvas`
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: -4;
-`;
-
 class Star {
-  constructor({ alpha, alphaDirection, alphaStep, size, x, y }) {
+  constructor({ x, y, size, alpha, alphaStep, alphaDirection }) {
     this.x = x;
     this.y = y;
     this.size = size;
@@ -38,19 +33,18 @@ class Star {
   }
 }
 
-export function StarField(props) {
-  const { currentPalette } = props;
-  const ref = React.useRef();
-  const [allStars, populateAllStars] = React.useState([]);
+const StarField = React.memo(({ currentPalette }) => {
+  const ref = useRef();
+  const [allStars, populateAllStars] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Set aspect ratio
     const canvas = ref.current;
     const ctx = canvas.getContext('2d');
     setCanvasDimensions(canvas, ctx);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Determine star coordinates
     const canvas = ref.current;
     const stars = [];
@@ -59,11 +53,11 @@ export function StarField(props) {
       let alphaStep = randomIntMinMax(5, 11) / 3000;
       alphaStep *= randomIntMinMax(1, 3) === 1 ? -1 : 1;
       const star = new Star({
-        alpha: 0,
-        alphaStep,
-        size: randomIntMinMax(1, 5),
         x: randomIntMinMax(1, canvas.width),
         y: randomIntMinMax(1, canvas.height),
+        size: randomIntMinMax(1, 5),
+        alpha: 0,
+        alphaStep,
       });
       stars.push(star);
     }
@@ -71,7 +65,7 @@ export function StarField(props) {
     populateAllStars(stars);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Animate stars
     const canvas = ref.current;
     const ctx = canvas.getContext('2d');
@@ -82,7 +76,7 @@ export function StarField(props) {
         const star = allStars[idx];
 
         // Erase previous frame's star
-        ctx.fillStyle = currentPalette.primary;
+        ctx.fillStyle = primaryColors[currentPalette];
         ctx.fillRect(star.x, star.y, star.size, star.size);
         ctx.fill();
 
@@ -90,7 +84,7 @@ export function StarField(props) {
         star.updateAlpha();
 
         // Draw star
-        ctx.fillStyle = currentPalette.secondary;
+        ctx.fillStyle = secondaryColors[currentPalette];
         ctx.globalAlpha = star.alpha;
         ctx.fillRect(star.x, star.y, star.size, star.size);
         ctx.fill();
@@ -107,5 +101,7 @@ export function StarField(props) {
     };
   });
 
-  return <StyledStarField className='stars' ref={ref} />;
-}
+  return <canvas className='stars' ref={ ref } />;
+});
+
+export default StarField;
