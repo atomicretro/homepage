@@ -6,12 +6,22 @@ import { RouterLink } from '../library/links/router_link';
 
 const StyledCSSChallenges = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
-    "header header"
-    "column1 column2";
-  row-gap: 25px;
+    "header"
+    "column1"
+    "column2";
+  row-gap: 30px;
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "header header"
+      "column1 column2";
+    row-gap: 25px;
+  }
 
   .header {
     grid-area: header;
