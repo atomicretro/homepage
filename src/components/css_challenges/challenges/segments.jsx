@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useAppContext } from '../../../context/app_provider';
 import { usePaletteContext } from '../../../context/palette_provider';
 
 import { ChallengeField } from '../challenge_field';
@@ -17,7 +18,6 @@ const StyledSegments = styled.div`
     width: 300px;
     display: flex;
     flex-direction: column;
-    background: #34495e;
     border-radius: 3px;
     overflow: hidden;
   }
@@ -37,24 +37,7 @@ const StyledSegments = styled.div`
       height 0.75s ease,
       font-size 0.75s ease,
       color 0.75s ease;
-
-    -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-        -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
-
-    &:focus,
-    &:hover {
-      height: 75%;
-      font-size: 26px;
-      color: rgba(255, 255, 255, 1);
-      transition:
-        height 0.75s ease,
-        font-size 0.75s ease,
-        color 0.75s ease;
-    }
+    user-select: none;
 
     &.dark {
       height: 25%;
@@ -66,6 +49,17 @@ const StyledSegments = styled.div`
       height: 25%;
       width: 100%;
       background: ${({ $colors }) => $colors.secondary};
+    }
+
+    &:focus,
+    &:hover {
+      height: 75%;
+      font-size: 26px;
+      color: #ffffff;
+      transition:
+        height 0.75s ease,
+        font-size 0.75s ease,
+        color 0.75s ease;
     }
   }
 
@@ -90,37 +84,33 @@ const description = <>
   <p>The animations are fully responsive and work with both mouse and keyboard.</p>
 </>;
 
+const Box = (props) => {
+  const { children, color } = props;
+  const { tabIndex } = useAppContext();
+
+  return (
+    <div
+      className={`box ${color}`}
+      onMouseUp={(e) => e.target.blur()}
+      tabIndex={tabIndex}
+    >
+      <span>{children}</span>
+    </div>
+  );
+};
+
 const Segments = () => {
   const { currentPalette } = usePaletteContext();
 
   return (
     <StyledSegments $colors={currentPalette}>
       <Explanation number='80'>{description}</Explanation>
+
       <ChallengeField className='segments'>
-        <div
-          className='box dark'
-          onMouseUp={ (e) => { e.target.blur(); } }
-          tabIndex='0'>
-          <span>FIRST</span>
-        </div>
-        <div
-          className='box light'
-          onMouseUp={ (e) => { e.target.blur(); } }
-          tabIndex='0'>
-          <span>SECOND</span>
-        </div>
-        <div
-          className='box dark'
-          onMouseUp={ (e) => { e.target.blur(); } }
-          tabIndex='0'>
-          <span>THIRD</span>
-        </div>
-        <div
-          className='box light'
-          onMouseUp={ (e) => { e.target.blur(); } }
-          tabIndex='0'>
-          <span>FOURTH</span>
-        </div>
+        <Box color='dark'>FIRST</Box>
+        <Box color='light'>SECOND</Box>
+        <Box color='dark'>THIRD</Box>
+        <Box color='light'>FOURTH</Box>
       </ChallengeField>
     </StyledSegments>
   );

@@ -1,10 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useAppContext } from '../../../context/app_provider';
 import { usePaletteContext } from '../../../context/palette_provider';
 
 import { ChallengeField } from '../challenge_field';
 import { Explanation } from '../explanation';
+
+const NUM_SLICES = 200;
+
+const sliceGenerator = (factor) => {
+  let slices = '';
+  for (let idx = 1; idx <= (NUM_SLICES * 2); idx++) {
+    slices += `
+      .slice.n${idx}:focus ~ .overlay,
+      .slice.n${idx}:hover ~ .overlay {
+        height: ${idx * factor}px;
+        transition: none;
+      }
+    `;
+  }
+
+  return slices;
+};
 
 const StyledHover = styled.div`
   display: flex;
@@ -41,16 +59,7 @@ const StyledHover = styled.div`
     transition: height 1s ease;
   }
 
-  /* @media only screen and (max-width: 767px) {
-    @for $idx from 1 through 400 {
-      .slice--#{$idx}:focus ~ .overlay,
-      .slice--#{$idx}:hover ~ .overlay {
-        $size: $idx * 1.5;
-        height: #{$size}px;
-        transition: none;
-      }
-    }
-  } */
+  ${sliceGenerator(1.5)}
 
   .text {
     position: absolute;
@@ -64,7 +73,6 @@ const StyledHover = styled.div`
     letter-spacing: 3px;
     text-align: center;
     pointer-events: none;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 
     &.one {
@@ -93,14 +101,7 @@ const StyledHover = styled.div`
       height: 200px;
     }
 
-    /* @for $idx from 1 through 400 {
-      .slice--#{$idx}:focus ~ .overlay,
-      .slice--#{$idx}:hover ~ .overlay {
-        $size: $idx * 2;
-        height: #{$size}px;
-        transition: none;
-      }
-    } */
+    ${sliceGenerator(2)}
   }
 `;
 
@@ -111,6 +112,7 @@ const description = <>
 </>;
 
 const Hover = () => {
+  const { tabIndex } = useAppContext();
   const { currentPalette } = usePaletteContext();
 
   return (
@@ -119,12 +121,12 @@ const Hover = () => {
 
       <ChallengeField className='hover'>
         {
-          [ ...Array(200).keys() ].map((idx) => (
+          [ ...Array(NUM_SLICES).keys() ].map((idx) => (
             <div
-              className='slice'
+              className={`slice n${idx + 1}`}
               key={idx}
               onMouseUp={(e) => e.target.blur() }
-              tabIndex='0'
+              tabIndex={tabIndex}
             />
           ))
         }

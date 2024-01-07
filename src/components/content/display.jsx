@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { ChallengesProvider } from '../../context/challenges_provider';
 
-
 import { Contact } from '../contact';
 import { Challenges } from '../css_challenges/challenges';
 import { Home } from '../home';
@@ -27,7 +26,7 @@ const StyledDisplay = styled.section`
 
 export function Display() {
   return (
-    <StyledDisplay>
+    <StyledDisplay tabIndex='-1'>
       <Routes>
         <Route element={<Contact />} path='/contact' />
         <Route

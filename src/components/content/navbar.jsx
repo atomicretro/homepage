@@ -46,7 +46,7 @@ const StyledNavBar = styled.nav`
 `;
 
 export function Navbar() {
-  const { tabIndex, setShowContent } = useAppContext();
+  const { setShowContent } = useAppContext();
 
   const handleStargazeButtonPress = (e) => {
     e.stopPropagation();
@@ -56,11 +56,11 @@ export function Navbar() {
   return (
     <StyledNavBar>
       <div>
-        <RouterLink tabIndex={tabIndex} to='/'>Home</RouterLink>
-        <RouterLink tabIndex={tabIndex} to='/projects'>Projects</RouterLink>
-        <RouterLink tabIndex={tabIndex} to='/odds-and-ends'>Odds and Ends</RouterLink>
-        <RouterLink tabIndex={tabIndex} to='/contact'>Contact</RouterLink>
-        <LinkButton onClick={handleStargazeButtonPress} tabIndex={tabIndex}>Stargaze</LinkButton>
+        <RouterLink to='/'>Home</RouterLink>
+        <RouterLink to='/projects'>Projects</RouterLink>
+        <RouterLink to='/odds-and-ends'>Odds and Ends</RouterLink>
+        <RouterLink to='/contact'>Contact</RouterLink>
+        <LinkButton onClick={handleStargazeButtonPress}>Stargaze</LinkButton>
       </div>
     </StyledNavBar>
   );

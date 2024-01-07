@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useAppContext } from '../../context/app_provider';
 import { useChallengesContext } from '../../context/challenges_provider';
 
 import { OutsideLink } from '../library/links/outside_link';
@@ -41,13 +42,17 @@ const StyledExplanation = styled.div`
 
 export function Explanation(props) {
   const { children, number } = props;
+  const { showContent } = useAppContext();
   const { showExplanation } = useChallengesContext();
 
   return (
     <StyledExplanation $show={showExplanation}>
       {children}
       <p>
-        <OutsideLink to={`https://100dayscss.com/days/${number}`}>
+        <OutsideLink
+          tabIndex={showContent && showExplanation ? '0' : '-1'}
+          to={`https://100dayscss.com/days/${number}`}
+        >
           To the challenge!
         </OutsideLink>
       </p>

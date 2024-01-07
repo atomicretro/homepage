@@ -6,12 +6,14 @@ import { usePaletteContext } from '../../../context/palette_provider';
 import { ChallengeField } from '../challenge_field';
 import { Explanation } from '../explanation';
 
+const NUM_CELLS = 400;
+
 const StyledMonster = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
 
-  .monster {
+  .maze {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -21,7 +23,7 @@ const StyledMonster = styled.div`
     overflow: hidden;
   }
 
-  .chaser {
+  .monster {
     position: absolute;
     background: #2ecc71;
     border-radius: 50%;
@@ -30,7 +32,7 @@ const StyledMonster = styled.div`
     transition: all 0.5s ease-out;
   }
 
-  .chaser:after{
+  .monster:after{
     content: '';
     position: absolute;
     top: -1px;
@@ -58,41 +60,48 @@ const StyledMonster = styled.div`
   }
 
   @media only screen and (max-width: 576px) {
-    .css-monster {
+    .maze {
       height: 300px;
       width: 300px;
     }
 
-    .css-monster__square {
+    .cell {
       height: 15px;
       width: 15px;
     }
 
-    /* @for $idx from 0 to 400 {
-      .css-monster__square--#{$idx}:hover ~ .chaser {
-        $vert: (($idx % 20) * 15) - 138;
-        $horz: (floor($idx / 20) * 15) - 138;
+    ${() => {
+      let cells = '';
+      for (let idx = 1; idx < NUM_CELLS; idx++) {
+        let vertical = ((idx % 20) * 15) - 138;
+        let horizontal = (Math.floor(idx / 20) * 15) - 138;
 
-        @if $vert > 140 {
-          $vert: $vert - 15;
+        if (vertical > 140) {
+          vertical = vertical - 15;
         }
-        @if $horz > 140 {
-          $horz: $horz - 15;
+        if (horizontal > 140) {
+          horizontal = horizontal - 15;
         }
 
-        transform: translate(#{$vert}px, #{$horz}px);
-        transition: all 0.3s ease-out;
+        cells += `
+          .cell.n${idx}:hover ~ .monster {
+            transform: translate(${vertical}px, ${horizontal}px);
+            transition: all 0.3s ease-out;
+          }
+        `;
       }
-    } */
 
-    .chaser {
+      return cells;
+    }}
+
+    .monster {
       top: 138px;
       left: 138px;
       height: 30px;
       width: 30px;
     }
 
-    .chaser:after {
+    .monster:after {
       top: -1px;
       left: -1px;
       height: 30px;
@@ -101,41 +110,48 @@ const StyledMonster = styled.div`
   }
 
   @media only screen and (min-width: 577px) and (max-width: 767px) {
-    .css-monster {
+    .maze {
       height: 400px;
       width: 400px;
     }
 
-    .css-monster__square {
+    .cell {
       height: 20px;
       width: 20px;
     }
 
-    /* @for $idx from 0 to 400 {
-      .css-monster__square--#{$idx}:hover ~ .chaser {
-        $vert: (($idx % 20) * 20) - 190;
-        $horz: (floor($idx / 20) * 20) - 190;
+    ${() => {
+      let cells = '';
+      for (let idx = 1; idx < NUM_CELLS; idx++) {
+        let vertical = ((idx % 20) * 20) - 190;
+        let horizontal = (Math.floor(idx / 20) * 20) - 190;
 
-        @if $vert > 180 {
-          $vert: $vert - 5;
+        if (vertical > 180) {
+          vertical = vertical - 5;
         }
-        @if $horz > 180 {
-          $horz: $horz - 5;
+        if (horizontal > 180) {
+          horizontal = horizontal - 5;
         }
 
-        transform: translate(#{$vert}px, #{$horz}px);
-        transition: all 0.3s ease-out;
+        cells += `
+          .cell.n${idx}:hover ~ .monster {
+            transform: translate(${vertical}px, ${horizontal}px);
+            transition: all 0.3s ease-out;
+          }
+        `;
       }
-    } */
 
-    .chaser {
+      return cells;
+    }}
+
+    .monster {
       top: 190px;
       left: 190px;
       height: 25px;
       width: 25px;
     }
 
-    .chaser:after {
+    .monster:after {
       top: -1px;
       left: -1px;
       height: 25px;
@@ -144,34 +160,41 @@ const StyledMonster = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    .css-monster {
+    .maze {
       height: 500px;
       width: 500px;
     }
 
-    .css-monster__square {
+    .cell {
       height: 25px;
       width: 25px;
     }
 
-    /* @for $idx from 0 to 400 {
-      .css-monster__square--#{$idx}:hover ~ .chaser {
-        $vert: (($idx % 20) * 25) - 238;
-        $horz: (floor($idx / 20) * 25) - 238;
+    ${() => {
+      let cells = '';
+      for (let idx = 1; idx < NUM_CELLS; idx++) {
+        let vertical = ((idx % 20) * 25) - 238;
+        let horizontal = (Math.floor(idx / 20) * 25) - 238;
 
-        transform: translate(#{$vert}px, #{$horz}px);
-        transition: all 0.3s ease-out;
+        cells += `
+          .cell.n${idx}:hover ~ .monster {
+            transform: translate(${vertical}px, ${horizontal}px);
+            transition: all 0.3s ease-out;
+          }
+        `;
       }
-    } */
 
-    .chaser {
+      return cells;
+    }}
+
+    .monster {
       top: 238px;
       left: 238px;
       height: 25px;
       width: 25px;
     }
 
-    .chaser:after {
+    .monster:after {
       top: -1px;
       left: -1px;
       height: 25px;
@@ -184,7 +207,7 @@ const description = <>
   <p>This challenge was actually a lot simplier than I thought it would be.</p>
   <p>I racked my brain for a while trying to figure out how to pass the cursor position to the chasing circle. Eventually I decided to break the field into a grid of squares, then use SCSS and math to loop through the grid and reverse engineer the coordinate positioning of each square.</p>
   <p>I thought this was cheating, but after looking at how the demo template was created I saw it was done in almost exactly the same way. So... if it is cheating, then teacher cheated too :D</p>
-  <p>The only JS used is to create the grid. All positioning data is calculated in SCSS from the index number of each square.</p>
+  <p>The only JS used is to create the grid. All positioning data is calculated in CSS from the index number of each square.</p>
 </>;
 
 const Monster = () => {
@@ -193,16 +216,17 @@ const Monster = () => {
   return (
     <StyledMonster $colors={currentPalette}>
       <Explanation number='49'>{description}</Explanation>
-      <ChallengeField className='monster'>
+
+      <ChallengeField className='maze'>
         {
-          [ ...Array(400).keys() ].map((idx) => (
+          [ ...Array(NUM_CELLS).keys() ].map((idx) => (
             <div
-              className={ `css-monster__square css-monster__square--${idx}` }
+              className={`cell n${idx}`}
               key={idx}
             />
           ))
         }
-        <div className='chaser' />
+        <div className='monster' />
       </ChallengeField>
     </StyledMonster>
   );

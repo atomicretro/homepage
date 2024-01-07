@@ -14,8 +14,8 @@ const StyledOutsideLink = styled.a`
 `;
 
 export function OutsideLink(props) {
-  const { children, className, to } = props;
-  const { tabIndex } = useAppContext();
+  const { children, className, tabIndex, to } = props;
+  const { tabIndex: tabIndexContext } = useAppContext();
   const paletteContext = usePaletteContext();
 
   let extraProps = {};
@@ -31,7 +31,7 @@ export function OutsideLink(props) {
       className={className}
       href={to}
       onMouseUp={(e) => e.currentTarget.blur()}
-      tabIndex={tabIndex}
+      tabIndex={tabIndex || tabIndexContext}
       {...extraProps}
       $colors={paletteContext}
     >
