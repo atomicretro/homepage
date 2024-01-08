@@ -9,7 +9,7 @@ import { OutsideLink } from '../library/links/outside_link';
 const StyledExplanation = styled.div`
   position: absolute;
   top: -10px;
-  height: 460px;
+  height: 600px;
   width: 100%;
   display: flex;
   flex-direction: column;
