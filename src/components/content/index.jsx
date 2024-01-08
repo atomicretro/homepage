@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useAppContext } from '../../context/app_provider';
@@ -14,7 +15,9 @@ const StyledContent = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  transition: transform 0.5s ease-out;
+  ${({ $backgroundInteraction }) => $backgroundInteraction && `
+    transition: transform 0.5s ease-out;
+  `}
 
   ${({ $hidden }) => $hidden && `
     transform: translate(0, calc(100vh - 100px));
@@ -29,10 +32,20 @@ const StyledContent = styled.section`
 `;
 
 export function Content () {
-  const { showContent } = useAppContext();
+  const location = useLocation();
+  const { backgroundInteraction, showContent, setShowContent } = useAppContext();
+
+  React.useEffect(() => {
+    if (location.pathname !== '/') {
+      setShowContent(true);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <StyledContent $hidden={!showContent}>
+    <StyledContent
+      $backgroundInteraction={backgroundInteraction}
+      $hidden={!showContent}
+    >
       <Header />
       <Navbar />
       <Display />

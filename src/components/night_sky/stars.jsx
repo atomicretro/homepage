@@ -14,13 +14,12 @@ const StyledStarField = styled.canvas`
 `;
 
 class Star {
-  constructor({ alpha, alphaDirection, alphaStep, size, x, y }) {
+  constructor({ alpha, alphaStep, size, x, y }) {
     this.x = x;
     this.y = y;
     this.size = size;
     this.alpha = alpha;
     this.alphaStep = alphaStep;
-    this.alphaDirection = alphaDirection;
   }
 
   updateAlpha = () => {
@@ -56,10 +55,10 @@ export function StarField(props) {
     const stars = [];
 
     for (let idx = 0; idx < NUM_STARS; idx++) {
-      let alphaStep = randomIntMinMax(5, 11) / 3000;
+      let alphaStep = randomIntMinMax(5, 12) / 3000;
       alphaStep *= randomIntMinMax(1, 3) === 1 ? -1 : 1;
       const star = new Star({
-        alpha: 0,
+        alpha: Math.random(),
         alphaStep,
         size: randomIntMinMax(1, 5),
         x: randomIntMinMax(1, canvas.width),

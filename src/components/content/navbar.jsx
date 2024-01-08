@@ -46,11 +46,11 @@ const StyledNavBar = styled.nav`
 `;
 
 export function Navbar() {
-  const { setShowContent } = useAppContext();
+  const { handleBackgroundInteraction } = useAppContext();
 
   const handleStargazeButtonPress = (e) => {
     e.stopPropagation();
-    setShowContent((prevShowContent) => !prevShowContent);
+    handleBackgroundInteraction(false);
   };
 
   return (

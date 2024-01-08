@@ -25,11 +25,11 @@ const StyledHeader = styled.header`
 `;
 
 export function Header () {
-  const { setShowContent } = useAppContext();
+  const { handleBackgroundInteraction } = useAppContext();
 
   const handleHeaderClick = (e) => {
     e.stopPropagation();
-    setShowContent((prevShowContent) => !prevShowContent);
+    handleBackgroundInteraction(false);
   };
 
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { usePaletteContext } from '../context/palette_provider';
@@ -49,15 +48,8 @@ const StyledApp = styled.main`
 `;
 
 export function App() {
-  const location = useLocation();
   const { currentPalette, pickRandomPalette } = usePaletteContext();
-  const { showContent, setShowContent } = useAppContext();
-
-  React.useEffect(() => {
-    if (location.pathname !== '/') {
-      setShowContent(true);
-    }
-  }, [location.pathname, setShowContent]);
+  const { handleBackgroundInteraction, showContent } = useAppContext();
 
   const handleRandomPaletteClick = (e) => {
     e.stopPropagation();
@@ -66,7 +58,7 @@ export function App() {
 
   return (
     <StyledApp
-      onClick={() => setShowContent(true)}
+      onClick={() => handleBackgroundInteraction(true)}
       tabIndex={!showContent ? '0' : '-1'}
     >
       <NightSky currentPalette={currentPalette} />
