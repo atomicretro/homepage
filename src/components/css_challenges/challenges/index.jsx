@@ -18,19 +18,35 @@ import { Segments } from './segments';
 const StyledChallenges = styled.div`
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin: 0 0 10px 0;
+    z-index: 20;
+  }
 
   .return-link {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 20px;
+    font-size: 16px;
+    margin: 0 0 0 10px;
   }
 
   .explanation-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 20px;
+    font-size: 16px;
+    margin: 0 10px 0 0;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .return-link,
+    .explanation-button {
+      font-size: 20px;
+    }
   }
 
   @media only screen and (min-width: 768px) {
@@ -56,13 +72,15 @@ export function Challenges() {
         <Route path='/segments' element={<Segments />} />
       </Routes>
 
-      <RouterLink className='return-link' to='/odds-and-ends'>
-        Go back
-      </RouterLink>
+      <div className='buttons'>
+        <RouterLink className='return-link' to='/odds-and-ends'>
+          Go back
+        </RouterLink>
 
-      <LinkButton className='explanation-button' onClick={toggleExplanation}>
-        {showExplanation ? 'Hide' : 'See'} Explanation
-      </LinkButton>
+        <LinkButton className='explanation-button' onClick={toggleExplanation}>
+          {showExplanation ? 'Hide' : 'See'} Explanation
+        </LinkButton>
+      </div>
     </StyledChallenges>
   );
-};
+}

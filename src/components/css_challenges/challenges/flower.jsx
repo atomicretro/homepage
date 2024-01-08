@@ -183,4 +183,4 @@ export function Flower() {
       </ChallengeField>
     </StyledFlower>
   );
-};
+}

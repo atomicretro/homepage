@@ -116,6 +116,4 @@ export function Segments() {
       </ChallengeField>
     </StyledSegments>
   );
-};
-
-export default Segments;
+}

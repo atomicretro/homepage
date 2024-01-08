@@ -9,13 +9,10 @@ import { OutsideLink } from '../library/links/outside_link';
 const StyledExplanation = styled.div`
   position: absolute;
   top: -10px;
-  height: 600px;
+  height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
+  display: grid;
+  place-items: center;
   line-height: 24px;
   background: rgba(255, 255, 255, 0.8);
   overflow: auto;
@@ -23,6 +20,20 @@ const StyledExplanation = styled.div`
   pointer-events: none;
   z-index: 10;
   transition: opacity 0.5s ease;
+
+  .reading {
+    width: 80%;
+    font-size: 12px;
+    text-align: center;
+    overflow: auto;
+
+    @media only screen and (min-width: 576px) {
+      font-size: 16px;
+    }
+    @media only screen and (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
 
   ${({ $show }) => $show && `
     opacity: 1;
@@ -34,16 +45,20 @@ const StyledExplanation = styled.div`
   }
 
   p {
-    width: 80%;
-    text-align: center;
-    margin-bottom: 15px;
+    width: 100%;
+    margin: 0 0 15px 0;
+
+    &:first-of-type {
+      margin: 0;
+    }
   }
 
   .explanation-line {
     width: 60%;
+    display: inline-block;
     min-height: 2px;
     background: black;
-    margin: 0 0 30px 0;
+    margin: 20px 0;
   }
 `;
 
@@ -54,17 +69,19 @@ export function Explanation(props) {
 
   return (
     <StyledExplanation $show={showExplanation}>
-      {children}
-      {number &&
-        <p>
-          <OutsideLink
-            tabIndex={showContent && showExplanation ? '0' : '-1'}
-            to={`https://100dayscss.com/days/${number}`}
-          >
-            To the challenge!
-          </OutsideLink>
-        </p>
-      }
+      <div className='reading'>
+        {children}
+        {number &&
+          <p>
+            <OutsideLink
+              tabIndex={showContent && showExplanation ? '0' : '-1'}
+              to={`https://100dayscss.com/days/${number}`}
+            >
+              To the challenge!
+            </OutsideLink>
+          </p>
+        }
+      </div>
     </StyledExplanation>
   );
 };

@@ -172,4 +172,4 @@ export function LightsOut() {
       </ChallengeField>
     </StyledLightsOut>
   );
-};
+}
