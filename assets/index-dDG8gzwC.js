@@ -153,8 +153,9 @@ Error generating stack: `+i.message+`
   top: -10px;
   height: 100%;
   width: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   line-height: 24px;
   background: rgba(255, 255, 255, 0.8);
   overflow: auto;
