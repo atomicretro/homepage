@@ -63,7 +63,7 @@ export function ProjectCard(props) {
         <img
           alt={imgDesc}
           className='project_card__img'
-          src={`${process.env.PUBLIC_URL}/projects/${imgSrc}`}
+          src={`/projects/${imgSrc}`}
         />
       </OutsideLink>
 
