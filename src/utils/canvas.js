@@ -1,4 +1,4 @@
-export const getPixelRatio = (ctx) => {
+const getPixelRatio = (ctx) => {
   const backingStore =
     ctx.backingStorePixelRatio ||
     ctx.webkitBackingStorePixelRatio ||

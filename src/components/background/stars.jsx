@@ -15,11 +15,11 @@ const StyledStarField = styled.canvas`
 
 class Star {
   constructor({ alpha, alphaStep, size, x, y }) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
     this.alpha = alpha;
     this.alphaStep = alphaStep;
+    this.size = size;
+    this.x = x;
+    this.y = y;
   }
 
   updateAlpha = () => {
@@ -27,10 +27,10 @@ class Star {
 
     if (newAlpha >= 1) {
       newAlpha = 1;
-      this.alphaStep = this.alphaStep * -1;
+      this.alphaStep *= -1;
     } else if (newAlpha <= 0) {
       newAlpha = 0;
-      this.alphaStep = this.alphaStep * -1;
+      this.alphaStep *= -1;
     }
 
     this.alpha = newAlpha;
@@ -55,7 +55,8 @@ export function StarField(props) {
     const stars = [];
 
     for (let idx = 0; idx < NUM_STARS; idx++) {
-      let alphaStep = randomIntMinMax(5, 12) / 3000;
+      const size = randomIntMinMax(1, 5);
+      let alphaStep = randomIntMinMax(5, (30 / size)) / 3000;
       alphaStep *= randomIntMinMax(1, 3) === 1 ? -1 : 1;
       const star = new Star({
         alpha: Math.random(),
@@ -81,9 +82,7 @@ export function StarField(props) {
         const star = allStars[idx];
 
         // Erase previous frame's star
-        ctx.fillStyle = currentPalette.primary;
-        ctx.fillRect(star.x, star.y, star.size, star.size);
-        ctx.fill();
+        ctx.clearRect(star.x, star.y, star.size, star.size);
 
         // Update current star's alpha
         star.updateAlpha();
@@ -92,7 +91,6 @@ export function StarField(props) {
         ctx.fillStyle = currentPalette.secondary;
         ctx.globalAlpha = star.alpha;
         ctx.fillRect(star.x, star.y, star.size, star.size);
-        ctx.fill();
       }
 
       // Request the next animation frame
@@ -106,5 +104,5 @@ export function StarField(props) {
     };
   });
 
-  return <StyledStarField className='stars' ref={ref} />;
+  return <StyledStarField ref={ref} />;
 }
