@@ -1,12 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  .root {
-    height: 100vh;
-    width: 100vw;
+  body {
+    font-family: 'Alata', sans-serif;
   }
 
   strong {
     font-weight: bold;
+  }
+
+  .root {
+    height: 100vh;
+    width: 100vw;
   }
 `;

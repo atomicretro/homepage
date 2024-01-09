@@ -5,7 +5,7 @@ import { usePaletteContext } from '../../../context/palette_provider';
 
 import { DefaultButton } from './default';
 
-const StyledBackgroundButton = styled(DefaultButton)`
+const StyledMainButton = styled(DefaultButton)`
   position: absolute;
   top: 10px;
   color: #ffffff;
@@ -24,12 +24,12 @@ const StyledBackgroundButton = styled(DefaultButton)`
   }
 `;
 
-export function BackgroundButton(props) {
+export function MainButton(props) {
   const { children, className, onClick, tabIndex } = props;
   const { currentPalette } = usePaletteContext();
 
   return (
-    <StyledBackgroundButton
+    <StyledMainButton
       className={className}
       onMouseUp={(e) => e.currentTarget.blur()}
       onClick={onClick || null}
@@ -38,6 +38,6 @@ export function BackgroundButton(props) {
       $hidden={tabIndex === '-1'}
     >
       {children}
-    </StyledBackgroundButton>
+    </StyledMainButton>
   );
 };

@@ -6,6 +6,7 @@ import { AppProvider } from './context/app_provider';
 import { PaletteProvider } from './context/palette_provider';
 
 import { App } from './components/app';
+import { Background } from './components/background';
 
 import './styles/reset.css';
 import { GlobalStyle } from './styles/globalStyles';
@@ -16,6 +17,7 @@ root.render(
     <PaletteProvider>
       <HashRouter>
         <GlobalStyle />
+        <Background />
         <App />
       </HashRouter>
     </PaletteProvider>
