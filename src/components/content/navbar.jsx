@@ -58,7 +58,6 @@ export function Navbar() {
       <div>
         <RouterLink to='/'>Home</RouterLink>
         <RouterLink to='/projects'>Projects</RouterLink>
-        <RouterLink to='/odds-and-ends'>Odds and Ends</RouterLink>
         <RouterLink to='/contact'>Contact</RouterLink>
         <LinkButton onClick={handleStargazeButtonPress}>Stargaze</LinkButton>
       </div>

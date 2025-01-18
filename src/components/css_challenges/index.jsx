@@ -14,15 +14,6 @@ const StyledCSSChallenges = styled.div`
     "column2";
   row-gap: 30px;
 
-  @media only screen and (min-width: 768px) {
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "header header"
-      "column1 column2";
-    row-gap: 25px;
-  }
-
   .header {
     grid-area: header;
     display: flex;
@@ -77,7 +68,7 @@ export function CSSChallenges() {
         </span>
       </div>
 
-      <div className='column c1'>
+      <div className='column'>
         <span>
           From <OutsideLink to='https://100dayscss.com/'>100 Days CSS Challenge</OutsideLink>
         </span>
@@ -88,14 +79,6 @@ export function CSSChallenges() {
         <RouterLink to='/css/hover'>hover</RouterLink>
         <RouterLink to='/css/monster'>monster</RouterLink>
         <RouterLink to='/css/segments'>segments</RouterLink>
-      </div>
-
-      <div className='column c2'>
-        <span>
-          From my brain
-        </span>
-
-        <RouterLink to='/css/lights-out'>light board</RouterLink>
       </div>
     </StyledCSSChallenges>
   );

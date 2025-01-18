@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { OutsideLink } from '../library/links/outside_link';
+import { RouterLink } from '../library/links/router_link';
 
 const StyledProjectCard = styled.div`
   display: flex;
@@ -48,6 +49,15 @@ const StyledProjectCard = styled.div`
   }
 `;
 
+function ProjectLink(props) {
+  const { children, link } = props;
+  if (link.includes('http')) {
+    return <OutsideLink to={link}>{children}</OutsideLink>;
+  } else {
+    return <RouterLink to={link}>{children}</RouterLink>;
+  }
+}
+
 export function ProjectCard(props) {
   const {
     desc,
@@ -59,19 +69,21 @@ export function ProjectCard(props) {
 
   return (
     <StyledProjectCard>
-      <OutsideLink to={link}>
+      <ProjectLink link={link}>
         <img
           alt={imgDesc}
           className='project_card__img'
           src={`/projects/${imgSrc}`}
         />
-      </OutsideLink>
+      </ProjectLink>
 
       <div className='info'>
         <h2 className='title'>{title}</h2>
         <div className='description'>
           {desc}
-          <p>Live link: <OutsideLink to={link}>{title}</OutsideLink></p>
+          <p>
+            <ProjectLink link={link}>{title}</ProjectLink>
+          </p>
         </div>
       </div>
     </StyledProjectCard>

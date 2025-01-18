@@ -37,7 +37,7 @@ export function Display() {
           }
           path='/css/*'
         />
-        <Route element={<OddsAndEnds />} path='/odds-and-ends' />
+        <Route element={<OddsAndEnds />} path='/css-challenges' />
         <Route element={<Projects />} path='/projects' />
         <Route element={<Home />} path='/' />
       </Routes>

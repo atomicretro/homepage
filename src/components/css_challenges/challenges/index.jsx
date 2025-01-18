@@ -73,7 +73,7 @@ export function Challenges() {
       </Routes>
 
       <div className='buttons'>
-        <RouterLink className='return-link' to='/odds-and-ends'>
+        <RouterLink className='return-link' to='/css-challenges'>
           Go back
         </RouterLink>
 
